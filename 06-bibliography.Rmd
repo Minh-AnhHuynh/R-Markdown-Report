@@ -1,0 +1,11 @@
+---
+title: ''
+output: pdf_document
+---
+
+# Bibliography
+
+\bibliography{bibliography}
+
+<!-- <div id="refs"></div> -->
+

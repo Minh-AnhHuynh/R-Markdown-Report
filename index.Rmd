@@ -15,18 +15,20 @@ header-includes:
   - \usepackage{natbib}\bibliographystyle{agsm}
   - \usepackage[nottoc, numbib]{tocbibind}
 output:
-  pdf_document:
-    # toc: yes
+  pdf_document: 
     number_sections: yes
+    latex_engine: xelatex
+    fig_caption: yes
+  mainfont: Times New Roman
   word_document:
     reference_docx: word-styles-reference-01.docx
-    toc: yes
+    # toc: yes
     number_sections: yes
 ---
 \pagenumbering{gobble}
 
 \begin{centering}
-\vspace{3cm}
+\vspace{4cm}
 ```{r uni_logo, echo = FALSE, out.width="50%"}
 knitr::include_graphics("figures/Logo_Sorbonne_Universite.png")
 ```
@@ -43,8 +45,8 @@ knitr::include_graphics("figures/Logo_Sorbonne_Universite.png")
 \Large
 
 \doublespacing
-{\bf Characterization of neutrophil populations associated with osteosarcoma, 
-and correlation with the inflammatory character of the tumor}
+{\bf Characterization of neutrophil populations associated with osteosarcoma 
+and association with the tumor's inflammatory status}
 
 \vspace{1 cm}
 
@@ -70,7 +72,7 @@ September 2022
 
 \newpage
 
-# List of abbreviations
+\section*{List of Abbreviations}
 
 
 
@@ -78,7 +80,7 @@ September 2022
 
 
 \newpage
-# Abstract
+\section*{Abstract}
 
 \spacing{1.5}
 
@@ -104,7 +106,10 @@ no more than 250 words for the abstract
 \tableofcontents
 
 
+\newpage
 
+```{r acknowledgments, child='01-acknowledgments.Rmd'}
+```
 
 \newpage
 \spacing{1.5}
@@ -117,34 +122,42 @@ no more than 250 words for the abstract
 \pagestyle{plain}
 \pagenumbering{arabic}
 
-```{r intro, child = 'introduction.Rmd'}
+```{r intro, child = '02-introduction.Rmd'}
 ```
 
+\newpage
 
-
+```{r methods, child = '03-methods.Rmd'}
+```
 
 \newpage
 
-\newpage
-
-# Material and methods
-And I have this next subsection. 
+```{r results, child = '04-results.Rmd'}
+```
 
 \newpage
-# Results
+
+```{r discussion, child = '05-discussion.Rmd'}
+```
+
+<!-- \newpage -->
+
+<!-- ```{r conclusion, child = 'conclusion.Rmd'} -->
+<!-- ``` -->
 
 \newpage
-# Discussion & Perspectives
+
+```{r biblio, child = '06-bibliography.Rmd'}
+```
 
 \newpage
-# Bibliography
-\bibliography{bibliography}
 
-<div id="refs"></div>
-
-
+```{r appendix, child = '07-appendix.Rmd'}
+```
 
 \newpage
-# Appendix : code
 
-Insert code (if any) used during your dissertation work here.
+
+
+
+
