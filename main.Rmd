@@ -1,0 +1,150 @@
+---
+bibliography: Osteosarcoma_bibliography.bib
+link-citations: TRUE
+csl: cell.csl
+geometry: "left = 2.5cm, right = 2cm, top = 2cm, bottom = 2cm"
+fontsize: 12pt
+header-includes:
+  - \usepackage{float}
+  - \usepackage{sectsty}
+  - \usepackage{paralist}
+  - \usepackage{setspace}\spacing{1.5}
+  - \usepackage{fancyhdr}
+  - \usepackage{lastpage}
+  - \usepackage{dcolumn}
+  - \usepackage{natbib}\bibliographystyle{agsm}
+  - \usepackage[nottoc, numbib]{tocbibind}
+output:
+  pdf_document:
+    # toc: yes
+    number_sections: yes
+  word_document:
+    reference_docx: word-styles-reference-01.docx
+    toc: yes
+    number_sections: yes
+---
+\pagenumbering{gobble}
+
+\begin{centering}
+\vspace{3cm}
+```{r uni_logo, echo = FALSE, out.width="50%"}
+knitr::include_graphics("figures/Logo_Sorbonne_Universite.png")
+```
+\vspace{1cm}
+
+\Large
+{\bf Sorbonne University}
+
+\Large
+{\bf Master 2 BMC - Systems Immunology}
+
+\vspace{1cm}
+
+\Large
+
+\doublespacing
+{\bf Characterization of neutrophil populations associated with osteosarcoma, 
+and correlation with the inflammatory character of the tumor}
+
+\vspace{1 cm}
+
+\normalsize
+\singlespacing
+By
+
+\vspace{0.5 cm}
+
+\Large
+
+{\bf HUYNH Minh-Anh}
+
+\vspace{1.5 cm}
+
+
+
+\normalsize
+September 2022
+
+\end{centering}
+
+
+\newpage
+
+# List of abbreviations
+
+
+
+
+
+
+\newpage
+# Abstract
+
+\spacing{1.5}
+
+(the spacing is set to 1.5)
+
+no more than 250 words for the abstract
+
+- a description of the research question/knowledge gap – what we know and what we don’t know
+- how your research has attempted to fill this gap
+- a brief description of the methods
+- brief results
+- key conclusions that put the research into a larger context
+
+
+\newpage
+\spacing{1}
+\centering
+\raggedright
+
+
+\newpage
+\renewcommand*\contentsname{Table of Contents}
+\tableofcontents
+
+
+
+
+\newpage
+\spacing{1.5}
+\fancypagestyle{plain}{%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyhf{}%
+  \fancyfoot[R]{\thepage}
+  \setlength\footskip{0pt}
+}
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+```{r intro, child = 'introduction.Rmd'}
+```
+
+
+
+
+\newpage
+
+\newpage
+
+# Material and methods
+And I have this next subsection. 
+
+\newpage
+# Results
+
+\newpage
+# Discussion & Perspectives
+
+\newpage
+# Bibliography
+\bibliography{bibliography}
+
+<div id="refs"></div>
+
+
+
+\newpage
+# Appendix : code
+
+Insert code (if any) used during your dissertation work here.
