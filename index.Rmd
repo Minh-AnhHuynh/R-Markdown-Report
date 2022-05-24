@@ -25,33 +25,49 @@ output:
     # toc: yes
     number_sections: yes
 ---
+
+ ```{r, echo=FALSE, message = FALSE, include=FALSE}
+ knitr::opts_chunk$set(echo = FALSE)
+librarian::shelf(knitr, rmarkdown, quiet = TRUE)
+ ```
+
 \pagenumbering{gobble}
 
 \begin{centering}
-\vspace{4cm}
-```{r uni_logo, echo = FALSE, out.width="50%"}
+
+
+
+
+\vspace{10cm}
+
+```{r uni_logo, echo = FALSE, out.width="60%"}
 knitr::include_graphics("figures/Logo_Sorbonne_Universite.png")
 ```
-\vspace{1cm}
+
+
+\vspace{2cm}
 
 \Large
 {\bf Sorbonne University}
-
 \Large
+
 {\bf Master 2 BMC - Systems Immunology}
 
-\vspace{1cm}
+\vspace{2cm}
 
 \Large
 
 \doublespacing
+
 {\bf Characterization of neutrophil populations associated with osteosarcoma 
 and association with the tumor's inflammatory status}
 
-\vspace{1 cm}
+\vspace{2 cm}
 
 \normalsize
+
 \singlespacing
+
 By
 
 \vspace{0.5 cm}
@@ -62,16 +78,21 @@ By
 
 \vspace{1.5 cm}
 
-
-
 \normalsize
 September 2022
 
 \end{centering}
 
 
-\newpage
 
+
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+ 
+
+\newpage
 \section*{List of Abbreviations}
 
 
@@ -109,6 +130,7 @@ no more than 250 words for the abstract
 \newpage
 
 ```{r acknowledgments, child='01-acknowledgments.Rmd'}
+
 ```
 
 \newpage
@@ -123,21 +145,25 @@ no more than 250 words for the abstract
 \pagenumbering{arabic}
 
 ```{r intro, child = '02-introduction.Rmd'}
+
 ```
 
 \newpage
 
 ```{r methods, child = '03-methods.Rmd'}
+
 ```
 
 \newpage
 
 ```{r results, child = '04-results.Rmd'}
+
 ```
 
 \newpage
 
 ```{r discussion, child = '05-discussion.Rmd'}
+
 ```
 
 <!-- \newpage -->
@@ -148,16 +174,18 @@ no more than 250 words for the abstract
 \newpage
 
 ```{r biblio, child = '06-bibliography.Rmd'}
+
 ```
 
 \newpage
 
 ```{r appendix, child = '07-appendix.Rmd'}
+
 ```
 
 \newpage
+\pagenumbering{gobble}
 
+```{r summary, child = '08-summary.Rmd'}
 
-
-
-
+```

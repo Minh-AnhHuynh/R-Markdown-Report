@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.24)  24 MAY 2022 16:38
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.24)  24 MAY 2022 18:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -706,11 +706,39 @@ File: figures/Logo_Sorbonne_Universite.png Graphic file (type bmp)
 <figures/Logo_Sorbonne_Universite.png>
 [1
 
-] [2] [3] (./index.toc)
+] [2] [3] [4] (./index.toc
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 8.4pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 4.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4.
+(c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 12.0011pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 8.40076pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 6.00055pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 11.99872pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 8.3991pt on input line 4.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.99936pt on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
+(c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
+(c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
 \tf@toc=\write4
 \openout4 = `index.toc'.
 
-[4] [5]
+[5] [6]
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -729,77 +757,86 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [3]
+File: ../Osteosarcoma-Project/TargetOS-Osteosarcoma/04_figures/ggplot/histogram_inflammation_group_comparison.png Graphic file (type bmp)
+<../Osteosarcoma-Project/TargetOS-Osteosarcoma/04_figures/ggplot/histogram_inflammation_group_comparison.png>
+
+Overfull \hbox (296.08966pt too wide) in paragraph at lines 302--302
+[][]
+ []
+
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [4]
-No file index.bbl.
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [5]
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.4pt on input line 307.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 307.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 307.
-(c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 307.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.40076pt on input line 307.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 307.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 307.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.3991pt on input line 307.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 307.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 307.
-(c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 307.
-(c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
-[6] 
+[6]
+No file index.bbl.
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[7]
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 14.4pt on input line 357.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 357.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 357.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 14.4013pt on input line 357.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 357.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 357.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 14.39845pt on input line 357.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 357.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 357.
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[8] 
 AED: lastpage setting LastPage
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
-[7] (./index.aux)
+[1] (./index.aux)
 Package rerunfilecheck Info: File `index.out' has not changed.
-(rerunfilecheck)             Checksum: CC01AA02F0542BA1122611F5250D2306;455.
+(rerunfilecheck)             Checksum: F03ADE028A26292AEC2D90FCE78B4F11;792.
  )
 (\end occurred inside a group at level 4)
 
-### semi simple group (level 4) entered at line 192 (\begingroup)
-### semi simple group (level 3) entered at line 175 (\begingroup)
-### semi simple group (level 2) entered at line 153 (\begingroup)
+### semi simple group (level 4) entered at line 204 (\begingroup)
+### semi simple group (level 3) entered at line 187 (\begingroup)
+### semi simple group (level 2) entered at line 165 (\begingroup)
 ### semi simple group (level 1) entered at line 91 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 17479 strings out of 478132
- 323571 string characters out of 5851560
- 772252 words of memory out of 5000000
- 37923 multiletter control sequences out of 15000+600000
- 472744 words of font info for 55 fonts, out of 8000000 for 9000
+ 17537 strings out of 478132
+ 326740 string characters out of 5851560
+ 774491 words of memory out of 5000000
+ 37966 multiletter control sequences out of 15000+600000
+ 475656 words of font info for 75 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 86i,11n,121p,299b,8783s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 86i,11n,121p,422b,8760s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on index.pdf (12 pages).
+Output written on index.pdf (15 pages).

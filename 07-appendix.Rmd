@@ -3,6 +3,6 @@ title: ''
 output: pdf_document
 ---
 
-\section*{Appendix : code}
+# Appendix: code
 
 All analysis was done using R software. Code is available at https://github.com/Minh-AnhHuynh/Osteosarcoma-Project

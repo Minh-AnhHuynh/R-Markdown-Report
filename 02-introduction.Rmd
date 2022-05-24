@@ -6,7 +6,9 @@ header-includes:
   - \usepackage{sectsty}
 ---
 
+\large 
 # Introduction
+\large 
 
 - introduce the reader to the subject area and clarify the knowledge gap that the dissertation research will fill.
 - set the context for the dissertation by reviewing the relevant literature.

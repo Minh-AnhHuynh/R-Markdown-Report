@@ -7,5 +7,5 @@ output: pdf_document
 
 \bibliography{bibliography}
 
-<!-- <div id="refs"></div> -->
+<div id="refs"></div>
 
