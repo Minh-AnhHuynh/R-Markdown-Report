@@ -7,6 +7,15 @@ output: pdf_document
 
 \vspace{0.5cm}
 
+## Data collection
+
+Analyses were performed on two osteosarcoma bulk RNA-seq datasets, TARGET-OS Osteosarcoma and GSE87686. Data was collected from
+TARGET-OS using GDC Data Transfer Tool UI (v1.0.0), returning 19493 protein coding genes and 88 samples for TARGET-OS,
+containing both raw data and TPM data.\
+GSE87686 data was obtained through the lab's previously pre-processed kallisto files, downloaded through SRA Run Selector to obtain SRA run files. Data was then imported from kallisto files via _tximport_ R package (v.1.22.0).
+
+Genes were converted to ENST and ENSG and finally HUGO gene symbols through biomaRt (v2.50.3).
+
 Protocol similar to SkeletalVis(Soul et al., 2019) 
 
 Data normalization via TPM method by Kallisto (?), TPM is the best normalization method (Abrams et al., 2019). 

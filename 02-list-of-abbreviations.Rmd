@@ -9,4 +9,5 @@ output: pdf_document
 - MDS : MultiDimensional Scaling
 - scRNA-seq : single-cell RNA sequencing
 - TME: Tumor MicroEnvironment
+- TPM : Transcripts Per Million
 - UMAP : Uniform Manifold Approximation and Projection for Dimension Reduction
