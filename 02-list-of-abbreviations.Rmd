@@ -7,5 +7,6 @@ output: pdf_document
 
 - DEG : Differentially Expressed Genes
 - MDS : MultiDimensional Scaling
+- scRNA-seq : single-cell RNA sequencing
 - TME: Tumor MicroEnvironment
 - UMAP : Uniform Manifold Approximation and Projection for Dimension Reduction
