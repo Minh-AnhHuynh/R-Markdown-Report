@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.24)  25 MAY 2022 14:06
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.24)  25 MAY 2022 15:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -875,7 +875,7 @@ LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
 (Font)              scaled to size 17.28pt on input line 120.
 [1
 
-] [2] [3] [4] (./index.toc
+] [2] (./index.toc
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
 (Font)              scaled to size 12.0pt on input line 1.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
@@ -909,11 +909,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write4
 \openout4 = `index.toc'.
 
-[5] [6]
+[3] [4] [5]
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 214.
+(Font)              scaled to size 14.4pt on input line 199.
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/it' will be
-(Font)              scaled to size 14.4pt on input line 237.
+(Font)              scaled to size 14.4pt on input line 222.
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -926,21 +926,16 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [2]
-LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 267.
-File: ../Osteosarcoma-Project/TargetOS-Osteosarcoma/04_figures/ggplot/histogram_inflammation_group_comparison.png Graphic file (type bmp)
-<../Osteosarcoma-Project/TargetOS-Osteosarcoma/04_figures/ggplot/histogram_inflammation_group_comparison.png>
-
-Overfull \hbox (296.08966pt too wide) in paragraph at lines 278--278
-[][]
- []
-
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [3]
+Underfull \hbox (badness 1205) in paragraph at lines 240--241
+\TU/TimesNewRoman(0)/m/n/14.4 differentiation. Relieving ESR1 hypermethylation by DNA methyltransferases
+ []
+
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -953,43 +948,80 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [5]
+Underfull \hbox (badness 1622) in paragraph at lines 272--273
+\TU/TimesNewRoman(0)/m/n/14.4 ing “GO_Molecular_Function_2021,” “Human_Gene_Atlas,” “BioPlanet_2019,”
+ []
+
+LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
+(Font)              scaled to size 14.4pt on input line 281.
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [6]
-No file index.bbl.
+File: ../Osteosarcoma-Project/TargetOS-Osteosarcoma/04_figures/ggplot/histogram_inflammation_group_comparison.png Graphic file (type bmp)
+<../Osteosarcoma-Project/TargetOS-Osteosarcoma/04_figures/ggplot/histogram_inflammation_group_comparison.png>
+
+Overfull \hbox (296.08966pt too wide) in paragraph at lines 318--318
+[][]
+ []
+
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [7]
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 14.94337pt on input line 321.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.37735pt on input line 321.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.26414pt on input line 321.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 14.9449pt on input line 321.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.37842pt on input line 321.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.2649pt on input line 321.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 14.94183pt on input line 321.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.37628pt on input line 321.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.2634pt on input line 321.
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
-[8] 
+[8]
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[9]
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[10]
+No file index.bbl.
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[11]
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 14.94337pt on input line 362.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 10.37735pt on input line 362.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.26414pt on input line 362.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 14.9449pt on input line 362.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.37842pt on input line 362.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.2649pt on input line 362.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 14.94183pt on input line 362.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 10.37628pt on input line 362.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.2634pt on input line 362.
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[1] 
 AED: lastpage setting LastPage
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
@@ -998,22 +1030,20 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 
 [1] (./index.aux)
 Package rerunfilecheck Info: File `index.out' has not changed.
-(rerunfilecheck)             Checksum: F03ADE028A26292AEC2D90FCE78B4F11;792.
+(rerunfilecheck)             Checksum: CB7A9A6FDDE119B05E8E6D44631E4F9C;1406.
  )
-(\end occurred inside a group at level 4)
+(\end occurred inside a group at level 2)
 
-### semi simple group (level 4) entered at line 204 (\begingroup)
-### semi simple group (level 3) entered at line 187 (\begingroup)
-### semi simple group (level 2) entered at line 166 (\begingroup)
+### semi simple group (level 2) entered at line 189 (\begingroup)
 ### semi simple group (level 1) entered at line 90 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 18186 strings out of 478132
- 338764 string characters out of 5851560
- 785596 words of memory out of 5000000
- 38582 multiletter control sequences out of 15000+600000
+ 18190 strings out of 478132
+ 338868 string characters out of 5851560
+ 786777 words of memory out of 5000000
+ 38586 multiletter control sequences out of 15000+600000
  475752 words of font info for 87 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 86i,11n,122p,440b,8655s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 86i,12n,122p,1101b,8549s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on index.pdf (15 pages).
+Output written on index.pdf (18 pages).
