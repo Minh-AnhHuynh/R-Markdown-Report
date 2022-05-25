@@ -1,6 +1,7 @@
 ---
 bibliography: Osteosarcoma_bibliography.bib
 link-citations: TRUE
+indent: true
 csl: cell.csl
 geometry: "left = 2.5cm, right = 2cm, top = 2cm, bottom = 2cm"
 fontsize: 12pt
@@ -14,22 +15,26 @@ header-includes:
   - \usepackage{dcolumn}
   - \usepackage{natbib}\bibliographystyle{agsm}
   - \usepackage[nottoc, numbib]{tocbibind}
-output:
-  pdf_document: 
-    number_sections: yes
+  - \usepackage{fontspec}
+  - \setmainfont{Times New Roman}
+output: 
+  bookdown::pdf_document2:
     latex_engine: xelatex
-    fig_caption: yes
-  mainfont: Times New Roman
-  word_document:
-    reference_docx: word-styles-reference-01.docx
-    # toc: yes
-    number_sections: yes
+    number_sections: true
+    toc: false
+  # mainfont: "Times New Roman"
+  # word_document:
+  #   reference_docx: word-styles-reference-01.docx
+  #   number_sections: yes
 ---
 
- ```{r, echo=FALSE, message = FALSE, include=FALSE}
- knitr::opts_chunk$set(echo = FALSE)
-librarian::shelf(knitr, rmarkdown, quiet = TRUE)
- ```
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library("knitr", "rmarkdown", "bookdown")
+options(knitr.graphics.auto_pdf = TRUE)
+```
+
 
 \pagenumbering{gobble}
 
@@ -40,8 +45,9 @@ librarian::shelf(knitr, rmarkdown, quiet = TRUE)
 
 \vspace{10cm}
 
-```{r uni_logo, echo = FALSE, out.width="60%"}
+```{r uni_logo, fig.show="hold", echo = FALSE, out.width="60%"}
 knitr::include_graphics("figures/Logo_Sorbonne_Universite.png")
+knitr::include_graphics("figures/bioscar-logo.png")
 ```
 
 

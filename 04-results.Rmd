@@ -1,13 +1,15 @@
 ---
 title: ''
-output: pdf_document
+output: 
+  bookdown::pdf_document2
+  
 ---
 
 # Results
 
-Some more guidlines from the School of Geosciences.
+Some more guidelines from the School of Geosciences.
 
-This section should summarise the findings of the research referring to all figures, tables and statistical results (some of which may be placed in appendices).
+This section should summarize the findings of the research referring to all figures, tables and statistical results (some of which may be placed in appendices).
 
 - include the primary results, ordered logically - it is often useful to follow the same order as presented in the methods.
 - alternatively, you may find that ordering the results from the most important to the least important works better for your project.
@@ -22,6 +24,9 @@ were created by choosing the lowest and highest mean of Z-score of the hallmark 
 response signature from MSigDB, containing 200 genes. ICAM4 was notably not present in the dataset in TARGET-OS cohort.
 The groups were cut off evenly using the _ntile_ function in _dplyr_ R package.
 
-```{r inflammatory_group, fig.cap = "Histogram of inflammatory groups showing repartition of the intensity of hallmark inflamamtory response signature"}
+
+```{r inflammatory-group, echo=FALSE, fig.cap="Histogram"}
 knitr::include_graphics("../Osteosarcoma-Project/TargetOS-Osteosarcoma/04_figures/ggplot/histogram_inflammation_group_comparison.png")
 ```
+
+Those manually defined groups correspond fairly well to functional groups, defined by k-means clustering based on MDS visualization **(Figure \@ref(fig:inflammatory-group))**.
