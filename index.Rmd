@@ -1,8 +1,8 @@
 ---
-bibliography: Osteosarcoma_bibliography.bib
+bibliography: [bibliography/Osteosarcoma.bib, bibliography/Bioinformatics_methods.bib]
 link-citations: yes
 indent: yes
-csl: cell.csl
+csl: csl/cell.csl
 geometry: left = 2.5cm, right = 2cm, top = 2cm, bottom = 2cm
 fontsize: 12pt
 header-includes:
@@ -13,7 +13,7 @@ header-includes:
 - \usepackage{fancyhdr}
 - \usepackage{lastpage}
 - \usepackage{dcolumn}
-- \usepackage{natbib}\bibliographystyle{agsm}
+- \usepackage{natbib}
 - \usepackage[nottoc, numbib]{tocbibind}
 - \usepackage{fontspec}
 - \setmainfont{Times New Roman}
@@ -33,7 +33,9 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 library("knitr", "rmarkdown", "bookdown")
 options(knitr.graphics.auto_pdf = TRUE)
+knitr::write_bib(c(.packages()), "bibliography/packages.bib")
 ```
+
 
 
 \pagenumbering{gobble}
