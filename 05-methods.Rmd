@@ -5,37 +5,71 @@ output: pdf_document
 
 # Methods 
 
-\vspace{0.5cm}
 
 ## Data collection
 
-Analyses were performed on two osteosarcoma bulk RNA-seq datasets, TARGET-OS Osteosarcoma and GSE87686. Data was collected from
-TARGET-OS using GDC Data Transfer Tool UI (v1.0.0), returning 19493 protein coding genes and 88 samples for TARGET-OS,
-containing both raw data and TPM data.\
-GSE87686 data was obtained through the lab's previously pre-processed kallisto files, downloaded through SRA Run Selector to obtain SRA run files. Data was then imported from kallisto files via _tximport_ R package (v.1.22.0).
+Analyses were performed on two osteosarcoma bulk RNA-seq datasets, TARGET-OS
+Osteosarcoma and GSE87686. Data was collected from TARGET-OS using GDC Data
+Transfer Tool UI (v1.0.0), returning 19493 protein coding genes and 88 samples
+for TARGET-OS, containing both raw data and TPM data.\ 
+GSE87686 data was
+obtained through the lab's previously pre-processed kallisto files, downloaded
+through SRA Run Selector to obtain SRA run files. Data was then imported from
+kallisto files via _tximport (v1.22.0)_ R package.
 
-Genes were converted to ENST and ENSG and finally HUGO gene symbols through biomaRt (v2.50.3).
+Genes were converted to ENST and ENSG and finally HUGO gene symbols through _biomaRt (v2.50.3)_.
 
-Protocol similar to SkeletalVis(Soul et al., 2019) 
 
-Data normalization via TPM method by Kallisto (?), TPM is the best normalization method (Abrams et al., 2019). 
 
-DESeq2, differential expression gene analysis, representation through heatmap and volcano plot 
+## Normalization
+Raw data was converted to TPM as it is the best performing normalization method than FPKM or RPKM, based on its perservation of biological signal as compared to other methods [@Abrams.2019]. Calculation was performed using counts and lengths for each gene, returned from the tximport to kallisto process.
 
-Citer : Love, M.I., Huber, W., Anders, S. (2014) Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biology, 15:550. 10.1186/s13059-014-0550-8 
+Z-score was used to normalize the data for each gene, in order to be able to visualize the data in corresponding heatmaps.
 
-Data visualization with UMAP, k-means clustering, 
+Z-score of the mean of tpm data was used to construct grouped heatmaps for a given gene or gene signature.
 
-Using EnrichR package for functional gene enrichment/pathway analysis, querying "GO_Molecular_Function_2021", "Human_Gene_Atlas", "BioPlanet_2019", "GO_Biological_Process_2021", "GO_Cellular_Component_2021" 
 
-Gene signatures used from MSigDB :  
+Inflammatory groups characterizing the intensity of inflammatory status in
+tumors were created by choosing the lowest and highest mean of Z-score of the
+Hallmark Inflammatory Response signature from MSigDB, containing 200 genes.
+ICAM4 was notably not present in the dataset in TARGET-OS cohort. The groups
+were cut off evenly using the _ntile_ function in _dplyr (v1.0.8)_ R package.
 
+
+
+
+
+
+
+
+## Construction of gene signatures
+Gene signatures relevant to the research topic were obtained from MSigDB via _msigdbr_ (v7.5.1)  
 HAY_BONE_MARROW_NEUTROPHIL.v7.5.1 
 
-Use NicheNet R package
+Canonical markers for osteosarcoma markers were adapted from @Zhou.2020ldd 's analysis and their canonical markers generated from the literature in the Supplementary Table 2.
 
 ## MDS Clustering
 
+
+
+## Determination of cell population abundance
+### MCP Counter
+Bulk RNA-seq cell populations can be estimated using Microenvironment Cell Populations-counter (MCP-counter) [@Becht.2016]. Non-metric Kruskal-Wallis testing was used to determine significant differences between cell populations between Low, Medium and High groups with _P < 0.05_ were considered as statistically signiﬁcant.
+
+
+
+
+### Cybersort
+
 ## Differential Expression Gene analysis
 
-Differentially Expressed Genes (DEG)
+### Differentially Expressed Genes (DEG)
+Using _DESeq2 (v1.34.0)_ [@Love.2014], standard DEG pipeline using raw data was performed between inflammatory groups (Low, Medium, High). DEGs were identified with _adjusted p.value < 0.05_ and _log2FoldChange > 1_.
+
+
+### Gene enrichment
+
+_enrichR v(3.0)_ was used [@Xie.2021] for functional gene enrichment/pathway analysis. Following database were queried : _"GO_Molecular_Function_2021", "Human_Gene_Atlas", "BioPlanet_2019", "GO_Biological_Process_2021", "GO_Cellular_Component_2021"_
+
+## Statistical Testing
+Statistical testing was performed using _R software 4.1.2 (2021-11-01)_. Kruskal-Wallis testing was performed for non-metric comparative analysis between groups. Post-hoc analysis was performed using Dunn's test as opposed to Wilcoxon due to the test taking into account Kruskal-Wallis's rank. P < 0.05 and P.adj < 0.05 was considered statistically significant.

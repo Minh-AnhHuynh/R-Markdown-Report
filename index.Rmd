@@ -29,11 +29,32 @@ output:
 ---
 
 
+<!-- Load default options, libraries and write currently used packages to bib -->
 ```{r include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library("knitr", "rmarkdown", "bookdown")
 options(knitr.graphics.auto_pdf = TRUE)
 knitr::write_bib(c(.packages()), "bibliography/packages.bib")
+```
+
+<!-- Load global data -->
+```{r targetos, include=FALSE}
+librarian::shelf(tidyverse, magrittr)
+data_path <- "../Osteosarcoma-Project/TargetOS-Osteosarcoma/03_results/TARGET-OS_GDC_protein_data.tsv"
+global_data <- read_tsv(data_path) %>%
+  column_to_rownames("hgnc_symbol") %>%
+  t() %>%
+  as.data.frame()
+
+
+global_data_scaled <- global_data %>%
+  rownames_to_column(var = "sample") %>%
+  dplyr::select(-sample) %>%
+  scale(center = TRUE, scale = TRUE) %>%
+  cbind.data.frame(., row.names(global_data)) %>%
+  rename(sample = last_col()) %>%
+  column_to_rownames("sample")
+global_data_scaled %<>% .[, colSums(is.na(.)) < nrow(.)]
 ```
 
 
@@ -142,6 +163,7 @@ September 2022
 }
 \pagestyle{plain}
 \pagenumbering{arabic}
+
 
 ```{r intro, child = '04-introduction.Rmd'}
 

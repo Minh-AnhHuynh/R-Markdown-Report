@@ -1,11 +1,11 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.5.24)  25 MAY 2022 18:20
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.6.2)  3 JUN 2022 11:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **index.tex
 (./index.tex
 LaTeX2e <2021-11-15> patch level 1
-L3 programming layer <2022-05-04> (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
+L3 programming layer <2022-05-30> (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
@@ -120,7 +120,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2022-05-04 L3 programming layer (loader) 
+Package: expl3 2022-05-30 L3 programming layer (loader) 
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2022-04-20 L3 backend support: XeTeX
 \g__graphics_track_int=\count267
@@ -133,9 +133,9 @@ Package: unicode-math 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.sty
 Package: unicode-math-xetex 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2022-01-12 L3 Experimental document command parser
+Package: xparse 2022-05-30 L3 Experimental document command parser
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-Package: l3keys2e 2022-01-12 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2022-05-30 LaTeX2e option processing using LaTeX3 keys
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty
 Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
@@ -910,10 +910,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout4 = `index.toc'.
 
 [3] [4] [5]
-LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 203.
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/it' will be
-(Font)              scaled to size 14.4pt on input line 226.
+(Font)              scaled to size 12.0pt on input line 220.
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -932,27 +930,24 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [3]
-Underfull \hbox (badness 1205) in paragraph at lines 244--245
-\TU/TimesNewRoman(0)/m/n/14.4 differentiation. Relieving ESR1 hypermethylation by DNA methyltransferases
- []
-
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [4]
+LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
+(Font)              scaled to size 14.4pt on input line 259.
+LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
+(Font)              scaled to size 14.4pt on input line 259.
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [5]
-LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 267.
-
-Underfull \hbox (badness 1622) in paragraph at lines 286--287
-\TU/TimesNewRoman(0)/m/n/14.4 ing “GO_Molecular_Function_2021,” “Human_Gene_Atlas,” “BioPlanet_2019,”
+Underfull \hbox (badness 2065) in paragraph at lines 320--321
+\TU/TimesNewRoman(0)/m/n/12 ing database were queried : \TU/TimesNewRoman(0)/m/it/12 “GO_Molecular_Function_2021,” “Human_Gene_Atlas,” “Bio-
  []
 
 
@@ -961,19 +956,21 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [6]
+File: index_files/figure-latex/mds-1.pdf Graphic file (type pdf)
+<use index_files/figure-latex/mds-1.pdf>
+File: ../Osteosarcoma-Project/TargetOS-Osteosarcoma/04_figures/ggplot/hallmark_mean_vs_sample+group_mean.png Graphic file (type bmp)
+<../Osteosarcoma-Project/TargetOS-Osteosarcoma/04_figures/ggplot/hallmark_mean_vs_sample+group_mean.png>
+
+Overfull \hbox (19.44551pt too wide) in paragraph at lines 374--374
+[][]
+ []
+
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [7]
-File: ../Osteosarcoma-Project/TargetOS-Osteosarcoma/04_figures/ggplot/histogram_inflammation_group_comparison.png Graphic file (type bmp)
-<../Osteosarcoma-Project/TargetOS-Osteosarcoma/04_figures/ggplot/histogram_inflammation_group_comparison.png>
-
-Overfull \hbox (296.08966pt too wide) in paragraph at lines 332--332
-[][]
- []
-
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1005,30 +1002,18 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [12]
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 14.94337pt on input line 376.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.37735pt on input line 376.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.26414pt on input line 376.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 14.9449pt on input line 376.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.37842pt on input line 376.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.2649pt on input line 376.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 14.94183pt on input line 376.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.37628pt on input line 376.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.2634pt on input line 376.
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
-[1] 
+[1]
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[2] 
 AED: lastpage setting LastPage
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
@@ -1037,7 +1022,7 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 
 [1] (./index.aux)
 Package rerunfilecheck Info: File `index.out' has not changed.
-(rerunfilecheck)             Checksum: CD7C7E710CE9F2C7C2CB1E5DBCDC7D0D;1542.
+(rerunfilecheck)             Checksum: 881BC44A5E04B2B95A68F21EEB28788C;4156.
  )
 (\end occurred inside a group at level 2)
 
@@ -1045,12 +1030,12 @@ Package rerunfilecheck Info: File `index.out' has not changed.
 ### semi simple group (level 1) entered at line 90 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 18191 strings out of 478132
- 338885 string characters out of 5851560
- 786822 words of memory out of 5000000
- 38587 multiletter control sequences out of 15000+600000
- 475752 words of font info for 87 fonts, out of 8000000 for 9000
+ 18192 strings out of 478126
+ 338745 string characters out of 5851442
+ 790923 words of memory out of 5000000
+ 38601 multiletter control sequences out of 15000+600000
+ 472864 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 86i,12n,122p,1101b,8552s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 86i,12n,122p,1101b,8611s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on index.pdf (19 pages).
+Output written on index.pdf (20 pages).

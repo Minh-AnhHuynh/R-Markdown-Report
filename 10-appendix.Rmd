@@ -5,4 +5,18 @@ output: pdf_document
 
 # Appendix: code
 
-All analysis was done using R software. Code is available at https://github.com/Minh-AnhHuynh/Osteosarcoma-Project
+All analysis was done using _R software (v4.1.2)_. Code is available at https://github.com/Minh-AnhHuynh/Osteosarcoma-Project
+
+Code philosophy follows ["The tidyverse style guide" written by Hadley Wickham. ](https://style.tidyverse.org/) using _styler (v1.7.0)_ to restyle code, and tidyverse environment as much as possible, substituting base R functions to their _dplyr_ and _purrr_ equivalent in order to ensure consistent code readability, usage and naming.
+
+```{r tpm, eval=FALSE}
+tpm_function <- function(counts, len) {
+  x <- counts / len
+  return(t(t(x) * 1e6 / colSums(x)))
+}
+```
+
+```{r}
+sessionInfo()
+```
+

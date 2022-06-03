@@ -17,7 +17,20 @@ This section should summarize the findings of the research referring to all figu
 
 **Often, it is recommended that you write the results section first, so that you can write the methods that are appropriate to describe the results presented. Then you can write the discussion next, then the introduction which includes the relevant literature for the scientific story that you are telling and finally the conclusions and abstract – this approach is called writing backwards.**
 
-## Creation of inflammatory groups
+## Determination of inflammatory groups
+
+### MDS visualization and k-means clustering
+
+Functional clusters of osteosarcoma samples were created using k-means clustering of an MDS visualization of the Hallmark Inflammatory Response signature.
+
+
+```{r mds, echo=FALSE, fig.cap="MDS of Hallmark Inflammatory Signature", out.width="50%"}
+
+mds_plot <- knitr::include_graphics("../Osteosarcoma-Project/TargetOS-Osteosarcoma/04_figures/MDS/MDS-metaMDS-hallmark_inflammatory-8_kcluster-Z_score.png")
+inflam_group <- knitr::include_graphics("../Osteosarcoma-Project/TargetOS-Osteosarcoma/04_figures/ggplot/hallmark_mean_vs_sample+group_mean.png")
+ggpubr::ggarrange(mds_plot, inflam_group)
+```
+
 
 Inflammatory groups characterizing the intensity of inflammatory status in tumors
 were created by choosing the lowest and highest mean of Z-score of the hallmark inflammatory
@@ -26,7 +39,24 @@ The groups were cut off evenly using the _ntile_ function in _dplyr_ R package.
 
 
 ```{r inflammatory-group, echo=FALSE, fig.cap="Histogram"}
-knitr::include_graphics("../Osteosarcoma-Project/TargetOS-Osteosarcoma/04_figures/ggplot/histogram_inflammation_group_comparison.png")
+knitr::include_graphics("../Osteosarcoma-Project/TargetOS-Osteosarcoma/04_figures/ggplot/hallmark_mean_vs_sample+group_mean.png")
 ```
 
-Those manually defined groups correspond fairly well to functional groups, defined by k-means clustering based on MDS visualization **(Figure \@ref(fig:inflammatory-group))**.
+Those manually defined groups are relevant as they correspond fairly well to functional groups, defined by k-means clustering based on MDS visualization **(Figure \@ref(fig:inflammatory-group))**. Each sample is thus attributed to its inflammatory status and this group will be subsequently used for the following results.
+
+
+
+
+
+## Characterization of osteosarcomas associated to inflammatory status
+
+Comparison of the mean of _Hp Osteosarcoma_ gene signature and gene relating to types of osteosarcomas associated to inflammatory groups were performed, represented through a heatmap. Despite high heterogeneity between samples and inflammatory status, the Z-score of the mean of the genes in Low versus High group is statistically different.
+
+However _Hp Osteosarcoma_ in GSEA is not significatively differrent (p = 0.163)
+
+Comparison of the expression of specific osteosarcoma markers relating to osteoblastic, chondroblastic, fibroblastic markers through a heatmap representation. Hierarchical clustering of the samples does not appear to be associated with corresponding inflammatory status. However it does reveal that there are groups of osteoblastic, chondroblastic and fibroblastic osteosarcomas which is expected.
+
+The mean of markers of proliferation (MKI67, PCNA, TOP2A) associated to osteosarcomas have been compared to inflammatory status, along with the mean of the three markers. Kruskal-Wallis testing is significant (p = 0.00968) and post-hoc Dunn analysis reveals that the mean of the proliferation markers between low and high group is significatively different (p = 0.016). The data suggests that proliferation is hindered when inflammatory status is high in the osteosarcoma samples.
+
+## Characterization of intra-tumor inflammation associated to inflammatory status
+
