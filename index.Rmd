@@ -1,5 +1,5 @@
 ---
-bibliography: [bibliography/Osteosarcoma.bib, bibliography/Bioinformatics_methods.bib]
+bibliography: [bibliography/Osteosarcoma.bib, bibliography/Bioinformatics_methods.bib, bibliography/packages.bib]
 link-citations: yes
 indent: yes
 csl: csl/cell.csl
@@ -38,9 +38,9 @@ knitr::write_bib(c(.packages()), "bibliography/packages.bib")
 ```
 
 <!-- Load global data -->
-```{r targetos, include=FALSE}
+```{r targetos, include = FALSE, cache = TRUE}
 librarian::shelf(tidyverse, magrittr)
-data_path <- "../Osteosarcoma-Project/TargetOS-Osteosarcoma/03_results/TARGET-OS_GDC_protein_data.tsv"
+data_path <- "../TargetOS-Osteosarcoma/03_results/TARGET-OS_GDC_protein_data.tsv"
 global_data <- read_tsv(data_path) %>%
   column_to_rownames("hgnc_symbol") %>%
   t() %>%
@@ -63,14 +63,12 @@ global_data_scaled %<>% .[, colSums(is.na(.)) < nrow(.)]
 
 \begin{centering}
 
-
-
-
 \vspace{10cm}
 
 ```{r uni_logo, fig.show="hold", echo = FALSE, out.width="60%"}
-knitr::include_graphics("figures/Logo_Sorbonne_Universite.png")
+knitr::include_graphics("figures/INSERM logo.png")
 knitr::include_graphics("figures/bioscar-logo.png")
+knitr::include_graphics("figures/Logo_Sorbonne_Universite.png")
 ```
 
 

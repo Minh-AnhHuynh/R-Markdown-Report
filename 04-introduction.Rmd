@@ -1,58 +1,176 @@
 ---
 title: " "
-output: pdf_document
+output: 
+  pdf_document: 
 header-includes:
   - \usepackage{float}
   - \usepackage{sectsty}
 ---
 
-
 # Introduction
 
+-   introduce the reader to the subject area and clarify the knowledge
+    gap that the dissertation research will fill.
+-   set the context for the dissertation by reviewing the relevant
+    literature.
+-   include relevant references to general (theoretical papers and
+    reviews) and specific (specific to the particular question
+    addressed) literature, to justify the research that has been
+    undertaken and define the questions being addressed.
+-   state the primary research questions and hypotheses in the final
+    paragraph.
+-   follow an 'inverted triangle' format, progressing from general
+    scientific ideas and why they matter to the specific research
+    questions addressed in the dissertation project.
 
-- introduce the reader to the subject area and clarify the knowledge gap that the dissertation research will fill.
-- set the context for the dissertation by reviewing the relevant literature.
-- include relevant references to general (theoretical papers and reviews) and specific (specific to the particular question addressed) literature, to justify the research that has been undertaken and define the questions being addressed.
-- state the primary research questions and hypotheses in the final paragraph.
-- follow an ‘inverted triangle’ format, progressing from general scientific ideas and why they matter to the specific research questions addressed in the dissertation project. 
+*The introduction should not be just a 'Literature Review'.*
 
+My 4.5 month research internship was carried out under the supervision
+of Dr. Dominique MODROWSKI at INSERM U1132 "BIOSCAR" directed by Dr.
+Martine COHEN-SOLAL, at the Lariboisière Hospital, a research unit that
+has been dedicated to the pathophysiology of bone and cartilage
+diseases. My work has focused on elucidating the mechanisms related to
+osteosarcoma and the inflammatory state, with particular emphasis on
+neutrophils.
 
+Recently, immunotherapy has been particularly successful in treating
+previously difficult and lethal cancers, and was promoted as primary
+care therapy in many of them. However osteosarcomas have remained
+resilient to immunotherapy, instead relying on classical chemotherapy
+which is mildly effective and has plethora of side effects. In order to
+find a cure for difficult to treat cancers, better understanding of the
+tumor microenvironment (TME) could potentially lead to effective and
+novel targeted TME therapies.
 
-*The introduction should not be just a ‘Literature Review’.*
+Current progress in RNA sequencing in bulk RNA-Seq and single-cell RNA
+sequencing (scRNA-seq) has shown its potential in exploring the tumor
+microenvironment (TME), in order to explore intra-tumor heterogeneity
+and cellular dialogue between tumor cells and inflammatory cells.
 
-Recently, single-cell RNA sequencing (scRNA-seq) has shown its potential in exploring the tumor microenvironment (TME), in order to explore intra-tumor heterogeneity and cellular dialogue with the tumor cells. 
+Neutrophils are the first innate immune cells recruited during an
+inflammation and multiple papers have already elucidated that
+tumor-associated neutrophils (TANs) or circulating neutrophils are
+associated with worse patient survival therapy and chemoresistance
+[@Faget.2021; @Long.2021]. Neutrophils support cancer development
+through 3 pathways : they are able to promote cancer initiation,
+assistance of metastasis and increase of tumor growth [@Faget.2021].
 
-Neutrophils are the first innate immune cells recruited during an inflammation and are known to be a main player regarding the worsening of cancer. Neutrophils are first recruited to the TME, through CXCR2 ligands chemokines (CXCL1, CXCL2, CXCL5). Pro-tumor neutrophils support cancer cells initiation cells by releasing reactive oxygen species (ROS), RNS and proteases, and enabling a variety of action, such as angiogenesis, protecting tumor cells from antimicrobial factors via NETs, preventing CD8+ T cell activity through iNOS, arginase 1 secretion (Long et al., 2021), and facilitation of metastasis through NK cell suppression and escorting tumor cells. 
+Neutrophils are first recruited to the TME, through CXCR2 ligands
+chemokines (CXCL1, CXCL2, CXCL5). Pro-tumor neutrophils support cancer
+cells initiation cells by releasing reactive oxygen species (ROS), RNS
+and proteases, and enabling a variety of action, such as angiogenesis,
+protecting tumor cells from antimicrobial factors via NETs, preventing
+CD8+ T cell activity through iNOS, arginase 1 secretion (Long et al.,
+2021), and facilitation of metastasis through NK cell suppression and
+escorting tumor cells.
 
- 
+Epidemiology Extraskeletal osteosarcoma accounts for \< 1% of all soft
+tissue sarcomas and approximately 4% of all osteosarcomas . It typically
+arises during midlife and late adulthood, with most patients being in
+the fifth to seventh decades of life at diagnosis; occurrence in
+children is uncommon. Males may be affected more frequently than females
+(M:F ratio: 0.8-19:1) .
 
-Epidemiology Extraskeletal osteosarcoma accounts for < 1% of all soft tissue sarcomas and approximately 4% of all osteosarcomas . It typically arises during midlife and late adulthood, with most patients being in the fifth to seventh decades of life at diagnosis; occurrence in children is uncommon. Males may be affected more frequently than females (M:F ratio: 0.8-19:1) . 
+Conventional osteosarcomas (COSs) can arise in any bone, but the vast
+majority originate in the long bones of the extremities, most commonly
+in the distal femur (30%), followed by the proximal tibia (15%) and the
+proximal humerus (15%), i.e. sites of the most proliferative growth
+plates. In long bones, the tumour is usually metaphyseal (90%) and only
+infrequently develops in the diaphysis (9%) or rarely in the epiphysis.
+The jaws are the fourth most common site of origin . Involvement of the
+small bones of the extremities and multifocal osteosarcoma, either
+synchronous or metachronous, are rare, the latter representing
+metastatic spread rather than multiple independent primary tumours .
+Telangiectatic osteosarcomas (TAEOSs) also frequently develop around the
+knee (-60%) and in the proximal humerus (-20%) (116). They occur in the
+metaphysis, commonly with direct extension into the adjacent epiphysis
+and diaphysis. Small cell osteosarcoma (SCOS) has a similar disMbution
+but more commonly develops in the diaphysis of long bones (10-15%) .
 
-copy-number losses in tumour suppressor genes (CDKN2A, TP53, RB1, PTEN, NF1, LSAMP); gains and amplifications M oncogenes (RUNX2, CDC5L, COPS3, EGFR, MDM2, CD PMP22\, mutations involving tumour suppressor genes (TP53. PTEN, RB1, NF1, SMARCA4), chromatin-remodelling genes (ATRX, DAXX, BRCA1, DAXX2, CHEK2, ARID5B), histone methylation and demethylation genes (BCOR, DNMT3A, MKK3 [MAP2K3]), and WNT/|3-catenin and sonic hedgehog pathway genes (AMER1, AXIN2, GSK3B, GLI1, NOTCH3); and in some cases TERT promoter mutation and PIK3CA mutations have been reported. The genomic signature of this tumour shows features overlapping those of conventional skeletal osteosarcoma . 
+syndrome, who have an increased incidenee of osteosarcoma. Patients with
+hereditary retinoblastoma also have a high risk of developing
+osteosarcoma , in particular after receiving ionizing radiation therapy.
+The genes causing these syndromes are also the most commonly mutated
+genes in sporadic osteosarcoma JP53 in \> 90% and RB1 in as many as 56%
+of cases) . Germline mutations in various RECQ helicases underlie
+another group of rare syndromes associated with COS, including Bloom
+syndrome (BLM [FIECQL3]), Werner syndrome (WRN), and Rothmund---Thomson
+syndrome (RECQL4) . Acquiring chromosomal instability is also the
+hallmark of sporadic COS and probably the most crucial step for
+initiating and driving tumour development. Syndrome-related COSs have
+been recognized for a long time, but the increasing use of DNA
+sequencing for genotyping neoplasms and also the germline of individuals
+has identified pathogenic germline mutations in as many as 17.9% of COSs
+in larger studies , a figure that is likely to increase in sequencing
+studies to come.
 
- 
+There is general consensus about recurring amplifications for some
+regions, such as gains of chromosome arms 6p (40- 50% of cases,
+harbouring RUNX2, VEGFA, E2F3, and CDC5L [CDC5]), 8q (45-55% of cases,
+harbouring MYC), and 17p, which have been detected by classic
+karyotyping and conventional comparative genomic hybridization, as well
+as deep sequencing. However, studies are difficult to compare because
+the definition of a recurrent alteration varies . The TP53 antagonist
+MDM2 is amplified in about 10% of cases, suggesting a pre-existing
+central low-grade osteosarcoma that underwent dedifferentiation in at
+least a subset of cases . FGFR1 amplifications have been demonstrated in
+18.5% of cases; alterations in the IGF1R signalling pathway were
+observed 14% of COSs . Homozygous loss of CDKN2A occurs in 10% of COSs,
+is associated with an adverse outcome, and has been implicated
 
- 
+in osteosarcoma development from a mesenchymal progenitor . RB1 is
+deleted in about 50% of osteosarcomas . Other recurrently deleted genes
+include LSAMP, DLG2, and WWOX . Distinct patterns of large-scale
+transitions and loss of heterozygosity reminiscent of that seen in
+BRCA1I BFlCA2-deV have been identified in COS, suggesting a deficiency
+in homologous recombination repair (socalled BRCAness) . These findings
+indicate a potential sensitivity to poly (ADP-ribose) polymerase (PARP)
+inhibitors
 
-Conventional osteosarcomas (COSs) can arise in any bone, but the vast majority originate in the long bones of the extremities, most commonly in the distal femur (30%), followed by the proximal tibia (15%) and the proximal humerus (15%), i.e. sites of the most proliferative growth plates. In long bones, the tumour is usually metaphyseal (90%) and only infrequently develops in the diaphysis (9%) or rarely in the epiphysis. The jaws are the fourth most common site of origin . Involvement of the small bones of the extremities and multifocal osteosarcoma, either synchronous or metachronous, are rare, the latter representing metastatic spread rather than multiple independent primary tumours . Telangiectatic osteosarcomas (TAEOSs) also frequently develop around the knee (-60%) and in the proximal humerus (-20%) (116). They occur in the metaphysis, commonly with direct extension into the adjacent epiphysis and diaphysis. Small cell osteosarcoma (SCOS) has a similar disMbution but more commonly develops in the diaphysis of long bones (10-15%) . 
+Gene expression profiling demonstrated an association between macrophage
+expression profiles and lack of metastases, suggesting a beneficial
+effect of macrophage infiltration. These findings have also been
+confirmed by immunohistochemical analysis . A number of genes have been
+demonstrated to be hypermethylated in COS, affecting transcriptional
+activity HIC1, WIF1, PHLDA2 (TSSC3), RASSF1 (RASSF1A), GADD45. and RUNX2
+{1571}. Methylation of ER (ESR1) seems particularly interesting, because
+this steroid receptor is involved in osteoblastic differentiation.
+Relieving ESR1 hypermethylation by DNA methyltransferases resulted in
+growth inhibition of tumour cells
 
-syndrome, who have an increased incidenee of osteosarcoma. Patients with hereditary retinoblastoma also have a high risk of developing osteosarcoma , in particular after receiving ionizing radiation therapy. The genes causing these syndromes are also the most commonly mutated genes in sporadic osteosarcoma JP53 in > 90% and RB1 in as many as 56% of cases) . Germline mutations in various RECQ helicases underlie another group of rare syndromes associated with COS, including Bloom syndrome (BLM [FIECQL3]), Werner syndrome (WRN), and Rothmund—Thomson syndrome (RECQL4) . Acquiring chromosomal instability is also the hallmark of sporadic COS and probably the most crucial step for initiating and driving tumour development. Syndrome-related COSs have been recognized for a long time, but the increasing use of DNA sequencing for genotyping neoplasms and also the germline of individuals has identified pathogenic germline mutations in as many as 17.9% of COSs in larger studies , a figure that is likely to increase in sequencing studies to come. 
-
-There is general consensus about recurring amplifications for some regions, such as gains of chromosome arms 6p (40- 50% of cases, harbouring RUNX2, VEGFA, E2F3, and CDC5L [CDC5]), 8q (45-55% of cases, harbouring MYC), and 17p, which have been detected by classic karyotyping and conventional comparative genomic hybridization, as well as deep sequencing. However, studies are difficult to compare because the definition of a recurrent alteration varies . The TP53 antagonist MDM2 is amplified in about 10% of cases, suggesting a pre-existing central low-grade osteosarcoma that underwent dedifferentiation in at least a subset of cases . FGFR1 amplifications have been demonstrated in 18.5% of cases; alterations in the IGF1R signalling pathway were observed 14% of COSs . Homozygous loss of CDKN2A occurs in 10% of COSs, is associated with an adverse outcome, and has been implicated 
-
-in osteosarcoma development from a mesenchymal progenitor . RB1 is deleted in about 50% of osteosarcomas . Other recurrently deleted genes include LSAMP, DLG2, and WWOX . Distinct patterns of large-scale transitions and loss of heterozygosity reminiscent of that seen in BRCA1I BFlCA2-deV have been identified in COS, suggesting a deficiency in homologous recombination repair (socalled BRCAness) . These findings indicate a potential sensitivity to poly (ADP-ribose) polymerase (PARP) inhibitors  
-
-Gene expression profiling demonstrated an association between macrophage expression profiles and lack of metastases, suggesting a beneficial effect of macrophage infiltration. These findings have also been confirmed by immunohistochemical analysis . A number of genes have been demonstrated to be hypermethylated in COS, affecting transcriptional activity HIC1, WIF1, PHLDA2 (TSSC3), RASSF1 (RASSF1A), GADD45. and RUNX2 {1571}. Methylation of ER (ESR1) seems particularly interesting, because this steroid receptor is involved in osteoblastic differentiation. Relieving ESR1 hypermethylation by DNA methyltransferases resulted in growth inhibition of tumour cells 
-
-COS has a broad immunoprofile that lacks diagnostic specificity. Commonly expressed antigens include SATB2, osteocalcin (BGLAP), osteonectin (SPARC), osteoprotegerin (TNFRSF11B), RUNX2, S100, actins, and CD99 . Importantly (because it is a diagnostic pitfall), osteosarcomas may also express keratin and EMA . Tumour cells are generally negative for CD31, CD45, and FOS, with FOS representing a relatively recent surrogate marker for the FOSgene rearrangements typically observed in osteoid osteoma and osteoblastoma (1012,91A,1739A). FOS immunohistochemistry might also be helpful in d ifferentiating osteoblastoma and osteoblastomalike osteosarcoma. TAEOS and SCOS have an immunophenotype similar to that of COS. SATB2 is regarded as a very sensitive marker for osteoblastic differentiation but lacks specificity 
-
+COS has a broad immunoprofile that lacks diagnostic specificity.
+Commonly expressed antigens include SATB2, osteocalcin (BGLAP),
+osteonectin (SPARC), osteoprotegerin (TNFRSF11B), RUNX2, S100, actins,
+and CD99 . Importantly (because it is a diagnostic pitfall),
+osteosarcomas may also express keratin and EMA . Tumour cells are
+generally negative for CD31, CD45, and FOS, with FOS representing a
+relatively recent surrogate marker for the FOSgene rearrangements
+typically observed in osteoid osteoma and osteoblastoma
+(1012,91A,1739A). FOS immunohistochemistry might also be helpful in d
+ifferentiating osteoblastoma and osteoblastomalike osteosarcoma. TAEOS
+and SCOS have an immunophenotype similar to that of COS. SATB2 is
+regarded as a very sensitive marker for osteoblastic differentiation but
+lacks specificity
 
 # Objective and experimental principle
 
-Previously, the lab has demonstrated that tumor stem cells have specific properties inside the tumor, characterized by the calpaïne 6 biomarker. This cell is capable of coordinating invasion of distant tissues and confers to the whole tumor a specific phenotype. 
+Previously, the lab has demonstrated that tumor stem cells have specific
+properties inside the tumor, characterized by the calpaïne 6 biomarker.
+This cell is capable of coordinating invasion of distant tissues and
+confers to the whole tumor a specific phenotype.
 
-The study aims to analyze public dataset and to make a custom analysis using NicheNet in order to understand the cellular crosstalk and interactions in the TME, between neutrophils and tumor cells, more specifically, calpaïne 6 tumor stem cells. 
+The study aims to analyze public dataset and to make a custom analysis
+using NicheNet in order to understand the cellular crosstalk and
+interactions in the TME, between neutrophils and tumor cells, more
+specifically, calpaïne 6 tumor stem cells.
 
-Collaborating with Dr Jean-Marc Schwartz’s team in Manchester and a M2 in systems biology, bioinformatics, collecting data from available open-source studies, we will perform a customized downstream analysis on GSE87686 and TargetOS, PEMRBOSARC and a scRNAseq dataset in order to identify the relationships between neutrophils and osteosarcoma through the use of genetic signatures available from MSigDB and customized gene lists. 
+Collaborating with Dr Jean-Marc Schwartz's team in Manchester and a M2
+in systems biology, bioinformatics, collecting data from available
+open-source studies, we will perform a customized downstream analysis on
+GSE87686 and TargetOS, PEMRBOSARC and a scRNAseq dataset in order to
+identify the relationships between neutrophils and osteosarcoma through
+the use of genetic signatures available from MSigDB and customized gene
+lists.
 
-NicheNet to identify ligand activity and identify receptors, and predict their targeted consequences. 
+NicheNet to identify ligand activity and identify receptors, and predict
+their targeted consequences.

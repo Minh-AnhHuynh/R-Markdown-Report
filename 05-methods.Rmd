@@ -46,7 +46,7 @@ were cut off evenly using the _ntile_ function in _dplyr (v1.0.8)_ R package.
 Gene signatures relevant to the research topic were obtained from MSigDB via _msigdbr_ (v7.5.1)  
 HAY_BONE_MARROW_NEUTROPHIL.v7.5.1 
 
-Canonical markers for osteosarcoma markers were adapted from @Zhou.2020ldd 's analysis and their canonical markers generated from the literature in the Supplementary Table 2.
+Canonical markers for osteosarcoma markers were adapted from @Zhou.202005 's analysis and their canonical markers generated from the literature in their Supplementary Table 2.
 
 ## MDS Clustering
 
@@ -69,7 +69,7 @@ Using _DESeq2 (v1.34.0)_ [@Love.2014], standard DEG pipeline using raw data was 
 
 ### Gene enrichment
 
-_enrichR v(3.0)_ was used [@Xie.2021] for functional gene enrichment/pathway analysis. Following database were queried : _"GO_Molecular_Function_2021", "Human_Gene_Atlas", "BioPlanet_2019", "GO_Biological_Process_2021", "GO_Cellular_Component_2021"_
+_enrichR v(3.0)_ was used [@R-enrichR; @Xie.2021] for functional gene enrichment/pathway analysis. Following database were queried : _"GO_Molecular_Function_2021", "Human_Gene_Atlas", "BioPlanet_2019", "GO_Biological_Process_2021", "GO_Cellular_Component_2021"_
 
 ## Statistical Testing
 Statistical testing was performed using _R software 4.1.2 (2021-11-01)_. Kruskal-Wallis testing was performed for non-metric comparative analysis between groups. Post-hoc analysis was performed using Dunn's test as opposed to Wilcoxon due to the test taking into account Kruskal-Wallis's rank. P < 0.05 and P.adj < 0.05 was considered statistically significant.

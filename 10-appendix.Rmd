@@ -5,9 +5,11 @@ output: pdf_document
 
 # Appendix: code
 
-All analysis was done using _R software (v4.1.2)_. Code is available at https://github.com/Minh-AnhHuynh/Osteosarcoma-Project
+Analyses were conducted using the R Statistical language (version 4.1.2; R Core Team, 2021) on Windows 10 x64 (build 22000). Code is available at _https://github.com/Minh-AnhHuynh/Osteosarcoma-Project_.
 
 Code philosophy follows ["The tidyverse style guide" written by Hadley Wickham. ](https://style.tidyverse.org/) using _styler (v1.7.0)_ to restyle code, and tidyverse environment as much as possible, substituting base R functions to their _dplyr_ and _purrr_ equivalent in order to ensure consistent code readability, usage and naming.
+
+\spacing{1}
 
 ```{r tpm, eval=FALSE}
 tpm_function <- function(counts, len) {
@@ -17,6 +19,21 @@ tpm_function <- function(counts, len) {
 ```
 
 ```{r}
-sessionInfo()
+sessioninfo::session_info("attached")
+```
+
+
+```{r, echo = FALSE, results="asis"}
+pkgs <- sessioninfo::package_info("attached", dependencies = FALSE)
+df <- tibble::tibble(
+  package = pkgs$package,
+  version = pkgs$ondiskversion,
+  source = gsub("@", "\\\\@", pkgs$source)
+)
+knitr::kable(df, format = "markdown")
+```
+
+```{r echo=FALSE}
+print(glue::glue(report::report(sessionInfo())))
 ```
 

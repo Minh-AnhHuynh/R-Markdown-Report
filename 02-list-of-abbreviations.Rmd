@@ -8,6 +8,7 @@ output: pdf_document
 - DEG : Differentially Expressed Genes
 - MDS : MultiDimensional Scaling
 - scRNA-seq : single-cell RNA sequencing
+- TANs: Tumor-associated Neutrophils
 - TME: Tumor MicroEnvironment
 - TPM : Transcripts Per Million
 - UMAP : Uniform Manifold Approximation and Projection for Dimension Reduction
