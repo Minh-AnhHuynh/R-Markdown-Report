@@ -3,7 +3,7 @@ title: ''
 output: pdf_document
 ---
 
-\section*{List of Abbreviations}
+# List of Abbreviations {.unnumbered}
 
 - DEG : Differentially Expressed Genes
 - MDS : MultiDimensional Scaling

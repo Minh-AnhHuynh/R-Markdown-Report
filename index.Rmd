@@ -30,9 +30,9 @@ output:
 
 
 <!-- Load default options, libraries and write currently used packages to bib -->
-```{r include=FALSE}
+```{r global_option, include = FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-library("knitr", "rmarkdown", "bookdown")
+librarian::shelf("knitr", "rmarkdown", "bookdown")
 options(knitr.graphics.auto_pdf = TRUE)
 knitr::write_bib(c(.packages()), "bibliography/packages.bib")
 ```
@@ -72,7 +72,7 @@ knitr::include_graphics("figures/Logo_Sorbonne_Universite.png")
 ```
 
 
-\vspace{2cm}
+\vspace{1cm}
 
 \Large
 {\bf Sorbonne University}
@@ -134,6 +134,7 @@ September 2022
 
 
 \newpage
+\spacing{1.15}
 \renewcommand*\contentsname{Table of Contents}
 \tableofcontents
 

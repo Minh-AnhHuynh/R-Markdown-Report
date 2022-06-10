@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.6.7)  7 JUN 2022 18:38
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.6.7)  10 JUN 2022 10:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -877,43 +877,43 @@ LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
 (Font)              scaled to size 17.28pt on input line 117.
 [1
 
-] [2] [3] (./index.toc
+] [2] (./index.toc
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
 (Font)              scaled to size 12.0pt on input line 1.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.71696pt on input line 4.
+(Font)              scaled to size 8.71696pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.22641pt on input line 4.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4.
+(Font)              scaled to size 6.22641pt on input line 6.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 6.
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.4541pt on input line 4.
+(Font)              scaled to size 12.4541pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.71785pt on input line 4.
+(Font)              scaled to size 8.71785pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.22705pt on input line 4.
+(Font)              scaled to size 6.22705pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 12.45154pt on input line 4.
+(Font)              scaled to size 12.45154pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.71606pt on input line 4.
+(Font)              scaled to size 8.71606pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.22577pt on input line 4.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
+(Font)              scaled to size 6.22577pt on input line 6.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 6.
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 6.
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
 \tf@toc=\write4
 \openout4 = `index.toc'.
 
-[4] [5] [6]
+[3] [4] [5]
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/it' will be
-(Font)              scaled to size 12.0pt on input line 227.
+(Font)              scaled to size 12.0pt on input line 232.
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -939,9 +939,9 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 
 [4]
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 386.
+(Font)              scaled to size 14.4pt on input line 367.
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 386.
+(Font)              scaled to size 14.4pt on input line 367.
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -959,7 +959,7 @@ File: index_files/figure-latex/mds-1.pdf Graphic file (type pdf)
 File: ../TargetOS-Osteosarcoma/04_figures/ggplot/hallmark_mean_vs_sample+group_mean.png Graphic file (type bmp)
 <../TargetOS-Osteosarcoma/04_figures/ggplot/hallmark_mean_vs_sample+group_mean.png>
 
-Overfull \hbox (19.44551pt too wide) in paragraph at lines 501--501
+Overfull \hbox (19.44551pt too wide) in paragraph at lines 482--482
 [][]
  []
 
@@ -1000,37 +1000,37 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [12]
-Overfull \hbox (14.32188pt too wide) in paragraph at lines 606--606
+Overfull \hbox (14.32188pt too wide) in paragraph at lines 601--601
 []\TU/lmtt/m/n/12 ## - Session info ---------------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (14.32187pt too wide) in paragraph at lines 606--606
+Overfull \hbox (14.32187pt too wide) in paragraph at lines 601--601
 []\TU/lmtt/m/n/12 ## - Packages -------------------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (14.32181pt too wide) in paragraph at lines 606--606
+Overfull \hbox (14.32181pt too wide) in paragraph at lines 601--601
 []\TU/lmtt/m/n/12 ## ------------------------------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (972.1981pt too wide) in paragraph at lines 626--626
+Overfull \hbox (972.1981pt too wide) in paragraph at lines 621--621
 []\TU/lmtt/m/n/12 ## Analyses were conducted using the R Statistical language (version 4.1.2; R Core Team, 2021) on Windows 10 x64 (build 22000), using the packages librarian (version 1.8.1; Desi Quintans, 2021) and knitr (version 1.39; Yihui Xie, 2022).[] 
  []
 
 
-Overfull \hbox (706.48215pt too wide) in paragraph at lines 626--626
+Overfull \hbox (706.48215pt too wide) in paragraph at lines 621--621
 []\TU/lmtt/m/n/12 ##   - Desi Quintans (2021). librarian: Install, Update, Load Packages from CRAN, 'GitHub', and 'Bioconductor' in One Step. R package version 1.8.1. https://CRAN.R-project.org/package=librarian[] 
  []
 
 
-Overfull \hbox (576.70224pt too wide) in paragraph at lines 626--626
+Overfull \hbox (576.70224pt too wide) in paragraph at lines 621--621
 []\TU/lmtt/m/n/12 ##   - R Core Team (2021). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL https://www.R-project.org/.[] 
  []
 
 
-Overfull \hbox (236.7902pt too wide) in paragraph at lines 626--626
+Overfull \hbox (236.7902pt too wide) in paragraph at lines 621--621
 []\TU/lmtt/m/n/12 ##   - Yihui Xie (2022). knitr: A General-Purpose Package for Dynamic Report Generation in R. R package version 1.39.[] 
  []
 
@@ -1048,21 +1048,22 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 
 [1] (./index.aux)
 Package rerunfilecheck Info: File `index.out' has not changed.
-(rerunfilecheck)             Checksum: 881BC44A5E04B2B95A68F21EEB28788C;4156.
+(rerunfilecheck)             Checksum: BF15710BF1062F976062D909CDA0DA8F;4550.
  )
-(\end occurred inside a group at level 3)
+(\end occurred inside a group at level 4)
 
-### semi simple group (level 3) entered at line 581 (\begingroup)
-### semi simple group (level 2) entered at line 192 (\begingroup)
+### semi simple group (level 4) entered at line 576 (\begingroup)
+### semi simple group (level 3) entered at line 197 (\begingroup)
+### semi simple group (level 2) entered at line 158 (\begingroup)
 ### semi simple group (level 1) entered at line 90 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 18211 strings out of 478126
- 338860 string characters out of 5851442
- 797999 words of memory out of 5000000
- 38619 multiletter control sequences out of 15000+600000
+ 18215 strings out of 478126
+ 338925 string characters out of 5851442
+ 810122 words of memory out of 5000000
+ 38623 multiletter control sequences out of 15000+600000
  472864 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 86i,12n,122p,511b,8523s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 86i,11n,122p,511b,8581s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on index.pdf (20 pages).
+Output written on index.pdf (19 pages).

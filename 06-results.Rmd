@@ -58,3 +58,6 @@ The mean of markers of proliferation (MKI67, PCNA, TOP2A) associated to osteosar
 
 ## Characterization of intra-tumor inflammation associated to inflammatory status
 
+## single cell RNA-Seq analysis
+
+Using scRNA-Seq data from GSE152048, used by @Zhou.202005 and normalized by Sophie

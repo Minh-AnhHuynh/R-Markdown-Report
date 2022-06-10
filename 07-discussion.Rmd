@@ -15,3 +15,15 @@ the purpose of the discussion is to summarise your major findings and place them
 - The following paragraphs will then usually describe each of these findings in greater detail, making reference to previous studies.
 - Often the discussion will include one or a few paragraphs describing the limitations of your study and the potential for future research.
 - Subheadings within the discussion can be useful for orienting the reader to the major themes that are addressed.
+
+
+
+## Limitations
+
+- Immune deconvolutions methods do not give the same results, thus they are unclear. Only MCP Counter reports significantly different neutrophil abundance between low and high group.
+- Immune deconv paper has 7 limitations [@Sturm.2019].
+- Z-score and equal mean of groups may not be the best normalization method and way of making groups. Geometric mean (inspired from a package) could have been used but returned 0 value despite all values being positive.
+- Literature analysis comparing normalization methods reveals library size normalization (TPM, FPKM, RPKM) methods perform worse than distribution normalization methods (DESeq2, TMM), which are recommended by @Zhao.2021. Notably, library size normalization methods assume that the total amount of mRNA per cell is identical in every condition.
+- DESeq2's normalized count could have then been used, as it is possible to get it from rawcounts after performing DESeq2 analysis, using two functions, `estimateSizeFactors` and `counts(normalized = TRUE)`. However some immune deconvolution methods still expect TPM as input.
+- Perhaps some outliers could have been removed in order to better identify clusters.
+- In single-cell, one reason that we do not find neutrophils is because chemotherapy induces aplasia which kills off all short lives immune cells.
