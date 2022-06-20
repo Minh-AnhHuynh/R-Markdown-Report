@@ -3,7 +3,7 @@ bibliography: [bibliography/Osteosarcoma.bib, bibliography/Bioinformatics_method
 link-citations: yes
 indent: yes
 csl: csl/cell.csl
-geometry: left = 2.5cm, right = 2cm, top = 2cm, bottom = 2cm
+geometry: left = 2.5cm, right = 2.5cm, top = 2cm, bottom = 2cm
 fontsize: 12pt
 header-includes:
 - \usepackage{float}
@@ -86,8 +86,7 @@ knitr::include_graphics("figures/Logo_Sorbonne_Universite.png")
 
 \doublespacing
 
-{\bf Characterization of neutrophil populations associated with osteosarcoma 
-and association with the tumor's inflammatory status}
+{\bf Characterization of osteosarcomas and association with the tumor's inflammatory status}
 
 \vspace{2 cm}
 

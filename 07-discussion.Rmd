@@ -25,5 +25,6 @@ the purpose of the discussion is to summarise your major findings and place them
 - Z-score and equal mean of groups may not be the best normalization method and way of making groups. Geometric mean (inspired from a package) could have been used but returned 0 value despite all values being positive.
 - Literature analysis comparing normalization methods reveals library size normalization (TPM, FPKM, RPKM) methods perform worse than distribution normalization methods (DESeq2, TMM), which are recommended by @Zhao.2021. Notably, library size normalization methods assume that the total amount of mRNA per cell is identical in every condition.
 - DESeq2's normalized count could have then been used, as it is possible to get it from rawcounts after performing DESeq2 analysis, using two functions, `estimateSizeFactors` and `counts(normalized = TRUE)`. However some immune deconvolution methods still expect TPM as input.
+- Using DESeq2's normalized raw count as input, it is inconsistent to then use TPM in order to perform other analysis.
 - Perhaps some outliers could have been removed in order to better identify clusters.
-- In single-cell, one reason that we do not find neutrophils is because chemotherapy induces aplasia which kills off all short lives immune cells.
+- In single-cell, one potential reason that we do not find neutrophils is because chemotherapy induces aplasia which kills off all short lives immune cells.

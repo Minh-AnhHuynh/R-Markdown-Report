@@ -53,23 +53,27 @@ Canonical markers for osteosarcoma markers were adapted from @Zhou.202005 's ana
 
 
 ## Determination of cell population abundance
+
 ### MCP Counter
-Bulk RNA-seq cell populations can be estimated using Microenvironment Cell Populations-counter (MCP-counter) [@Becht.2016]. Non-metric Kruskal-Wallis testing was used to determine significant differences between cell populations between Low, Medium and High groups with _P < 0.05_ were considered as statistically signiﬁcant.
+Estimation of tumor immune infiltration using bulk RNA-seq can be estimated using Microenvironment Cell Populations-counter (MCP-counter) [@Becht.2016]. Non-metric Kruskal-Wallis testing was used to determine significant differences between cell populations between Low, Medium and High groups with _P < 0.05_ were considered as statistically significant.
 
 
 
 
-### Cybersort
+### CIBERSORTx.
+CIBERSORTx algorithm was also used for immune cell deconvolution, from the CIBERSORTx platform (https://cibersortx.stanford.edu/) to generate abundance for 22 immune cells.
 
 ## Differential Expression Gene analysis
 
-### Differentially Expressed Genes (DEG)
-Using _DESeq2 (v1.34.0)_ [@Love.2014], standard DEG pipeline using raw data was performed between inflammatory groups (Low, Medium, High). DEGs were identified with _adjusted p.value < 0.05_ and _log2FoldChange > 1_.
+### Differentially Expressed Genes analysis (DEG)
+Using _DESeq2 (v1.34.0)_ [@Love.2014], standard DEG pipeline using raw data was performed between inflammatory groups (Low, Medium, High). DEGs were identified with _adjusted p.value (or FDR) $\le$ 0.05_ and _log2FoldChange $\ge$ 1 or _log2FoldChange $\le$ -1_. An interpretation of the FDR/Benjamini-Hochberg method for controlling the FDR is implemented in DESeq2 in which we rank the genes by p-value, then multiply each ranked p-value by m/rank (m = total number of tests).
 
 
-### Gene enrichment
+### Over Representation Analysis (ORA)
 
 _enrichR v(3.0)_ was used [@R-enrichR; @Xie.2021] for functional gene enrichment/pathway analysis. Following database were queried : _"GO_Molecular_Function_2021", "Human_Gene_Atlas", "BioPlanet_2019", "GO_Biological_Process_2021", "GO_Cellular_Component_2021"_
 
 ## Statistical Testing
 Statistical testing was performed using _R software 4.1.2 (2021-11-01)_. Kruskal-Wallis testing was performed for non-metric comparative analysis between groups. Post-hoc analysis was performed using Dunn's test as opposed to Wilcoxon due to the test taking into account Kruskal-Wallis's rank. P < 0.05 and P.adj < 0.05 was considered statistically significant.
+
+## Gene Set Enrichment Analysis (GSEA)

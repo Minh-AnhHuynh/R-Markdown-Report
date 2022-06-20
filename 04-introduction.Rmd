@@ -28,105 +28,54 @@ header-includes:
 My 4.5 month research internship was dole out under the supervision of
 Dr. Dominique MODROWSKI at INSERM U1132 "BIOSCAR" directed by Dr.
 Martine COHEN-SOLAL, at the Lariboisière Hospital, a look unit that has
-been dedicated to the pathophysiology of bone and cartilage diseases. My
+been dedicated to the physiopathology of bone and cartilage diseases. My
 work has focused on elucidating the mechanisms associated with
-osteosarcoma and therefore the inflammatory state, with particular
-emphasis on neutrophils.
+osteosarcoma and their inflammatory status, with particular emphasis on
+neutrophils.
 
-Recently, immunotherapy has been particularly successful in treating
-previously difficult and lethal cancers, and was promoted as medical
-care therapy in many of them. However osteosarcomas have remained
-resilient to immunotherapy, instead looking forward to classical
-chemotherapy which is mildly effective and has plethora of side effects.
-so as to seek out a cure for difficult to treat cancers, better
-understanding of the tumor microenvironment (TME) could potentially
-cause effective and novel targeted TME therapies. Current progress in
-RNA sequencing in bulk RNA-Seq and single-cell RNA sequencing
-(scRNA-seq) has shown its potential in exploring the tumor
-microenvironment (TME), so as to explore intra-tumor heterogeneity and
-cellular dialogue between tumor cells and inflammatory cells.
+Osteosarcomas are one of the most aggressive diseases, characterized by
+high tumor heterogeneity and numerous genomic instabilities. They
+usually occur in long bones and represent one-fifth of all primary
+malignant bone tumors and 2.4% of pediatric cancers [@Fu.2022].
+Osteosarcomas occur most frequently in children aged 14-18 years, and
+more than 30% of cases, within adults over 40 years of age
+[@Mirabello.2009]. The combination of surgery and chemotherapy has
+increased the 5-year survival rate of patients to over 70%, however
+metastatic osteosarcoma, frequently occurring in the lungs, drops the
+survival rate to less than 20%. [@Fu.2022].
+
+The difficulty in treating these tumors is largely due to the genomic instability that characterizes them and that leads to a great inter and intra tumor heterogeneity. Thus, the cancer cells can have various phenotypes. Some tumors are osteoblastic, chondroblastic or fibroblastic dominant.
+
+It is established that tumor cells recruit numerous accessory cell types that will form a stroma that supports tumor growth, metastatic progression and resistance to treatment. Cellular (immune cells) and molecular (cytokines, metabolites) inflammatory mediators play a key role in the tumor stroma. The main immune component has been shown to be M2 macrophages. However, scRNA-seq analyses have revealed other immune cell populations such as neutrophils that are also important mediators of inflammation. Bone tumors are a source of inflammatory factors that serve to recruit and educate the stroma.
+
+An issue that remains poorly documented concerns the heterogeneity of the inflammatory landscape of osteosarcomas and the possible relationships between tumor inflammatory status (TIS) and phenotypic and/or clinical characteristics of these tumors. Similarly, the characteristics of neutrophils associated with bone tumors and their role in tumor inflammation have not been explored to date. 
+
+Recently, immunotherapy has proven to be particularly effective in
+treating previously difficult and deadly cancers, and has been promoted
+as a medical care therapy in many of them. However, osteosarcomas have
+not withstood immunotherapy and have instead turned to conventional
+chemotherapy, which is not very effective and has a plethora of side
+effects. In order to find a cure for these difficult-to-treat cancers, a
+better understanding of the tumor microenvironment (TME) could
+potentially lead to effective and novel targeted TME therapies,
+especially since osteosarcomas exhibit high heterogeneity and the
+immunological mechanisms of immune resistance are still unknown. Current
+advances in bulk RNA sequencing (RNA-Seq) and single-cell RNA sequencing
+(scRNA-seq) have shown their potential in exploring the tumor
+microenvironment (TME) to explore intra-tumor heterogeneity and cellular
+dialogue between tumor and inflammatory cells.
+
 Neutrophils are the primary innate immune cells recruited during an
 inflammation and multiple papers have already elucidated that
 tumor-associated neutrophils (TANs) or circulating neutrophils are
 related to worse patient survival therapy and chemoresistance
-[\@Faget.2021; \@Long.2021]. Neutrophils support cancer development
+[@Faget.2021; @Long.2021]. Neutrophils support cancer development
 through 3 pathways : they're able to promote cancer initiation,
-assistance of metastasis and increase of tumor growth [\@Faget.2021].
-Neutrophils are first recruited to the TME, through CXCR2 ligands
-chemokines (CXCL1, CXCL2, CXCL5). Pro-tumor neutrophils support cancer
-cells initiation cells by releasing reactive oxygen species (ROS), RNS
-and proteases, and enabling a range of action, like angiogenesis,
-protecting tumor cells from antimicrobial factors via NETs, preventing
-CD8+ T cell activity through iNOS, arginase 1 secretion (Long et al.,
-2021), and facilitation of metastasis through NK cell suppression and
-escorting tumor cells. Osteosarcoma is that the most frequent primary
-bone tumor with poor prognosis. Epidemiology Extraskeletal osteosarcoma
-accounts for \< 1% of all soft tissue sarcomas and approximately 4% of
-all osteosarcomas . It typically arises during midlife and late
-adulthood, with most patients being within the fifth to seventh decades
-of life at diagnosis; occurrence in children is unusual. Males is also
-affected more frequently than females (M:F ratio: 0.8-19:1) .
-Conventional osteosarcomas (COSs) can arise in any bone, but the
-overwhelming majority originate within the long bones of the
-extremities, most ordinarily within the distal femur (30%), followed by
-the proximal tibia (15%) and also the proximal humerus (15%), i.e. sites
-of the foremost proliferative growth plates. In long bones, the tumour
-is typically metaphyseal (90%) and only infrequently develops within the
-diaphysis (9%) or rarely within the epiphysis. The jaws are the fourth
-commonest site of origin . Involvement of the little bones of the
-extremities and multifocal osteosarcoma, either synchronous or
-metachronous, are rare, the latter representing metastatic spread
-instead of multiple independent primary tumours . Telangiectatic
-osteosarcomas (TAEOSs) also frequently develop round the knee (-60%) and
-within the proximal humerus (-20%) (116). They occur within the
-metaphysis, commonly with direct extension into the adjacent epiphysis
-and diaphysis. Small cell osteosarcoma (SCOS) encompasses a similar
-disMbution but more commonly develops within the diaphysis of long bones
-(10-15%) . syndrome, who have an increased incidenee of osteosarcoma.
-Patients with hereditary retinoblastoma even have a high risk of
-developing osteosarcoma , particularly after receiving radiation
-therapy. The genes causing these syndromes are the foremost commonly
-mutated genes in sporadic osteosarcoma JP53 in \> 90% and RB1 in as many
-as 56% of cases) . Germline mutations in various RECQ helicases underlie
-another group of rare syndromes related to COS, including Bloom syndrome
-(BLM [FIECQL3]), Werner syndrome (WRN), and Rothmund---Thomson syndrome
-(RECQL4) . Acquiring chromosomal instability is additionally the
-hallmark of sporadic COS and possibly the foremost crucial step for
-initiating and driving tumour development. Syndrome-related COSs are
-recognized for an extended time, but the increasing use of DNA
-sequencing for genotyping neoplasms and also the germline of people has
-identified pathogenic germline mutations in as many as 17.9% of COSs in
-larger studies , a figure that's likely to extend in sequencing studies
-to come back. There is general consensus about recurring amplifications
-for a few regions, like gains of chromosome arms 6p (40- 50% of cases,
-harbouring RUNX2, VEGFA, E2F3, and CDC5L [CDC5]), 8q (45-55% of cases,
-harbouring MYC), and 17p, which are detected by classic karyotyping and
-traditional comparative genomic hybridization, also as deep sequencing.
-However, studies are difficult to check because the definition of a
-recurrent alteration varies . The TP53 antagonist MDM2 is amplified in
-about 10% of cases, suggesting a pre-existing central low-grade
-osteosarcoma that underwent dedifferentiation in a minimum of a subset
-of cases . FGFR1 amplifications are demonstrated in 18.5% of cases;
-alterations within the IGF1R signalling pathway were observed 14% of
-COSs . Homozygous loss of CDKN2A occurs in 10% of COSs, is related to an
-adverse outcome, and has been implicated in osteosarcoma development
-from a mesenchymal progenitor . RB1 is deleted in about 50% of
-osteosarcomas . Other recurrently deleted genes include LSAMP, DLG2, and
-WWOX . Distinct patterns of large-scale transitions and loss of
-heterozygosity paying homage to that seen in BRCA1I BFlCA2-deV are
-identified in COS, suggesting a deficiency in homologous recombination
-repair (socalled BRCAness) . These findings indicate a possible
-sensitivity to poly (ADP-ribose) polymerase (PARP) inhibitors Gene
-expression profiling demonstrated an association between macrophage
-expression profiles and lack of metastases, suggesting a beneficial
-effect of macrophage infiltration. These findings have also been
-confirmed by immunohistochemical analysis . variety of genes are
-demonstrated to be hypermethylated in COS, affecting transcriptional
-activity HIC1, WIF1, PHLDA2 (TSSC3), RASSF1 (RASSF1A), GADD45. and RUNX2
-. Methylation of ER (ESR1) seems particularly interesting, because this
-steroid receptor is involved in osteoblastic differentiation. Relieving
-ESR1 hypermethylation by DNA methyltransferases resulted in growth
-inhibition of tumour cells
+assistance of metastasis and increase of tumor growth [@Faget.2021].
+
+
+
+
 
 # Objective and experimental principle
 
@@ -136,17 +85,12 @@ This cell is capable of coordinating invasion of distant tissues and
 confers to the whole tumor a specific phenotype.
 
 The study aims to analyze public dataset and to make a custom analysis
-using NicheNet in order to understand the cellular crosstalk and
-interactions in the TME, between neutrophils and tumor cells, more
-specifically, calpaïne 6 tumor stem cells.
+using bioinformatic tools in order to understand the cellular crosstalk and
+interactions in the TME, between neutrophils and tumor cells and their inflammatory status.
 
-Collaborating with Dr Jean-Marc Schwartz's team in Manchester and a M2
-in systems biology, bioinformatics, collecting data from available
-open-source studies, we will perform a customized downstream analysis on
-GSE87686 and TargetOS, PEMRBOSARC and a scRNAseq dataset in order to
+Collaborating with Dr Jean-Marc Schwartz's team in Manchester and Sophie Khakoo, a Master student in Systems Biology, collecting data from a scRNA-Seq dataset, a customized downstream analysis will be performed on
+GSE87686 and TargetOS, and a scRNAseq dataset in order to
 identify the relationships between neutrophils and osteosarcoma through
 the use of genetic signatures available from MSigDB and customized gene
 lists.
 
-NicheNet to identify ligand activity and identify receptors, and predict
-their targeted consequences.
