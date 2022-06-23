@@ -1,29 +1,45 @@
 ---
 title: ''
-output: pdf_document
+output: bookdown::pdf_document2
 ---
 
 # Appendix: code
 
-Analyses were conducted using the R Statistical language (version 4.1.2; R Core Team, 2021) on Windows 10 x64 (build 22000). Code is available at _https://github.com/Minh-AnhHuynh/Osteosarcoma-Project_.
+Analyses were conducted using the R Statistical language (version 4.1.2;
+R Core Team, 2021) on Windows 10 x64 (build 22000). Code is available at
+_<https://github.com/Minh-AnhHuynh/Osteosarcoma-Project>_.
 
-Code philosophy follows ["The tidyverse style guide" written by Hadley Wickham. ](https://style.tidyverse.org/) and usage of tidyverse functions, in order to ensure consistent code readability, usage and naming.
+Code philosophy follows ["The tidyverse style guide" written by Hadley
+Wickham.](https://style.tidyverse.org/) and usage of tidyverse
+functions, in order to ensure consistent code readability, usage and
+naming.
+
 
 \spacing{1}
+```{r explain how data was created and imported (aka copy import script)}
 
-```{r tpm, eval=FALSE}
+```
+
+
+```{r , echo=TRUE, eval=FALSE}
+<<survival_code>>
+```
+
+
+
+```{r tpm}
 tpm_function <- function(counts, len) {
   x <- counts / len
   return(t(t(x) * 1e6 / colSums(x)))
 }
 ```
 
-```{r}
+```{r eval=FALSE, include=FALSE}
+librarian::shelf(sessioninfo)
 sessioninfo::session_info("attached")
 ```
 
-
-```{r, echo = FALSE, results="asis"}
+```{r echo=FALSE, results="asis"}
 pkgs <- sessioninfo::package_info("attached", dependencies = FALSE)
 df <- tibble::tibble(
   package = pkgs$package,
@@ -32,8 +48,3 @@ df <- tibble::tibble(
 )
 knitr::kable(df, format = "markdown")
 ```
-
-```{r echo=FALSE}
-print(glue::glue(report::report(sessionInfo())))
-```
-

@@ -17,7 +17,7 @@ header-includes:
 - \usepackage[nottoc, numbib]{tocbibind}
 - \usepackage{fontspec}
 - \setmainfont{Times New Roman}
-
+- \usepackage[justification=raggedright,labelfont=bf,singlelinecheck=false]{caption}
 output:
   bookdown::pdf_document2:
     latex_engine: xelatex
@@ -28,39 +28,18 @@ output:
       number_sections: yes
 ---
 
-
 <!-- Load default options, libraries and write currently used packages to bib -->
-```{r global_option, include = FALSE}
+
+```{r global_option, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-librarian::shelf("knitr", "rmarkdown", "bookdown")
+librarian::shelf(knitr, rmarkdown, bookdown, kableExtra)
 options(knitr.graphics.auto_pdf = TRUE)
 knitr::write_bib(c(.packages()), "bibliography/packages.bib")
 ```
 
-<!-- Load global data -->
-```{r targetos, include = FALSE, cache = TRUE}
-librarian::shelf(tidyverse, magrittr)
-data_path <- "../TargetOS-Osteosarcoma/03_results/TARGET-OS_GDC_protein_data.tsv"
-global_data <- read_tsv(data_path) %>%
-  column_to_rownames("hgnc_symbol") %>%
-  t() %>%
-  as.data.frame()
-
-
-global_data_scaled <- global_data %>%
-  rownames_to_column(var = "sample") %>%
-  dplyr::select(-sample) %>%
-  scale(center = TRUE, scale = TRUE) %>%
-  cbind.data.frame(., row.names(global_data)) %>%
-  rename(sample = last_col()) %>%
-  column_to_rownames("sample")
-global_data_scaled %<>% .[, colSums(is.na(.)) < nrow(.)]
-```
-
-
-
 \pagenumbering{gobble}
 
+````{=tex}
 \begin{centering}
 
 \vspace{10cm}
@@ -86,7 +65,7 @@ knitr::include_graphics("figures/Logo_Sorbonne_Universite.png")
 
 \doublespacing
 
-{\bf Characterization of osteosarcomas and association with the tumor's inflammatory status}
+{\bf Characterization of the inflammatory status in osteosarcoma by *in silico* RNA-Seq analysis}
 
 \vspace{2 cm}
 
@@ -108,22 +87,15 @@ By
 September 2022
 
 \end{centering}
-
-
+````
 
 <!-- Put an empty page -->
+
+```{=tex}
 \newpage
 \thispagestyle{empty}
+```
 \mbox{}
-
- 
-
-
-
-
-
-
-
 
 <!-- \newpage -->
 
@@ -131,19 +103,17 @@ September 2022
 
 <!-- ``` -->
 
-
+```{=tex}
 \newpage
 \spacing{1.15}
 \renewcommand*\contentsname{Table of Contents}
 \tableofcontents
-
-
+```
 \newpage
 
 ```{r abbreviations, child = '02-list-of-abbreviations.Rmd'}
 
 ```
-
 
 \newpage
 
@@ -151,6 +121,7 @@ September 2022
 
 ```
 
+```{=tex}
 \newpage
 \spacing{1.5}
 \fancypagestyle{plain}{%
@@ -161,8 +132,7 @@ September 2022
 }
 \pagestyle{plain}
 \pagenumbering{arabic}
-
-
+```
 ```{r intro, child = '04-introduction.Rmd'}
 
 ```
@@ -188,6 +158,7 @@ September 2022
 <!-- \newpage -->
 
 <!-- ```{r conclusion, child = '08-conclusion.Rmd'} -->
+
 <!-- ``` -->
 
 \newpage
@@ -196,15 +167,18 @@ September 2022
 
 ```
 
+```{=tex}
 \newpage
 \pagenumbering{gobble}
+```
 ```{r appendix, child = '10-appendix.Rmd'}
 
 ```
 
+```{=tex}
 \newpage
 \pagenumbering{gobble}
-
+```
 ```{r summary, child = '11-summary.Rmd'}
 
 ```

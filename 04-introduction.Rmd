@@ -25,13 +25,6 @@ header-includes:
 
 *The introduction should not be just a 'Literature Review'.*
 
-My 4.5 month research internship was dole out under the supervision of
-Dr. Dominique MODROWSKI at INSERM U1132 "BIOSCAR" directed by Dr.
-Martine COHEN-SOLAL, at the Lariboisière Hospital, a look unit that has
-been dedicated to the physiopathology of bone and cartilage diseases. My
-work has focused on elucidating the mechanisms associated with
-osteosarcoma and their inflammatory status, with particular emphasis on
-neutrophils.
 
 Osteosarcomas are one of the most aggressive diseases, characterized by
 high tumor heterogeneity and numerous genomic instabilities. They
@@ -73,23 +66,19 @@ related to worse patient survival therapy and chemoresistance
 through 3 pathways : they're able to promote cancer initiation,
 assistance of metastasis and increase of tumor growth [@Faget.2021].
 
-
-
+- Tumeur ne répondent pas à l'immunothérapie
+- Tumeur source d'inflammation
+- Inflammation et TME non étudié dans ostéosarcomes
 
 
 # Objective and experimental principle
-
-Previously, the lab has demonstrated that tumor stem cells have specific
-properties inside the tumor, characterized by the calpaïne 6 biomarker.
-This cell is capable of coordinating invasion of distant tissues and
-confers to the whole tumor a specific phenotype.
 
 The study aims to analyze public dataset and to make a custom analysis
 using bioinformatic tools in order to understand the cellular crosstalk and
 interactions in the TME, between neutrophils and tumor cells and their inflammatory status.
 
 Collaborating with Dr Jean-Marc Schwartz's team in Manchester and Sophie Khakoo, a Master student in Systems Biology, collecting data from a scRNA-Seq dataset, a customized downstream analysis will be performed on
-GSE87686 and TargetOS, and a scRNAseq dataset in order to
+GSE87686 and Target-OS, and a scRNAseq dataset in order to
 identify the relationships between neutrophils and osteosarcoma through
 the use of genetic signatures available from MSigDB and customized gene
 lists.
