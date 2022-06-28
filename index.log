@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.6.22)  23 JUN 2022 18:36
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.6.22)  28 JUN 2022 18:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -322,86 +322,71 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layouthoffset=\dimen161
 \Gm@layoutvoffset=\dimen162
 \Gm@dimlist=\toks22
-) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
-Package: fancyvrb 2022/06/06 4.5 verbatim text (tvz,hv)
-\FV@CodeLineNo=\count301
-\FV@InFile=\read2
-\FV@TabBox=\box55
-\c@FancyVerbLine=\count302
-\FV@StepNumber=\count303
-\FV@OutFile=\write3
-) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/framed/framed.sty
-Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip53
-\fb@frw=\dimen163
-\fb@frh=\dimen164
-\FrameRule=\dimen165
-\FrameSep=\dimen166
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
-\LTleft=\skip54
-\LTright=\skip55
-\LTpre=\skip56
-\LTpost=\skip57
-\LTchunksize=\count304
-\LTcapwidth=\dimen167
-\LT@head=\box56
-\LT@firsthead=\box57
-\LT@foot=\box58
-\LT@lastfoot=\box59
-\LT@gbox=\box60
-\LT@cols=\count305
-\LT@rows=\count306
-\c@LT@tables=\count307
-\c@LT@chunks=\count308
+\LTleft=\skip53
+\LTright=\skip54
+\LTpre=\skip55
+\LTpost=\skip56
+\LTchunksize=\count301
+\LTcapwidth=\dimen163
+\LT@head=\box55
+\LT@firsthead=\box56
+\LT@foot=\box57
+\LT@lastfoot=\box58
+\LT@gbox=\box59
+\LT@cols=\count302
+\LT@rows=\count303
+\c@LT@tables=\count304
+\c@LT@chunks=\count305
 \LT@p@ftn=\toks23
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen168
-\lightrulewidth=\dimen169
-\cmidrulewidth=\dimen170
-\belowrulesep=\dimen171
-\belowbottomsep=\dimen172
-\aboverulesep=\dimen173
-\abovetopsep=\dimen174
-\cmidrulesep=\dimen175
-\cmidrulekern=\dimen176
-\defaultaddspace=\dimen177
-\@cmidla=\count309
-\@cmidlb=\count310
-\@aboverulesep=\dimen178
-\@belowrulesep=\dimen179
-\@thisruleclass=\count311
-\@lastruleclass=\count312
-\@thisrulewidth=\dimen180
+\heavyrulewidth=\dimen164
+\lightrulewidth=\dimen165
+\cmidrulewidth=\dimen166
+\belowrulesep=\dimen167
+\belowbottomsep=\dimen168
+\aboverulesep=\dimen169
+\abovetopsep=\dimen170
+\cmidrulesep=\dimen171
+\cmidrulekern=\dimen172
+\defaultaddspace=\dimen173
+\@cmidla=\count306
+\@cmidlb=\count307
+\@aboverulesep=\dimen174
+\@belowrulesep=\dimen175
+\@thisruleclass=\count308
+\@lastruleclass=\count309
+\@thisrulewidth=\dimen176
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
 Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
-\col@sep=\dimen181
-\ar@mcellbox=\box61
-\extrarowheight=\dimen182
+\col@sep=\dimen177
+\ar@mcellbox=\box60
+\extrarowheight=\dimen178
 \NC@list=\toks24
-\extratabsurround=\skip58
-\backup@length=\skip59
-\ar@cellbox=\box62
+\extratabsurround=\skip57
+\backup@length=\skip58
+\ar@cellbox=\box61
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count313
-\calc@Bcount=\count314
-\calc@Adimen=\dimen183
-\calc@Bdimen=\dimen184
-\calc@Askip=\skip60
-\calc@Bskip=\skip61
+\calc@Acount=\count310
+\calc@Bcount=\count311
+\calc@Adimen=\dimen179
+\calc@Bdimen=\dimen180
+\calc@Askip=\skip59
+\calc@Bskip=\skip60
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count315
-\calc@Cskip=\skip62
+\calc@Ccount=\count312
+\calc@Cskip=\skip61
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count316
+\etb@tempcnta=\count313
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
-\fn@notes=\box63
-\fn@width=\dimen185
+\fn@notes=\box62
+\fn@width=\dimen181
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
@@ -413,19 +398,19 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: xetex.def on input line 107.
 )
-\Gin@req@height=\dimen186
-\Gin@req@width=\dimen187
+\Gin@req@height=\dimen182
+\Gin@req@width=\dimen183
 )
-\cslhangindent=\skip63
-\csllabelwidth=\skip64
-\cslentryspacingunit=\skip65
+\cslhangindent=\skip62
+\csllabelwidth=\skip63
+\cslentryspacingunit=\skip64
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count317
+\c@float@type=\count314
 \float@exts=\toks25
-\float@box=\box64
+\float@box=\box63
 \@float@everytoks=\toks26
-\@floatcapt=\box65
+\@floatcapt=\box64
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/sectsty/sectsty.sty
 Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading styles
 
@@ -438,34 +423,34 @@ LaTeX Warning: Command \underline  has changed.
 
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/paralist/paralist.sty
 Package: paralist 2017/01/22 v2.7 Extended list environments
-\pltopsep=\skip66
-\plpartopsep=\skip67
-\plitemsep=\skip68
-\plparsep=\skip69
+\pltopsep=\skip65
+\plpartopsep=\skip66
+\plitemsep=\skip67
+\plparsep=\skip68
 \pl@lab=\toks27
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2022/05/18 v4.0.3 Extensive control of page headers and footers
-\f@nch@headwidth=\skip70
-\f@nch@O@elh=\skip71
-\f@nch@O@erh=\skip72
-\f@nch@O@olh=\skip73
-\f@nch@O@orh=\skip74
-\f@nch@O@elf=\skip75
-\f@nch@O@erf=\skip76
-\f@nch@O@olf=\skip77
-\f@nch@O@orf=\skip78
+\f@nch@headwidth=\skip69
+\f@nch@O@elh=\skip70
+\f@nch@O@erh=\skip71
+\f@nch@O@olh=\skip72
+\f@nch@O@orh=\skip73
+\f@nch@O@elf=\skip74
+\f@nch@O@erf=\skip75
+\f@nch@O@olf=\skip76
+\f@nch@O@orf=\skip77
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2021/09/03 v1.2n Refers to last page's name (HMM; JPG)
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/dcolumn.sty
 Package: dcolumn 2014/10/28 v1.06 decimal alignment package (DPC)
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip79
-\bibsep=\skip80
+\bibhang=\skip78
+\bibsep=\skip79
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count318
+\c@NAT@ctr=\count315
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tocbibind/tocbibind.sty
 Package: tocbibind 2010/10/13 v1.5k extra ToC listings
 Package tocbibind Info: The document has section divisions on input line 50.
@@ -531,7 +516,7 @@ Package fontspec Info: Font family 'TimesNewRoman(0)' created for font 'Times
 (fontspec)             Roman/BI/OT:script=latn;language=dflt;+smcp;mapping=tex-text;"
 
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 135.
+(Font)              scaled to size 12.0pt on input line 95.
 
 Package fontspec Info: Times New Roman scale = 0.9999971570313723.
 
@@ -592,27 +577,27 @@ Package fontspec Info: Font family 'TimesNewRoman(1)' created for font 'Times
 (fontspec)             Roman/BI/OT:script=latn;language=dflt;+smcp;"
 
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/TimesNewRoman(1)/m/n on input line 135.
+(Font)                  OT1/lmr/m/n --> TU/TimesNewRoman(1)/m/n on input line 95.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/TimesNewRoman(1)/m/it on input line 135.
+(Font)                  OT1/lmr/m/it --> TU/TimesNewRoman(1)/m/it on input line 95.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/TimesNewRoman(1)/b/n on input line 135.
+(Font)                  OT1/lmr/bx/n --> TU/TimesNewRoman(1)/b/n on input line 95.
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2022/03/01 v3.6b Customizing captions (AR)
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
-\caption@tempdima=\dimen188
-\captionmargin=\dimen189
-\caption@leftmargin=\dimen190
-\caption@rightmargin=\dimen191
-\caption@width=\dimen192
-\caption@indent=\dimen193
-\caption@parindent=\dimen194
-\caption@hangindent=\dimen195
+\caption@tempdima=\dimen184
+\captionmargin=\dimen185
+\caption@leftmargin=\dimen186
+\caption@rightmargin=\dimen187
+\caption@width=\dimen188
+\caption@indent=\dimen189
+\caption@parindent=\dimen190
+\caption@hangindent=\dimen191
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count319
-\c@continuedfloat=\count320
+\c@caption@flags=\count316
+\c@continuedfloat=\count317
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
@@ -620,21 +605,21 @@ Package caption Info: longtable package is loaded.
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip81
-\multirow@cntb=\count321
-\multirow@dima=\skip82
-\bigstrutjot=\dimen196
+\multirow@colwidth=\skip80
+\multirow@cntb=\count318
+\multirow@dima=\skip81
+\bigstrutjot=\dimen192
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen197
-\WF@size=\dimen198
-\c@WF@wrappedlines=\count322
-\WF@box=\box66
+\wrapoverhang=\dimen193
+\WF@size=\dimen194
+\c@WF@wrappedlines=\count319
+\WF@box=\box65
 \WF@everypar=\toks28
 Package: wrapfig 2003/01/31  v 3.6
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
 \everycr=\toks29
-\minrowclearance=\skip83
+\minrowclearance=\skip82
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/lscape.sty
@@ -645,36 +630,36 @@ Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 98.
 Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box67
-\sift@deathcycles=\count323
-\@vwid@loff=\dimen199
-\@vwid@roff=\dimen256
+\@vwid@box=\box66
+\sift@deathcycles=\count320
+\@vwid@loff=\dimen195
+\@vwid@roff=\dimen196
 )
-\c@taburow=\count324
-\tabu@nbcols=\count325
-\tabu@cnt=\count326
-\tabu@Xcol=\count327
-\tabu@alloc=\count328
-\tabu@nested=\count329
-\tabu@target=\dimen257
-\tabu@spreadtarget=\dimen258
-\tabu@naturalX=\dimen259
-\tabucolX=\dimen260
-\tabu@Xsum=\dimen261
-\extrarowdepth=\dimen262
-\abovetabulinesep=\dimen263
-\belowtabulinesep=\dimen264
-\tabustrutrule=\dimen265
+\c@taburow=\count321
+\tabu@nbcols=\count322
+\tabu@cnt=\count323
+\tabu@Xcol=\count324
+\tabu@alloc=\count325
+\tabu@nested=\count326
+\tabu@target=\dimen197
+\tabu@spreadtarget=\dimen198
+\tabu@naturalX=\dimen199
+\tabucolX=\dimen256
+\tabu@Xsum=\dimen257
+\extrarowdepth=\dimen258
+\abovetabulinesep=\dimen259
+\belowtabulinesep=\dimen260
+\tabustrutrule=\dimen261
 \tabu@thebody=\toks30
 \tabu@footnotes=\toks31
-\tabu@box=\box68
-\tabu@arstrutbox=\box69
-\tabu@hleads=\box70
-\tabu@vleads=\box71
-\tabu@cellskip=\skip84
+\tabu@box=\box67
+\tabu@arstrutbox=\box68
+\tabu@hleads=\box69
+\tabu@vleads=\box70
+\tabu@cellskip=\skip83
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box72
+\@tempboxb=\box71
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttablex/threeparttablex.sty
 Package: threeparttablex 2013/07/23 v0.3 by daleif
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
@@ -682,22 +667,22 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\TPTL@width=\skip85
+\TPTL@width=\skip84
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box73
-\UL@hyphenbox=\box74
-\UL@skip=\skip86
+\UL@box=\box72
+\UL@hyphenbox=\box73
+\UL@skip=\skip85
 \UL@hook=\toks32
-\UL@height=\dimen266
-\UL@pe=\count330
-\UL@pixel=\dimen267
-\ULC@box=\box75
+\UL@height=\dimen262
+\UL@pe=\count327
+\UL@pixel=\dimen263
+\ULC@box=\box74
 Package: ulem 2019/11/18
-\ULdepth=\dimen268
+\ULdepth=\dimen264
 ) (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
-\rotheadsize=\dimen269
-\c@nlinenum=\count331
+\rotheadsize=\dimen265
+\c@nlinenum=\count328
 \TeXr@lab=\toks33
 )
 
@@ -707,34 +692,34 @@ LaTeX Warning: Unused global option(s):
 (./index.aux)
 \openout1 = `index.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 157.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/b/n on input line 157.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/b/n on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 157.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/b/n on input line 157.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/b/n on input line 117.
 
 Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
@@ -760,7 +745,7 @@ Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 12.45282pt on input line 157.
+(Font)              scaled to size 12.45282pt on input line 117.
 
 Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
@@ -792,15 +777,15 @@ Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.45282pt on input line 157.
+(Font)              scaled to size 12.45282pt on input line 117.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 157.
+(Font)              `operators' in the math version `normal' on input line 117.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 157.
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 117.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 157.
+(Font)              `operators' in the math version `bold' on input line 117.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 157.
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 117.
 
 Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
@@ -879,13 +864,13 @@ Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
 (fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 157.
+(Font)              `symbols' in the math version `normal' on input line 117.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 157.
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 117.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 157.
+(Font)              `symbols' in the math version `bold' on input line 117.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 157.
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 117.
 
 Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
@@ -946,17 +931,17 @@ Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
 (fontspec)             =7.4717pt\relax \fontdimen 13\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 157.
+(Font)              `largesymbols' in the math version `normal' on input line 117.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 157.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 117.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 157.
+(Font)              `largesymbols' in the math version `bold' on input line 117.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 157.
-Package hyperref Info: Link coloring OFF on input line 157.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 117.
+Package hyperref Info: Link coloring OFF on input line 117.
 (./index.out) (./index.out)
-\@outlinefile=\write4
-\openout4 = `index.out'.
+\@outlinefile=\write3
+\openout3 = `index.out'.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -994,7 +979,7 @@ Package hyperref Info: Link coloring OFF on input line 157.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 157.
+(lastpage)             ! on input line 117.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: wrapfig package is loaded.
@@ -1006,9 +991,9 @@ File: figures/bioscar-logo.png Graphic file (type bmp)
 File: figures/Logo_Sorbonne_Universite.png Graphic file (type bmp)
 <figures/Logo_Sorbonne_Universite.png>
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 17.28pt on input line 171.
+(Font)              scaled to size 17.28pt on input line 131.
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
-(Font)              scaled to size 17.28pt on input line 172.
+(Font)              scaled to size 17.28pt on input line 132.
 [1
 
 ] [2] (./index.toc
@@ -1042,12 +1027,12 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 6.
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
-\tf@toc=\write5
-\openout5 = `index.toc'.
+\tf@toc=\write4
+\openout4 = `index.toc'.
 
 [3] [4] [5]
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/it' will be
-(Font)              scaled to size 12.0pt on input line 286.
+(Font)              scaled to size 12.0pt on input line 246.
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1067,21 +1052,21 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 
 [3]
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 357.
+(Font)              scaled to size 14.4pt on input line 317.
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 357.
+(Font)              scaled to size 14.4pt on input line 317.
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [4]
-Underfull \hbox (badness 5862) in paragraph at lines 425--426
+Underfull \hbox (badness 5862) in paragraph at lines 385--386
 \TU/TimesNewRoman(0)/m/n/12 analysis. Following database were queried : \TU/TimesNewRoman(0)/m/it/12 “GO_Molecular_Function_2021”, “Hu-
  []
 
 
-Overfull \hbox (52.46138pt too wide) in paragraph at lines 425--426
+Overfull \hbox (52.46138pt too wide) in paragraph at lines 385--386
 \TU/TimesNewRoman(0)/m/it/12 man_Gene_Atlas”, “BioPlanet_2019”, “GO_Biological_Process_2021”, “GO_Cellular_Component_2021” 
  []
 
@@ -1105,28 +1090,20 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [7]
+File: index_files/figure-latex/osteosarcoma_plot-1.pdf Graphic file (type pdf)
+<use index_files/figure-latex/osteosarcoma_plot-1.pdf>
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [8]
-File: index_files/figure-latex/osteosarcoma_plot-1.pdf Graphic file (type pdf)
-<use index_files/figure-latex/osteosarcoma_plot-1.pdf>
-File: index_files/figure-latex/estimate_plot-1.pdf Graphic file (type pdf)
-<use index_files/figure-latex/estimate_plot-1.pdf>
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [9]
-File: index_files/figure-latex/immune_plot-1.pdf Graphic file (type pdf)
-<use index_files/figure-latex/immune_plot-1.pdf>
-File: index_files/figure-latex/survival-1.pdf Graphic file (type pdf)
-<use index_files/figure-latex/survival-1.pdf>
-File: ../04_figures/ggplot/Venn_estimate_vs_hallmark_inflammatory_response.png Graphic file (type bmp)
-<../04_figures/ggplot/Venn_estimate_vs_hallmark_inflammatory_response.png>
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1145,52 +1122,45 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [12]
-
-Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\footskip}{14.49998pt}.
-
-[13]
-File: index_files/figure-latex/volc_plot-1.pdf Graphic file (type pdf)
-<use index_files/figure-latex/volc_plot-1.pdf>
-
-Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\footskip}{14.49998pt}.
-
-[14]
-
-Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\footskip}{14.49998pt}.
-
-[15]
-
-Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\footskip}{14.49998pt}.
-
-[16]
-
-Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\footskip}{14.49998pt}.
-
-[17]
 No file index.bbl.
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
-[18]
-Underfull \hbox (badness 2205) in paragraph at lines 684--687
+[13]
+Underfull \hbox (badness 2205) in paragraph at lines 554--557
 \TU/TimesNewRoman(0)/m/n/12 Analyses were conducted using the R Statistical language (version 4.1.2; R Core Team,
  []
 
 
-Underfull \hbox (badness 1755) in paragraph at lines 684--687
+Underfull \hbox (badness 1755) in paragraph at lines 554--557
 \TU/TimesNewRoman(0)/m/n/12 2021) on Windows 10 x64 (build 22000). Code is available at []$[][][][][] [] [] [] [][][][][][] [] [][][] [] [][][][] [][]
+ []
+
+
+Overfull \hbox (28.54868pt too wide) in paragraph at lines 573--573
+[]\TU/lmtt/m/n/12 ## Warning in meta$Date: correspondance partielle de 'Date' en 'Date/Publication'[] 
+ []
+
+
+Overfull \hbox (28.54868pt too wide) in paragraph at lines 573--573
+[]\TU/lmtt/m/n/12 ## Warning in meta$Date: correspondance partielle de 'Date' en 'Date/Publication'[] 
+ []
+
+
+Overfull \hbox (28.54868pt too wide) in paragraph at lines 573--573
+[]\TU/lmtt/m/n/12 ## Warning in meta$Date: correspondance partielle de 'Date' en 'Date/Publication'[] 
+ []
+
+
+Overfull \hbox (28.54868pt too wide) in paragraph at lines 573--573
+[]\TU/lmtt/m/n/12 ## Warning in meta$Date: correspondance partielle de 'Date' en 'Date/Publication'[] 
+ []
+
+
+Overfull \hbox (28.54868pt too wide) in paragraph at lines 573--573
+[]\TU/lmtt/m/n/12 ## Warning in meta$Date: correspondance partielle de 'Date' en 'Date/Publication'[] 
  []
 
 
@@ -1199,31 +1169,12 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [1]
-Underfull \vbox (badness 10000) detected at line 791
- []
-
-
-Underfull \vbox (badness 10000) detected at line 791
- []
-
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
-[2]
-
-Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\footskip}{14.49998pt}.
-
-[3]
-
-Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\footskip}{14.49998pt}.
-
-[4] 
+[2] 
 AED: lastpage setting LastPage
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
@@ -1232,22 +1183,22 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 
 [1] (./index.aux)
 Package rerunfilecheck Info: File `index.out' has not changed.
-(rerunfilecheck)             Checksum: 2FDA55AEE709C0ABCDED9D37C590B2DC;6914.
+(rerunfilecheck)             Checksum: D53708AE1191387DD5BAC89A8DEBCA03;5160.
  )
 (\end occurred inside a group at level 4)
 
-### semi simple group (level 4) entered at line 693 (\begingroup)
-### semi simple group (level 3) entered at line 251 (\begingroup)
-### semi simple group (level 2) entered at line 212 (\begingroup)
-### semi simple group (level 1) entered at line 127 (\begingroup)
+### semi simple group (level 4) entered at line 575 (\begingroup)
+### semi simple group (level 3) entered at line 211 (\begingroup)
+### semi simple group (level 2) entered at line 172 (\begingroup)
+### semi simple group (level 1) entered at line 87 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 21530 strings out of 477881
- 400844 string characters out of 5845596
- 864716 words of memory out of 5000000
- 42105 multiletter control sequences out of 15000+600000
- 472978 words of font info for 72 fonts, out of 8000000 for 9000
+ 20977 strings out of 477881
+ 389624 string characters out of 5845596
+ 852506 words of memory out of 5000000
+ 41568 multiletter control sequences out of 15000+600000
+ 472970 words of font info for 71 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  86i,11n,122p,631b,10974s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on index.pdf (28 pages).
+Output written on index.pdf (21 pages).

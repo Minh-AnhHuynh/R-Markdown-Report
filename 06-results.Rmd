@@ -33,6 +33,7 @@ librarian::shelf(
   snakecase, glue, rstatix, gridExtra, ggpmisc, ggplotify, patchwork
 )
 knitr::opts_knit$set(root.dir = root_dir)
+knitr::opts_knit$set(autodep = TRUE)
 
 setwd(root_dir)
 # Load packages
@@ -51,18 +52,19 @@ global_data <- vroom(data_path) %>%
   t() %>%
   as.data.frame()
 
+
 # Transform data in Z-scale
 global_data_scaled <- global_data %>%
   rownames_to_column(var = "sample") %>%
   dplyr::select(-sample) %>%
   scale(center = TRUE, scale = TRUE) %>%
-  cbind.data.frame(., row.names(global_data)) %>%
-  rename(sample = last_col()) %>%
+  bind_cols("sample" = row.names(global_data)) %>% 
   column_to_rownames("sample")
-global_data_scaled %<>% .[, colSums(is.na(.)) < nrow(.)]
+global_data_scaled %<>% .[, colSums(is.na(.)) < nrow(.)] # Should be obsolete
 
 remove_genes <- remove_unknown_genes(get_list_unknown_genes = TRUE) %>%
   extract2("Hallmark_Inflammatory_Response")
+
 
 # Read data and remove unknown genes
 hallmark_inflammatory <- vroom("02_data/msigdb_signature/msigdb_signature.tsv") %>%
@@ -71,6 +73,7 @@ hallmark_inflammatory <- vroom("02_data/msigdb_signature/msigdb_signature.tsv") 
     !gene_symbol %in% remove_genes
   )
 hallmark_inflammatory <- global_data_scaled[, hallmark_inflammatory$gene_symbol]
+
 
 # Construction of groups by mean of Z-score
 hallmark_mean_groups <- hallmark_inflammatory %>%
@@ -98,9 +101,9 @@ hallmark_mean_groups %<>%
 # Compute hallmark_mean_groups for heatmap
 mds_data <- hallmark_heatmap(k_cluster = 8, scale = TRUE)
 hallmark_cluster <- mds_data %>%
-  select(sample, cluster) %>%
+  dplyr::select(sample, cluster) %>%
   arrange(cluster) %>%
-  rename(cluster_8 = cluster)
+  dplyr::rename(cluster_8 = cluster)
 hallmark_mean_groups %<>% left_join(hallmark_cluster) %>% arrange(mean)
 
 # Histogram of hallmark mean with MDS clusters
@@ -144,7 +147,7 @@ ggsave("04_figures/ggplot/hallmark_mean_vs_sample+group_mean.png",
 
 
 ### Compute kruskal test ####
-stat_table <- make_kruskal_test(hallmark_mean_groups, "mean", "group_mean")
+stat_table <- make_mean_comparison(hallmark_mean_groups, "mean", "group_mean")
 
 # Compute plots
 elbow_hi <- elbow_method(hallmark_inflammatory)
@@ -220,15 +223,6 @@ suppressWarnings(print(p)) # Used to suppress ggrepel warnings
 #   plot_annotation(tag_levels = 'A')
 ```
 
-## Characterization of osteosarcomas associated to inflammatory status
-
-Comparison of the mean of _Hp Osteosarcoma_ gene signature and gene relating to types of osteosarcomas associated to inflammatory groups were performed, represented through a heatmap. Despite high heterogeneity between samples and inflammatory status, the Z-score of the mean of genes in Low versus High group is statistically significantly different.
-
-However _Hp Osteosarcoma_ in GSEA is not significantly differrent (p = 0.163).
-
-Comparison of the expression of specific osteosarcoma markers relating to osteoblastic, chondroblastic, fibroblastic markers through a heatmap representation. Hierarchical clustering of the samples does not appear to be associated with corresponding inflammatory status. However it does reveal that there are groups of osteoblastic, chondroblastic and fibroblastic osteosarcomas which is expected.
-
-The mean of markers of proliferation (MKI67, PCNA, TOP2A) associated to osteosarcomas have been compared to inflammatory status, along with the mean of the three markers. Kruskal-Wallis testing is significant (p = 0.00968) and post-hoc Dunn analysis reveals that the mean of the proliferation markers between low and high group is significantly different (p = 0.016). The data suggests that proliferation is hindered when inflammatory status is high in the osteosarcoma samples.
 
 
 ```{r hp_osteosarcoma, include=FALSE, cache = TRUE}
@@ -273,13 +267,13 @@ hm_ost_c <- make_pheatmap(hp_osteosarcoma,
 osteosarcoma_annotation <- get_osteosarcoma_type()[[2]] %>%
   filter(!type %in% c("TILs Markers", "Osteoclastic Markers")) %>%
   rownames_to_column("sample") %>%
-  rename("Type" = type)
+  dplyr::rename("Type" = type)
 osteosarcoma_type <- get_osteosarcoma_type()[[1]] %>%
-  select(osteosarcoma_annotation$sample) %>%
+  dplyr::select(osteosarcoma_annotation$sample) %>%
   rownames_to_column("sample")
 osteosarcoma_type_mean_groups <-
   left_join(hallmark_mean_groups, osteosarcoma_type) %>%
-  select(sample, "cluster" = group_mean, LUM:last_col())
+  dplyr::select(sample, "cluster" = group_mean, LUM:last_col())
 
 
 hallmark_cluster <- hallmark_mean_groups %>%
@@ -320,7 +314,7 @@ hm_os_type <- make_pheatmap(osteosarcoma_type,
 )
 ```
 
-```{r osteosarcoma_plot, fig.height=12, fig.width=15, fig.cap="**Heatmap of HP Osteosarcoma signature with samples annotated to their respective inflammatory groups.**"}
+```{r osteosarcoma_plot, echo = FALSE, fig.height=12, fig.width=15, fig.cap="**Heatmap of HP Osteosarcoma signature with samples annotated to their respective inflammatory groups.**"}
 
 hm_ost %<>% as.ggplot()
 hm_ost_c %<>% as.ggplot()
@@ -332,6 +326,25 @@ suppressWarnings(print(pho))
 ```
 
 
+## Characterization of osteosarcomas associated to inflammatory status
+
+In order to characterize osteosarcomas, the _Hp Osteosarcoma_ gene signature from MSigDB was used to see whether the inflammatory groups can be related to gene expression from this signature(**Figure \@ref(fig:osteosarcoma_plot)**). Visually, the heatmap representing the gene signature, annotated with the inflammatory groups, does seem to indicate that the samples express genes differently between Low, Medium and High inflammation group.
+
+
+
+
+
+However _Hp Osteosarcoma_ in GSEA is not significantly differrent (p = 0.163).
+
+Comparison of the mean of _Hp Osteosarcoma_ gene signature and gene relating to types of osteosarcomas associated to inflammatory groups were performed, represented through a heatmap. Despite high heterogeneity between samples and inflammatory status, the Z-score of the mean of genes in Low versus High group is statistically significantly different.
+
+
+Comparison of the expression of specific osteosarcoma markers relating to osteoblastic, chondroblastic, fibroblastic markers through a heatmap representation. Hierarchical clustering of the samples does not appear to be associated with corresponding inflammatory status. However it does reveal that there are groups of osteoblastic, chondroblastic and fibroblastic osteosarcomas which is expected.
+
+The mean of markers of proliferation (MKI67, PCNA, TOP2A) associated to osteosarcomas have been compared to inflammatory status, along with the mean of the three markers. Kruskal-Wallis testing is significant (p = 0.00968) and post-hoc Dunn analysis reveals that the mean of the proliferation markers between low and high group is significantly different (p = 0.016). The data suggests that proliferation is hindered when inflammatory status is high in the osteosarcoma samples.
+
+
+
 ## Characterization of intra-tumor inflammation associated to inflammatory status
 
 
@@ -339,740 +352,718 @@ suppressWarnings(print(pho))
 
 
 
-### General relationship of inflammatory status with immune response
-
-#### Relationship with ESTIMATE and inflammatory signatures
-
-```{r estimate, include=FALSE}
-
-removed_genes <- remove_unknown_genes()
-
-msigdb_path <-
-  list.files("02_data/msigdb_signature/", pattern = "msig", full.names = TRUE)
-combined_signature <-
-  make_combined_signature(
-    data = global_data,
-    signature_list = "msigdbr",
-    files = msigdb_path
-  ) %>%
-  rownames_to_column("sample")
-hallmark_group <- hallmark_mean_groups %>%
-  rename("cluster" = "group_mean") %>% # This is in order to use make_pheatmap
-  select(sample, cluster) %>%
-  left_join(combined_signature)
-
-estimate_group <- hallmark_group %>% select(
-  sample,
-  cluster,
-  "Immune_Score",
-  "hallmark_inflammatory_response",
-  "hallmark_tnfa_signaling_via_nfkb"
-)
-
-hm_estimate_mean <- make_pheatmap(
-  estimate_group,
-  clustering_method = "mds-kmeans",
-  pheatmap_method = "unclustered_signature",
-  pheatmap_signature = "combined",
-  transpose = TRUE,
-  cluster_column = FALSE,
-  cluster_rows = FALSE,
-  sample_cluster = 3,
-  angle_col = 0,
-  width = 5,
-  height = 2.5,
-  col_order = c("Low", "Medium", "High"),
-  return_plot = TRUE
-)
-
-hm_estimate <- make_pheatmap(
-  estimate_group,
-  clustering_method = "hclust",
-  pheatmap_method = "unclustered_samples",
-  annotation_col = hallmark_annotation,
-  transpose = TRUE,
-  angle_col = 0,
-  width = 15,
-  border_col = NA,
-  return_plot = TRUE
-)
-
-
-estimate_table <- make_kruskal_test(estimate_group,
-  quantvar = "Immune_Score",
-  groupvar = "cluster"
-)
-
-```
-
-```{r estimate_plot, fig.cap="ESTIMATE", fig.height=10, fig.width=15, cache=FALSE}
-hm_estimate %<>% as.ggplot()
-hm_estimate_mean %<>% as.ggplot()
-est <- ggarrange(hm_estimate, hm_estimate_mean, estimate_table, labels = "AUTO")
-suppressWarnings(print(est))
-
-```
-
-
-#### Immune abundance by immune deconvolution algorithm
-
-Immune cell abundance can be determined thanks to immune deconvolution algorithm. Here, MCP-Counter CIBERSORTx and xCell have been tried.
-
-```{r mcp_counter, cache=TRUE, include=FALSE}
-
-if (!require("MCPcounter", quietly = TRUE)) {
-  remotes::install_github("ebecht/MCPcounter", ref = "master", subdir = "Source")
-}
-
-librarian::shelf(
-  tidyverse,
-  magrittr,
-  MCPcounter,
-  ggplot2,
-  ggpubr,
-  ggnewscale,
-  glue,
-  vroom
-)
-
-
-hallmark <- vroom("03_results/hallmark_mean_groups.tsv")
-global_data <-
-  vroom("03_results/TARGET-OS_GDC_protein_data.tsv") %>%
-  column_to_rownames("hgnc_symbol")
-
-hallmark_mean_groups <-
-  vroom("03_results/hallmark_mean_groups.tsv")
-
-mcp_counter <-
-
-  MCPcounter.estimate(global_data, featuresType = "HUGO_symbols") %>%
-  t() %>%
-  scale() %>%
-  as.data.frame() %>%
-  rownames_to_column("sample") %>%
-  left_join(hallmark_mean_groups)
-
-population <- mcp_counter %>%
-  select(-sample) %>%
-  select(!median:last_col()) %>%
-  colnames()
-
-fill_color <- ggsci::pal_npg()(3)
-
-
-make_immune_deconv_plot <-
-  function(data,
-           group,
-           population,
-           ylab,
-           width = 20,
-           height = 15) {
-    df_name <- deparse(substitute(data))
-
-    if (has_rownames(data)) {
-      data %<>% column_to_rownames(names(select(data, 1)))
-    }
-
-    immune_plot <- ggboxplot(
-      data,
-      x = group,
-      y = population,
-      fill = "group_mean",
-      add = "mean_sd",
-      palette = fill_color,
-      ggtheme = theme_pubclean(),
-      order = c("Low", "Medium", "High"),
-      xlab = "",
-      legend.title = "Group",
-      ylab = ylab
-    )
-
-    # Choose for which group wilcoxon test will be performed
-    my_comparisons <-
-      list(c("Low", "Medium"), c("Medium", "High"), c("Low", "High"))
-    symnum_args <-
-      list(
-        cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05, 1),
-        symbols = c("****", "***", "**", "*", "ns")
-      )
-
-    # Test used by default is Kruskal-Wallis
-    immune_plot %<>% map(~ {
-      .x + stat_compare_means(
-        label = "p.format",
-        label.x.npc = "center",
-        label.y.npc = 0.95
-      ) +
-        stat_compare_means(
-          comparisons = my_comparisons,
-          symnum.args = symnum_args,
-          hide.ns = TRUE
-        )
-    })
-
-    plot <- ggarrange(
-      plotlist = immune_plot,
-      common.legend = TRUE,
-      align = "hv"
-    )
-    file_save <-
-      glue("04_figures/immune_deconv/immune_abundance_{df_name}.png")
-    ggsave(file_save,
-      width = width,
-      height = height,
-      dpi = "retina"
-    )
-    print(glue("Plot saved in {file_save}"))
-    return(plot)
-  }
-
-
-mcp_plot <- make_immune_deconv_plot(mcp_counter, "group_mean", population, "Mean (SD) of Z-score")
-
-
-```
-
-
-```{r cibersortx, cache = TRUE, include=FALSE}
-cibersortx <-
-  vroom("02_data/CIBERSORT/CIBERSORTx_Adjusted_TARGET-OS.txt")
-
-# CIBERSORTx is run in absolute mode, with batch correction, no quantile
-# normalization
-cibersortx %<>%
-  left_join(hallmark_mean_groups, by = c("Mixture" = "sample"))
-population <- cibersortx %>%
-  select(`B cells naive`:Neutrophils) %>%
-  colnames()
-
-ciber_plot <- make_immune_deconv_plot(cibersortx, "group_mean", population, "Absolute Score",
-  height = 20
-)
-
-immune_plot <- mcp_plot / ciber_plot
-immune_plot + plot_annotation(tag_levels = "A")
-
-# cibersortx_tidy <- cibersortx %>%
-#   tidyr::pivot_longer(cols = population, "population") %>%
-#   select(1, population, value, group_mean) %>%
-#   mutate(population = fct_reorder(population, value, mean),
-#          group_mean = factor(cibersortx_tidy$group_mean,
-#                              levels = c("Low", "Medium", "High")))
-# 
-# 
-# 
-# bpt <-
-#   ggboxplot(cibersortx_tidy,
-#     "population",
-#     "value",
-#     fill = "group_mean",
-#     legend.title = "Group",
-#     palette = "npg",
-#     ylab = "Absolute Score",
-#     ggtheme = theme_pubr()
-#   ) + coord_flip()
-# ggsave("04_figures/immune_deconv/cibersortx_barplot.png")
-# 
-# 
-# ggplot(cibersortx_tidy, aes(x = population, y = value, fill = group_mean)) +
-#   geom_col(position = "dodge", colour = "black") + theme_pubr()
-# 
-# ggarrange(plotlist = bp, common.legend = TRUE)
-# 
-# 
-# ggplot(cibersortx, aes(x = population, fill = group_mean))
-
-```
-
-
-
-```{r immune_plot, fig.height=20, fig.width=15, fig.cap= "Immune deconvolution plot. (A) MCP-counter", cache = TRUE}
-# immune_plot <- ggarrange(mcp_plot, ciber_plot, labels = "AUTO")
-
-
-suppressWarnings(print(immune_plot))
-
-```
-
-
-#### Survival curve
-```{r survival_code, message=FALSE, warning=FALSE, cache=TRUE, include=FALSE}
-
-librarian::shelf(tidyverse, magrittr, survival, survminer, snakecase, glue, vroom)
-
-survival_data <-
-  vroom("../TargetOS-Osteosarcoma/02_data/GDC/GDC_clinical_data/clinical.tsv") %>%
-  setNames(to_snake_case(colnames(.))) %>%
-  mutate(
-    "sample" = map_chr(
-      case_submitter_id,
-      ~ str_replace(., pattern = "TARGET-40-", replacement = "")
-    ),
-    .before = 1
-  ) %>%
-  select(
-    sample,
-    vital_status,
-    days_to_death,
-    age_at_diagnosis,
-    days_to_last_follow_up
-  )
-hallmark_mean_groups <-
-  vroom("../TargetOS-Osteosarcoma/03_results/hallmark_mean_groups.tsv")
-
-# From ?Surv : The status indicator, normally 0=alive, 1=dead. Other choices are
-# TRUE/FALSE (TRUE = death) or 1/2 (2=death)
-survival_data <-
-  left_join(hallmark_mean_groups, survival_data) %>%
-  dplyr::mutate(
-    vital_status = case_when(
-      vital_status == "Alive" ~ "0",
-      vital_status == "Dead" ~ "1"
-    ),
-    days_to_death = str_replace(days_to_death, "'--", NA_character_),
-    days_to_death = as.numeric(days_to_death),
-    group_mean = case_when(
-      group_mean == "Low" ~ "1",
-      group_mean == "Medium" ~ "2",
-      group_mean == "High" ~ "3"
-    ),
-    group_mean = as.numeric(group_mean),
-    vital_status = as.numeric(vital_status),
-    days_to_last_follow_up = as.numeric(days_to_last_follow_up)
-  ) %>%
-  drop_na(days_to_last_follow_up) %>%
-  filter(!group_mean == 2) %>%
-  write_tsv("../TargetOS-Osteosarcoma/03_results/survival_inflammatory_data.tsv")
-
-
-# make_survplot <- function(quantile)
-
-
-fit <-
-  survfit(Surv(days_to_last_follow_up, event = vital_status) ~ group_mean,
-    data = survival_data
-  )
-summary(fit)
-summary(fit)$table
-
-# Change color, linetype by strata, risk.table color by strata
-# Testing for trend log rank produces p = 0.20, instead of regular log rank =
-# 0.40. Plotting for only two groups produce log rank = 0.16.
-# Chi-2 square testing produces p = 0.20.
-
-ggsurv <- ggsurvplot(
-  fit,
-  pval = TRUE,
-  pval.method = TRUE,
-  risk.table = TRUE,
-  risk.table.col = "group_mean",
-  surv.median.line = "hv",
-  legend.labs = c("Low", "High"),
-  ggtheme = theme_pubr(),
-  # fun = "cumhaz",
-  palette = "lancet",
-  xlim = c(0, 1825)
-)
-# Save Plot and Table
-ggsave(
-  "../TargetOS-Osteosarcoma/04_figures/ggplot/survival_plot-inflammation-group_mean.png",
-  plot = survminer:::.build_ggsurvplot(ggsurv)
-)
-# Save plot only
-ggsave(
-  glue(
-    "../TargetOS-Osteosarcoma/04_figures/ggplot/survival_plot-inflammation-group_mean-plot.png"
-  ),
-  plot = ggsurv$plot,
-  dpi = "retina"
-)
-# Chi-2 square testing
-surv_diff <-
-  survdiff(Surv(days_to_last_follow_up, event = vital_status) ~ group_mean,
-    data = survival_data
-  )
-```
-
-```{r survival, fig.cap=" **Kaplan-Meier survival plot of low vs high group indicate a trend associating inflammatory status with survival prognostic.** Horizontal and vertical axes represent survival times and rates, respectively. Red and blue curves are samples with risk score higher and lower than the median value, respectively. Plus signs indicate censored values. Depicted P-values were obtained by the logrank test."}
-suppressWarnings(print(ggsurv))
-```
-
-### Similarity of inflammatory signatures
-```{r venn, out.width="100%", fig.cap = "Venn diagram comparing three inflammatory signatures."}
-knitr::include_graphics("../04_figures/ggplot/Venn_estimate_vs_hallmark_inflammatory_response.png")
-```
-
-## Biological mechanisms underlying the inflammatory groups
-
-### Differential Gene Expression Analysis
-
-```{r load deseq2, include=FALSE}
-
-librarian::shelf(
-  tidyverse,
-  magrittr,
-  DESeq2,
-  data.table,
-  EnhancedVolcano,
-  glue,
-  ggpubr,
-  ggVennDiagram,
-  RSQLite,
-  snakecase,
-  vroom
-)
-```
-
-```{r generate_raw_count, cache = TRUE}
-# 2. Generate raw data ONCE -----------------------------------------------
-generate_protein_count_mat <- function(path, pattern) {
-  files <- list.files(path, pattern, full.names = TRUE, recursive = TRUE, include.dirs = TRUE)
-  mat <- as.data.frame(do.call(cbind, lapply(files, function(x) fread(x, stringsAsFactors = FALSE))))
-  mat <- mat[-c(1:4), ]
-  gene_type <- as.character(mat[, 3])
-  rownames(mat) <- mat[, 1]
-  mat <- as.data.frame(mat[, seq(4, ncol(mat), 9)])
-  mat$gene_type <- gene_type
-  mat <- subset(mat, mat$gene_type == "protein_coding")
-  mat <- mat[, -c(ncol(mat))]
-  return(mat)
-}
-
-protein_counts <- generate_protein_count_mat("02_data/GDC/GDC_data/", "\\.rna_seq.augmented_star_gene_counts.tsv$")
-
-
-# Following step done with protein counts only
-file_names <-
-  list.files(
-    "02_data/GDC/GDC_data/",
-    "\\.rna_seq.augmented_star_gene_counts.tsv$",
-    full.names = FALSE,
-    recursive = TRUE,
-    include.dirs = FALSE
-  ) %>% sub(".*/", "", .)
-
-samplesheet <-
-  read.table(
-    "02_data/GDC/GDC_metadata/gdc_sample_sheet.2022-04-29.tsv",
-    header = T,
-    sep = "\t"
-  ) %>%
-  .[match(file_names, .$File.Name), ] %>%
-  mutate(
-    "sample" =
-      map_chr(
-        Case.ID,
-        ~ str_replace(., pattern = "TARGET-40-", replacement = "")
-      ),
-    .before = 1
-  )
-
-protein_counts %<>% set_colnames(samplesheet$sample)
-# Read metadata
-metadata <-
-  readxl::read_xlsx("02_data/metadata/TARGET_OS_ClinicalData_Validation_20211108.xlsx") %>%
-  set_names(snakecase::to_snake_case(colnames(.))) %>%
-  mutate(
-    "sample" = map_chr(
-      target_usi,
-      ~ str_replace(., pattern = "TARGET-40-", replacement = "")
-    ),
-    .before = 1
-  ) %>%
-  select(
-    sample,
-    age_at_diagnosis_in_days,
-    overall_survival_time_in_days,
-    time_to_death_in_days,
-    time_to_first_relapse_in_days,
-    vital_status
-  )
-# column_to_rownames("sample")
-
-# Drop metadata samples that aren't in the 88 samples in GDC data
-metadata %>% filter(sample %in% samplesheet)
-
-# Do we really have 0 samples matching ?
-
-
-head(fread("02_data/GDC/GDC_data/00411dbf-7487-46ff-b26a-85761719779e/c9372691-13e4-49a3-999c-ca21f54ad988.rna_seq.augmented_star_gene_counts.tsv"))
-# We can obtain both raw counts and TPM / FPKM from TARGET-OS data
-
-
-
-# Transform the gene_id to gene_name
-count_data <- list.files(path = "02_data/GDC/GDC_data/", recursive = TRUE, full.names = TRUE)[1] %>%
-  data.table::fread() %>% # data.table::fread works unlike readr::read_tsv here
-  .[-c(1:4), ] %>%
-  select(gene_id, gene_name) %>%
-  right_join(rownames_to_column(protein_counts, "gene_id"))
-
-# Duplicate genes exist in gene_name, we concatenate them so that we don't lose
-# information
-duplicate_gene <- count_data %>%
-  group_by(gene_name) %>%
-  filter(n() > 1) %>%
-  unite(gene_name, gene_name, gene_id, sep = "-")
-
-# Remove duplicate rows and add the concatenated rows back
-full_data <- count_data %>%
-  group_by(gene_name) %>%
-  filter(!n() > 1) %>%
-  bind_rows(duplicate_gene) %>%
-  select(-gene_id) %>%
-  column_to_rownames("gene_name")
-
-# Remove empty columns with no expression
-no_expression <- full_data %>%
-  t() %>%
-  as.data.frame() %>%
-  select(where(~ sum(.) == 0))
-glue("{length(no_expression)} genes were found with 0 expression ")
-full_data %<>% t() %>%
-  as.data.frame() %>%
-  select(where(~ sum(.) != 0)) %>%
-  t() %>%
-  as.data.frame()
-
-raw_data_path <- "03_results/DESeq2_raw_protein_data.tsv"
-full_data %>%
-  rownames_to_column("gene") %>%
-  write_tsv(raw_data_path)
-
-```
-
-```{r deseq2, cache=TRUE, include=FALSE}
-
-raw_data_path <- "03_results/DESeq2_raw_protein_data.tsv"
-full_data <- read_tsv(raw_data_path) %>% column_to_rownames("gene")
-clinical <- read_tsv("02_data/GDC/GDC_clinical_data/clinical.tsv") %>%
-  mutate(
-    "sample" =
-      map_chr(
-        case_submitter_id,
-        ~ str_replace(., pattern = "TARGET-40-", replacement = "")
-      ),
-    .before = 1
-  )
-
-inflammatory_group_clinical <- read_tsv("03_results/hallmark_mean_groups.tsv") %>%
-  right_join(clinical) %>%
-  mutate(group_mean = as.factor(group_mean)) %>%
-  mutate(vital_status = as.factor(vital_status))
-
-
-dds <-
-  DESeqDataSetFromMatrix(full_data,
-    colData = inflammatory_group_clinical,
-    design = ~ group_mean + vital_status,
-  )
-dds$vital_status <- relevel(dds$vital_status, ref = "Dead")
-dds$group_mean <- relevel(dds$group_mean, ref = "Low")
-dds <- DESeq(dds)
-
-
-# DESeq2 results
-DESeq2_vital_status <-
-  DESeq2::results(dds, contrast = c("vital_status", "Dead", "Alive"))
-DESeq2_group_mean_Low_vs_Medium <-
-  DESeq2::results(dds, contrast = c("group_mean", "Low", "Medium"))
-DESeq2_group_mean_Medium_vs_High <-
-  DESeq2::results(dds, contrast = c("group_mean", "Medium", "High"))
-DESeq2_group_mean_Low_vs_High <-
-  DESeq2::results(dds, contrast = c("group_mean", "Low", "High"))
-
-DESeq2_vital_status_df <- as.data.frame(DESeq2_vital_status)
-
-
-# Create a list with df_name inside to input into get_DEG_genes
-DESeq2_inflammation <- list(
-  DESeq2_group_mean_Low_vs_Medium_df = as.data.frame(DESeq2_group_mean_Low_vs_Medium),
-  DESeq2_group_mean_Medium_vs_High_df = as.data.frame(DESeq2_group_mean_Medium_vs_High),
-  DESeq2_group_mean_Low_vs_High_df = as.data.frame(DESeq2_group_mean_Low_vs_High)
-) %>%
-  Map(cbind, ., df_name = names(.)) %>%
-  map(drop_na)
-
-DESeq2_inflammation %>%
-  map_dfr(~ rownames_to_column(.x, "gene")) %>%
-  write_tsv("../TargetOS-Osteosarcoma/03_results/DESeq2_genes/DEG_results/DESeq2_inflammation_TARGET-OS.tsv")
-
-
-# Function to split results into up and downregulated genes
-get_DEG_genes <-
-  function(data,
-           condition = NULL,
-           write = TRUE,
-           return_all_DEG = FALSE,
-           padj_cutoff = 0.05,
-           lfc_cutoff = 1,
-           use_list = FALSE) {
-
-    # Use use_list == TRUE if using inside purrr::map or lapply
-    df_name <- deparse(substitute(data))
-    if (use_list == TRUE) {
-      df_name <- distinct(data, df_name) %>% pull()
-    }
-
-
-    # Failsafe to ensure "tidy" format, rownames are assumed to be genes
-    # This is useful when binding gene in a single df, where genes are duplicates
-    # This ensures the rest of the function works in tidy and non tidy df
-    if (tibble::has_rownames(data) == TRUE) {
-      data %<>% rownames_to_column("gene")
-    }
-
-
-    file_path <- "03_results/DESeq2_genes/"
-    dir.create(file_path, showWarnings = FALSE)
-    if (!is.null(condition)) {
-      condition_name <- condition
-    } else {
-      condition_name <-
-        str_extract(df_name, "[[:alpha:]]*_vs_[[:alpha:]]*")
-    }
-
-
-    # log2(1) = 2 in FoldChange
-    # FDR with BH by default in DESeq2
-    up_reg <- filter(data, padj <= padj_cutoff & log2FoldChange >= lfc_cutoff) %>%
-      mutate("condition" = condition_name)
-    down_reg <- filter(data, padj <= padj_cutoff & log2FoldChange <= -lfc_cutoff) %>%
-      mutate("condition" = condition_name)
-
-
-    if (write == TRUE) {
-
-      up_reg %>% select(gene) %>%
-        write_tsv(
-          glue(
-            "{file_path}upregulated_genes-{df_name}.tsv"
-          ),
-          col_names = FALSE
-        )
-      down_reg %>% select(gene) %>%
-        write_tsv(
-          glue(
-            "{file_path}downregulated_genes-{df_name}.tsv"
-          ),
-          col_names = FALSE
-        )
-
-      DEG_gene <- bind_rows(up_reg, down_reg)
-
-      DEG_gene %>%
-        pull(gene) %>%
-        tibble() %>%
-        write_tsv(glue("{file_path}DEG_genes-{df_name}.tsv"),
-          col_names = FALSE
-        )
-    }
-
-    cat(
-      glue("Gene list obtained for {df_name}.
-           There is {nrow(up_reg)} upregulated genes.
-           There is {nrow(down_reg)} downregulated genes.
-           Gene list saved in {file_path}.\n
-
-           ")
-    )
-    if (return_all_DEG == TRUE) {
-      return(DEG_gene)
-    }
-
-    list(up_regulated = up_reg, down_regulated = down_reg) %>%
-      return()
-  }
-
-# Return a list with separated up and downregulated genes and write down genes
-# for ORA (Over Representation Analysis)
-DESeq2_inflammation_DEG <- DESeq2_inflammation %>%
-  purrr::map(get_DEG_genes, use_list = TRUE)
-
-
-
-## Plot volcano plot ======================================================
-
-plot_volcano <- function(data, use_list = TRUE, tidy = FALSE) {
-  df_name <- deparse(substitute(data))
-  if (use_list == TRUE) {
-    df_name <- distinct(data, df_name) %>% pull()
-  }
-
-  if (tidy == TRUE) {
-    label_name <- dplyr::pull(data, 1)
-  } else {
-    label_name <- row.names(data)
-  }
-
-  message(glue("Plotting {df_name}"))
-  condition_name <-
-    str_extract(df_name, "[[:alpha:]]*_vs_[[:alpha:]]*")
-
-  file_dir <- "04_figures/DESeq2_results/"
-
-  volcano <- EnhancedVolcano(
-    data,
-    lab = label_name,
-    x = "log2FoldChange",
-    y = "pvalue",
-    subtitle = "",
-    pointSize = 2,
-    pCutoff = 0.05,
-    pCutoffCol = "padj",
-    FCcutoff = 1,
-    title = glue("{to_any_case(condition_name, case = 'title')}"),
-    drawConnectors = TRUE,
-    widthConnectors = 1.0,
-    colConnectors = "black",
-    arrowheads = FALSE,
-    gridlines.major = FALSE,
-    gridlines.minor = FALSE,
-    boxedLabels = TRUE,
-  )
-  volcano_path <- glue("{file_dir}volcano_plot-{condition_name}.png")
-  ggsave(volcano_path,
-    height = 10,
-    width = 10,
-    dpi = "retina"
-  )
-  print(glue("Volcano plot saved in {volcano_path}"))
-
-  return(volcano)
-}
-
-volcano_list <- map(DESeq2_inflammation, plot_volcano)
-
-
-volc_plot <- ggarrange(
-  plotlist = volcano_list,
-  ncol = 3,
-  nrow = 1,
-  align = "hv",
-  labels = c("A", "B", "C"),
-  common.legend = TRUE
-)
-ggsave("04_figures/DESeq2_results/volcano_plot-inflammatory_group.png",
-  height = 10,
-  width = 18
-)
-
-
-
-```
-
-```{r volc_plot, echo=FALSE, fig.cap="Volcano", fig.height=10, fig.width=10}
-suppressWarnings(print(volc_plot))
-```
-
-
-
-### Gene Set Enrichment Analysis (GSEA)
-
-
-
-
-## single cell RNA-Seq analysis
-
-Using scRNA-Seq data from GSE152048, used by @Zhou.202005 and normalized by Sophie
+<!-- ### General relationship of inflammatory status with immune response -->
+
+<!-- #### Relationship with ESTIMATE and inflammatory signatures -->
+
+<!-- ```{r estimate, include=FALSE, dependson="hallmark_inflammatory"} -->
+
+
+<!-- # Violin plot for ESTIMATE --------------------------------------------- -->
+
+<!-- my_comparisons <- -->
+<!--   list(c("Low", "Medium"), c("Medium", "High"), c("Low", "High")) -->
+<!-- symnum.args <- -->
+<!--   list( -->
+<!--     cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05, 1), -->
+<!--     symbols = c("****", "***", "**", "*", "ns") -->
+<!--   ) -->
+
+<!-- estimate_data <- vroom("03_results/estimate/estimate_score.tsv") %>% -->
+<!--   select(sample, immune) %>% -->
+<!--   left_join(rownames_to_column(hallmark_annotation, "sample")) -->
+
+
+<!-- stat_tukey <- -->
+<!--   make_mean_comparison(estimate_data, "immune", "Group", return_tukey = TRUE) -->
+<!-- # stat_tukey %>% add_xy_position(x = "Group") -->
+<!-- # This doesn't work -->
+
+<!-- ve <- -->
+<!--   ggviolin( -->
+<!--     estimate_data, -->
+<!--     "Group", -->
+<!--     "immune", -->
+<!--     ylab = "Immune Score", -->
+<!--     fill = "Group", -->
+<!--     add = "boxplot", -->
+<!--     order = c("Low", "Medium", "High") -->
+<!--   ) + -->
+<!--   stat_compare_means(method = "anova") + -->
+<!--   stat_pvalue_manual(stat_tukey, label = "p.adj", -->
+<!--                      y.position = c(3500,3100,2900)) -->
+
+
+<!-- ``` -->
+
+<!-- ```{r estimate_violin, fig.cap="ESTIMATE", fig.height=10, fig.width=15, cache=FALSE} -->
+
+
+<!-- vep <- ggarrange(ve, labels = "AUTO") -->
+<!-- suppressWarnings(print(vep)) -->
+
+<!-- ``` -->
+
+
+<!-- #### Immune abundance by immune deconvolution algorithm -->
+
+<!-- Immune cell abundance can be determined thanks to immune deconvolution algorithm. Here, MCP-Counter CIBERSORTx and xCell have been tried. -->
+
+<!-- ```{r mcp_counter, cache=TRUE, include=FALSE} -->
+
+<!-- if (!require("MCPcounter", quietly = TRUE)) { -->
+<!--   remotes::install_github("ebecht/MCPcounter", ref = "master", subdir = "Source") -->
+<!-- } -->
+
+<!-- librarian::shelf( -->
+<!--   tidyverse, -->
+<!--   magrittr, -->
+<!--   MCPcounter, -->
+<!--   ggplot2, -->
+<!--   ggpubr, -->
+<!--   ggnewscale, -->
+<!--   glue, -->
+<!--   vroom -->
+<!-- ) -->
+
+
+<!-- hallmark <- vroom("03_results/hallmark_mean_groups.tsv") -->
+<!-- global_data <- -->
+<!--   vroom("03_results/TARGET-OS_GDC_protein_data.tsv") %>% -->
+<!--   column_to_rownames("hgnc_symbol") -->
+
+<!-- hallmark_mean_groups <- -->
+<!--   vroom("03_results/hallmark_mean_groups.tsv") -->
+
+<!-- mcp_counter <- -->
+
+<!--   MCPcounter.estimate(global_data, featuresType = "HUGO_symbols") %>% -->
+<!--   t() %>% -->
+<!--   scale() %>% -->
+<!--   as.data.frame() %>% -->
+<!--   rownames_to_column("sample") %>% -->
+<!--   left_join(hallmark_mean_groups) -->
+
+<!-- population <- mcp_counter %>% -->
+<!--   select(-sample) %>% -->
+<!--   select(!median:last_col()) %>% -->
+<!--   colnames() -->
+
+<!-- fill_color <- ggsci::pal_npg()(3) -->
+
+
+<!-- make_immune_deconv_plot <- -->
+<!--   function(data, -->
+<!--            group, -->
+<!--            population, -->
+<!--            ylab, -->
+<!--            width = 20, -->
+<!--            height = 15) { -->
+<!--     df_name <- deparse(substitute(data)) -->
+
+<!--     if (has_rownames(data)) { -->
+<!--       data %<>% column_to_rownames(names(select(data, 1))) -->
+<!--     } -->
+
+<!--     immune_plot <- ggboxplot( -->
+<!--       data, -->
+<!--       x = group, -->
+<!--       y = population, -->
+<!--       fill = "group_mean", -->
+<!--       add = "mean_sd", -->
+<!--       palette = fill_color, -->
+<!--       ggtheme = theme_pubclean(), -->
+<!--       order = c("Low", "Medium", "High"), -->
+<!--       xlab = "", -->
+<!--       legend.title = "Group", -->
+<!--       ylab = ylab -->
+<!--     ) -->
+
+<!--     # Choose for which group wilcoxon test will be performed -->
+<!--     my_comparisons <- -->
+<!--       list(c("Low", "Medium"), c("Medium", "High"), c("Low", "High")) -->
+<!--     symnum_args <- -->
+<!--       list( -->
+<!--         cutpoints = c(0, 0.0001, 0.001, 0.01, 0.05, 1), -->
+<!--         symbols = c("****", "***", "**", "*", "ns") -->
+<!--       ) -->
+
+<!--     # Test used by default is Kruskal-Wallis -->
+<!--     immune_plot %<>% map(~ { -->
+<!--       .x + stat_compare_means( -->
+<!--         label = "p.format", -->
+<!--         label.x.npc = "center", -->
+<!--         label.y.npc = 0.95 -->
+<!--       ) + -->
+<!--         stat_compare_means( -->
+<!--           comparisons = my_comparisons, -->
+<!--           symnum.args = symnum_args, -->
+<!--           hide.ns = TRUE -->
+<!--         ) -->
+<!--     }) -->
+
+<!--     plot <- ggarrange( -->
+<!--       plotlist = immune_plot, -->
+<!--       common.legend = TRUE, -->
+<!--       align = "hv" -->
+<!--     ) -->
+<!--     file_save <- -->
+<!--       glue("04_figures/immune_deconv/immune_abundance_{df_name}.png") -->
+<!--     ggsave(file_save, -->
+<!--       width = width, -->
+<!--       height = height, -->
+<!--       dpi = "retina" -->
+<!--     ) -->
+<!--     print(glue("Plot saved in {file_save}")) -->
+<!--     return(plot) -->
+<!--   } -->
+
+
+<!-- mcp_plot <- make_immune_deconv_plot(mcp_counter, "group_mean", population, "Mean (SD) of Z-score") -->
+
+
+<!-- ``` -->
+
+
+<!-- ```{r cibersortx, cache = TRUE, include=FALSE} -->
+<!-- cibersortx <- -->
+<!--   vroom("02_data/CIBERSORT/CIBERSORTx_Adjusted_TARGET-OS.txt") -->
+
+<!-- # CIBERSORTx is run in absolute mode, with batch correction, no quantile -->
+<!-- # normalization -->
+<!-- cibersortx %<>% -->
+<!--   left_join(hallmark_mean_groups, by = c("Mixture" = "sample")) -->
+<!-- population <- cibersortx %>% -->
+<!--   select(`B cells naive`:Neutrophils) %>% -->
+<!--   colnames() -->
+
+<!-- ciber_plot <- make_immune_deconv_plot(cibersortx, "group_mean", population, "Absolute Score", -->
+<!--   height = 20 -->
+<!-- ) -->
+
+<!-- immune_plot <- mcp_plot / ciber_plot -->
+<!-- immune_plot + plot_annotation(tag_levels = "A") -->
+
+<!-- # cibersortx_tidy <- cibersortx %>% -->
+<!-- #   tidyr::pivot_longer(cols = population, "population") %>% -->
+<!-- #   select(1, population, value, group_mean) %>% -->
+<!-- #   mutate(population = fct_reorder(population, value, mean), -->
+<!-- #          group_mean = factor(cibersortx_tidy$group_mean, -->
+<!-- #                              levels = c("Low", "Medium", "High"))) -->
+<!-- #  -->
+<!-- #  -->
+<!-- #  -->
+<!-- # bpt <- -->
+<!-- #   ggboxplot(cibersortx_tidy, -->
+<!-- #     "population", -->
+<!-- #     "value", -->
+<!-- #     fill = "group_mean", -->
+<!-- #     legend.title = "Group", -->
+<!-- #     palette = "npg", -->
+<!-- #     ylab = "Absolute Score", -->
+<!-- #     ggtheme = theme_pubr() -->
+<!-- #   ) + coord_flip() -->
+<!-- # ggsave("04_figures/immune_deconv/cibersortx_barplot.png") -->
+<!-- #  -->
+<!-- #  -->
+<!-- # ggplot(cibersortx_tidy, aes(x = population, y = value, fill = group_mean)) + -->
+<!-- #   geom_col(position = "dodge", colour = "black") + theme_pubr() -->
+<!-- #  -->
+<!-- # ggarrange(plotlist = bp, common.legend = TRUE) -->
+<!-- #  -->
+<!-- #  -->
+<!-- # ggplot(cibersortx, aes(x = population, fill = group_mean)) -->
+
+<!-- ``` -->
+
+
+
+<!-- ```{r immune_plot, fig.height=20, fig.width=15, fig.cap= "Immune deconvolution plot. (A) MCP-counter", cache = TRUE} -->
+<!-- # immune_plot <- ggarrange(mcp_plot, ciber_plot, labels = "AUTO") -->
+
+
+<!-- suppressWarnings(print(immune_plot)) -->
+
+<!-- ``` -->
+
+
+<!-- #### Survival curve -->
+<!-- ```{r survival_code, message=FALSE, warning=FALSE, cache=TRUE, include=FALSE} -->
+
+<!-- librarian::shelf(tidyverse, magrittr, survival, survminer, snakecase, glue, vroom) -->
+
+<!-- survival_data <- -->
+<!--   vroom("../TargetOS-Osteosarcoma/02_data/GDC/GDC_clinical_data/clinical.tsv") %>% -->
+<!--   setNames(to_snake_case(colnames(.))) %>% -->
+<!--   mutate( -->
+<!--     "sample" = map_chr( -->
+<!--       case_submitter_id, -->
+<!--       ~ str_replace(., pattern = "TARGET-40-", replacement = "") -->
+<!--     ), -->
+<!--     .before = 1 -->
+<!--   ) %>% -->
+<!--   select( -->
+<!--     sample, -->
+<!--     vital_status, -->
+<!--     days_to_death, -->
+<!--     age_at_diagnosis, -->
+<!--     days_to_last_follow_up -->
+<!--   ) -->
+<!-- hallmark_mean_groups <- -->
+<!--   vroom("../TargetOS-Osteosarcoma/03_results/hallmark_mean_groups.tsv") -->
+
+<!-- # From ?Surv : The status indicator, normally 0=alive, 1=dead. Other choices are -->
+<!-- # TRUE/FALSE (TRUE = death) or 1/2 (2=death) -->
+<!-- survival_data <- -->
+<!--   left_join(hallmark_mean_groups, survival_data) %>% -->
+<!--   dplyr::mutate( -->
+<!--     vital_status = case_when( -->
+<!--       vital_status == "Alive" ~ "0", -->
+<!--       vital_status == "Dead" ~ "1" -->
+<!--     ), -->
+<!--     days_to_death = str_replace(days_to_death, "'--", NA_character_), -->
+<!--     days_to_death = as.numeric(days_to_death), -->
+<!--     group_mean = case_when( -->
+<!--       group_mean == "Low" ~ "1", -->
+<!--       group_mean == "Medium" ~ "2", -->
+<!--       group_mean == "High" ~ "3" -->
+<!--     ), -->
+<!--     group_mean = as.numeric(group_mean), -->
+<!--     vital_status = as.numeric(vital_status), -->
+<!--     days_to_last_follow_up = as.numeric(days_to_last_follow_up) -->
+<!--   ) %>% -->
+<!--   drop_na(days_to_last_follow_up) %>% -->
+<!--   filter(!group_mean == 2) %>% -->
+<!--   write_tsv("../TargetOS-Osteosarcoma/03_results/survival_inflammatory_data.tsv") -->
+
+
+<!-- # make_survplot <- function(quantile) -->
+
+
+<!-- fit <- -->
+<!--   survfit(Surv(days_to_last_follow_up, event = vital_status) ~ group_mean, -->
+<!--     data = survival_data -->
+<!--   ) -->
+<!-- summary(fit) -->
+<!-- summary(fit)$table -->
+
+<!-- # Change color, linetype by strata, risk.table color by strata -->
+<!-- # Testing for trend log rank produces p = 0.20, instead of regular log rank = -->
+<!-- # 0.40. Plotting for only two groups produce log rank = 0.16. -->
+<!-- # Chi-2 square testing produces p = 0.20. -->
+
+<!-- ggsurv <- ggsurvplot( -->
+<!--   fit, -->
+<!--   pval = TRUE, -->
+<!--   pval.method = TRUE, -->
+<!--   risk.table = TRUE, -->
+<!--   risk.table.col = "group_mean", -->
+<!--   surv.median.line = "hv", -->
+<!--   legend.labs = c("Low", "High"), -->
+<!--   ggtheme = theme_pubr(), -->
+<!--   # fun = "cumhaz", -->
+<!--   palette = "lancet", -->
+<!--   xlim = c(0, 1825) -->
+<!-- ) -->
+<!-- # Save Plot and Table -->
+<!-- ggsave( -->
+<!--   "../TargetOS-Osteosarcoma/04_figures/ggplot/survival_plot-inflammation-group_mean.png", -->
+<!--   plot = survminer:::.build_ggsurvplot(ggsurv) -->
+<!-- ) -->
+<!-- # Save plot only -->
+<!-- ggsave( -->
+<!--   glue( -->
+<!--     "../TargetOS-Osteosarcoma/04_figures/ggplot/survival_plot-inflammation-group_mean-plot.png" -->
+<!--   ), -->
+<!--   plot = ggsurv$plot, -->
+<!--   dpi = "retina" -->
+<!-- ) -->
+<!-- # Chi-2 square testing -->
+<!-- surv_diff <- -->
+<!--   survdiff(Surv(days_to_last_follow_up, event = vital_status) ~ group_mean, -->
+<!--     data = survival_data -->
+<!--   ) -->
+<!-- ``` -->
+
+<!-- ```{r survival, fig.cap=" **Kaplan-Meier survival plot of low vs high group indicate a trend associating inflammatory status with survival prognostic.** Horizontal and vertical axes represent survival times and rates, respectively. Red and blue curves are samples with risk score higher and lower than the median value, respectively. Plus signs indicate censored values. Depicted P-values were obtained by the logrank test."} -->
+<!-- suppressWarnings(print(ggsurv)) -->
+<!-- ``` -->
+
+<!-- ### Similarity of inflammatory signatures -->
+<!-- ```{r venn, out.width="100%", fig.cap = "Venn diagram comparing three inflammatory signatures."} -->
+<!-- knitr::include_graphics("../04_figures/ggplot/Venn_estimate_vs_hallmark_inflammatory_response.png") -->
+<!-- ``` -->
+
+<!-- ## Biological mechanisms underlying the inflammatory groups -->
+
+<!-- ### Differential Gene Expression Analysis -->
+
+<!-- ```{r load deseq2, include=FALSE} -->
+
+<!-- librarian::shelf( -->
+<!--   tidyverse, -->
+<!--   magrittr, -->
+<!--   DESeq2, -->
+<!--   data.table, -->
+<!--   EnhancedVolcano, -->
+<!--   glue, -->
+<!--   ggpubr, -->
+<!--   ggVennDiagram, -->
+<!--   RSQLite, -->
+<!--   snakecase, -->
+<!--   vroom -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- ```{r generate_raw_count, cache = TRUE} -->
+<!-- # 2. Generate raw data ONCE ----------------------------------------------- -->
+<!-- generate_protein_count_mat <- function(path, pattern) { -->
+<!--   files <- list.files(path, pattern, full.names = TRUE, recursive = TRUE, include.dirs = TRUE) -->
+<!--   mat <- as.data.frame(do.call(cbind, lapply(files, function(x) fread(x, stringsAsFactors = FALSE)))) -->
+<!--   mat <- mat[-c(1:4), ] -->
+<!--   gene_type <- as.character(mat[, 3]) -->
+<!--   rownames(mat) <- mat[, 1] -->
+<!--   mat <- as.data.frame(mat[, seq(4, ncol(mat), 9)]) -->
+<!--   mat$gene_type <- gene_type -->
+<!--   mat <- subset(mat, mat$gene_type == "protein_coding") -->
+<!--   mat <- mat[, -c(ncol(mat))] -->
+<!--   return(mat) -->
+<!-- } -->
+
+<!-- protein_counts <- generate_protein_count_mat("02_data/GDC/GDC_data/", "\\.rna_seq.augmented_star_gene_counts.tsv$") -->
+
+
+<!-- # Following step done with protein counts only -->
+<!-- file_names <- -->
+<!--   list.files( -->
+<!--     "02_data/GDC/GDC_data/", -->
+<!--     "\\.rna_seq.augmented_star_gene_counts.tsv$", -->
+<!--     full.names = FALSE, -->
+<!--     recursive = TRUE, -->
+<!--     include.dirs = FALSE -->
+<!--   ) %>% sub(".*/", "", .) -->
+
+<!-- samplesheet <- -->
+<!--   read.table( -->
+<!--     "02_data/GDC/GDC_metadata/gdc_sample_sheet.2022-04-29.tsv", -->
+<!--     header = T, -->
+<!--     sep = "\t" -->
+<!--   ) %>% -->
+<!--   .[match(file_names, .$File.Name), ] %>% -->
+<!--   mutate( -->
+<!--     "sample" = -->
+<!--       map_chr( -->
+<!--         Case.ID, -->
+<!--         ~ str_replace(., pattern = "TARGET-40-", replacement = "") -->
+<!--       ), -->
+<!--     .before = 1 -->
+<!--   ) -->
+
+<!-- protein_counts %<>% set_colnames(samplesheet$sample) -->
+<!-- # Read metadata -->
+<!-- metadata <- -->
+<!--   readxl::read_xlsx("02_data/metadata/TARGET_OS_ClinicalData_Validation_20211108.xlsx") %>% -->
+<!--   set_names(snakecase::to_snake_case(colnames(.))) %>% -->
+<!--   mutate( -->
+<!--     "sample" = map_chr( -->
+<!--       target_usi, -->
+<!--       ~ str_replace(., pattern = "TARGET-40-", replacement = "") -->
+<!--     ), -->
+<!--     .before = 1 -->
+<!--   ) %>% -->
+<!--   select( -->
+<!--     sample, -->
+<!--     age_at_diagnosis_in_days, -->
+<!--     overall_survival_time_in_days, -->
+<!--     time_to_death_in_days, -->
+<!--     time_to_first_relapse_in_days, -->
+<!--     vital_status -->
+<!--   ) -->
+<!-- # column_to_rownames("sample") -->
+
+<!-- # Drop metadata samples that aren't in the 88 samples in GDC data -->
+<!-- metadata %>% filter(sample %in% samplesheet) -->
+
+<!-- # Do we really have 0 samples matching ? -->
+
+
+<!-- head(fread("02_data/GDC/GDC_data/00411dbf-7487-46ff-b26a-85761719779e/c9372691-13e4-49a3-999c-ca21f54ad988.rna_seq.augmented_star_gene_counts.tsv")) -->
+<!-- # We can obtain both raw counts and TPM / FPKM from TARGET-OS data -->
+
+
+
+<!-- # Transform the gene_id to gene_name -->
+<!-- count_data <- list.files(path = "02_data/GDC/GDC_data/", recursive = TRUE, full.names = TRUE)[1] %>% -->
+<!--   data.table::fread() %>% # data.table::fread works unlike readr::read_tsv here -->
+<!--   .[-c(1:4), ] %>% -->
+<!--   select(gene_id, gene_name) %>% -->
+<!--   right_join(rownames_to_column(protein_counts, "gene_id")) -->
+
+<!-- # Duplicate genes exist in gene_name, we concatenate them so that we don't lose -->
+<!-- # information -->
+<!-- duplicate_gene <- count_data %>% -->
+<!--   group_by(gene_name) %>% -->
+<!--   filter(n() > 1) %>% -->
+<!--   unite(gene_name, gene_name, gene_id, sep = "-") -->
+
+<!-- # Remove duplicate rows and add the concatenated rows back -->
+<!-- full_data <- count_data %>% -->
+<!--   group_by(gene_name) %>% -->
+<!--   filter(!n() > 1) %>% -->
+<!--   bind_rows(duplicate_gene) %>% -->
+<!--   select(-gene_id) %>% -->
+<!--   column_to_rownames("gene_name") -->
+
+<!-- # Remove empty columns with no expression -->
+<!-- no_expression <- full_data %>% -->
+<!--   t() %>% -->
+<!--   as.data.frame() %>% -->
+<!--   select(where(~ sum(.) == 0)) -->
+<!-- glue("{length(no_expression)} genes were found with 0 expression ") -->
+<!-- full_data %<>% t() %>% -->
+<!--   as.data.frame() %>% -->
+<!--   select(where(~ sum(.) != 0)) %>% -->
+<!--   t() %>% -->
+<!--   as.data.frame() -->
+
+<!-- raw_data_path <- "03_results/DESeq2_raw_protein_data.tsv" -->
+<!-- full_data %>% -->
+<!--   rownames_to_column("gene") %>% -->
+<!--   write_tsv(raw_data_path) -->
+
+<!-- ``` -->
+
+<!-- ```{r deseq2, cache=TRUE, include=FALSE} -->
+
+<!-- raw_data_path <- "03_results/DESeq2_raw_protein_data.tsv" -->
+<!-- full_data <- read_tsv(raw_data_path) %>% column_to_rownames("gene") -->
+<!-- clinical <- read_tsv("02_data/GDC/GDC_clinical_data/clinical.tsv") %>% -->
+<!--   mutate( -->
+<!--     "sample" = -->
+<!--       map_chr( -->
+<!--         case_submitter_id, -->
+<!--         ~ str_replace(., pattern = "TARGET-40-", replacement = "") -->
+<!--       ), -->
+<!--     .before = 1 -->
+<!--   ) -->
+
+<!-- inflammatory_group_clinical <- read_tsv("03_results/hallmark_mean_groups.tsv") %>% -->
+<!--   right_join(clinical) %>% -->
+<!--   mutate(group_mean = as.factor(group_mean)) %>% -->
+<!--   mutate(vital_status = as.factor(vital_status)) -->
+
+
+<!-- dds <- -->
+<!--   DESeqDataSetFromMatrix(full_data, -->
+<!--     colData = inflammatory_group_clinical, -->
+<!--     design = ~ group_mean + vital_status, -->
+<!--   ) -->
+<!-- dds$vital_status <- relevel(dds$vital_status, ref = "Dead") -->
+<!-- dds$group_mean <- relevel(dds$group_mean, ref = "Low") -->
+<!-- dds <- DESeq(dds) -->
+
+
+<!-- # DESeq2 results -->
+<!-- DESeq2_vital_status <- -->
+<!--   DESeq2::results(dds, contrast = c("vital_status", "Dead", "Alive")) -->
+<!-- DESeq2_group_mean_Low_vs_Medium <- -->
+<!--   DESeq2::results(dds, contrast = c("group_mean", "Low", "Medium")) -->
+<!-- DESeq2_group_mean_Medium_vs_High <- -->
+<!--   DESeq2::results(dds, contrast = c("group_mean", "Medium", "High")) -->
+<!-- DESeq2_group_mean_Low_vs_High <- -->
+<!--   DESeq2::results(dds, contrast = c("group_mean", "Low", "High")) -->
+
+<!-- DESeq2_vital_status_df <- as.data.frame(DESeq2_vital_status) -->
+
+
+<!-- # Create a list with df_name inside to input into get_DEG_genes -->
+<!-- DESeq2_inflammation <- list( -->
+<!--   DESeq2_group_mean_Low_vs_Medium_df = as.data.frame(DESeq2_group_mean_Low_vs_Medium), -->
+<!--   DESeq2_group_mean_Medium_vs_High_df = as.data.frame(DESeq2_group_mean_Medium_vs_High), -->
+<!--   DESeq2_group_mean_Low_vs_High_df = as.data.frame(DESeq2_group_mean_Low_vs_High) -->
+<!-- ) %>% -->
+<!--   Map(cbind, ., df_name = names(.)) %>% -->
+<!--   map(drop_na) -->
+
+<!-- DESeq2_inflammation %>% -->
+<!--   map_dfr(~ rownames_to_column(.x, "gene")) %>% -->
+<!--   write_tsv("../TargetOS-Osteosarcoma/03_results/DESeq2_genes/DEG_results/DESeq2_inflammation_TARGET-OS.tsv") -->
+
+
+<!-- # Function to split results into up and downregulated genes -->
+<!-- get_DEG_genes <- -->
+<!--   function(data, -->
+<!--            condition = NULL, -->
+<!--            write = TRUE, -->
+<!--            return_all_DEG = FALSE, -->
+<!--            padj_cutoff = 0.05, -->
+<!--            lfc_cutoff = 1, -->
+<!--            use_list = FALSE) { -->
+
+<!--     # Use use_list == TRUE if using inside purrr::map or lapply -->
+<!--     df_name <- deparse(substitute(data)) -->
+<!--     if (use_list == TRUE) { -->
+<!--       df_name <- distinct(data, df_name) %>% pull() -->
+<!--     } -->
+
+
+<!--     # Failsafe to ensure "tidy" format, rownames are assumed to be genes -->
+<!--     # This is useful when binding gene in a single df, where genes are duplicates -->
+<!--     # This ensures the rest of the function works in tidy and non tidy df -->
+<!--     if (tibble::has_rownames(data) == TRUE) { -->
+<!--       data %<>% rownames_to_column("gene") -->
+<!--     } -->
+
+
+<!--     file_path <- "03_results/DESeq2_genes/" -->
+<!--     dir.create(file_path, showWarnings = FALSE) -->
+<!--     if (!is.null(condition)) { -->
+<!--       condition_name <- condition -->
+<!--     } else { -->
+<!--       condition_name <- -->
+<!--         str_extract(df_name, "[[:alpha:]]*_vs_[[:alpha:]]*") -->
+<!--     } -->
+
+
+<!--     # log2(1) = 2 in FoldChange -->
+<!--     # FDR with BH by default in DESeq2 -->
+<!--     up_reg <- filter(data, padj <= padj_cutoff & log2FoldChange >= lfc_cutoff) %>% -->
+<!--       mutate("condition" = condition_name) -->
+<!--     down_reg <- filter(data, padj <= padj_cutoff & log2FoldChange <= -lfc_cutoff) %>% -->
+<!--       mutate("condition" = condition_name) -->
+
+
+<!--     if (write == TRUE) { -->
+
+<!--       up_reg %>% select(gene) %>% -->
+<!--         write_tsv( -->
+<!--           glue( -->
+<!--             "{file_path}upregulated_genes-{df_name}.tsv" -->
+<!--           ), -->
+<!--           col_names = FALSE -->
+<!--         ) -->
+<!--       down_reg %>% select(gene) %>% -->
+<!--         write_tsv( -->
+<!--           glue( -->
+<!--             "{file_path}downregulated_genes-{df_name}.tsv" -->
+<!--           ), -->
+<!--           col_names = FALSE -->
+<!--         ) -->
+
+<!--       DEG_gene <- bind_rows(up_reg, down_reg) -->
+
+<!--       DEG_gene %>% -->
+<!--         pull(gene) %>% -->
+<!--         tibble() %>% -->
+<!--         write_tsv(glue("{file_path}DEG_genes-{df_name}.tsv"), -->
+<!--           col_names = FALSE -->
+<!--         ) -->
+<!--     } -->
+
+<!--     cat( -->
+<!--       glue("Gene list obtained for {df_name}. -->
+<!--            There is {nrow(up_reg)} upregulated genes. -->
+<!--            There is {nrow(down_reg)} downregulated genes. -->
+<!--            Gene list saved in {file_path}.\n -->
+
+<!--            ") -->
+<!--     ) -->
+<!--     if (return_all_DEG == TRUE) { -->
+<!--       return(DEG_gene) -->
+<!--     } -->
+
+<!--     list(up_regulated = up_reg, down_regulated = down_reg) %>% -->
+<!--       return() -->
+<!--   } -->
+
+<!-- # Return a list with separated up and downregulated genes and write down genes -->
+<!-- # for ORA (Over Representation Analysis) -->
+<!-- DESeq2_inflammation_DEG <- DESeq2_inflammation %>% -->
+<!--   purrr::map(get_DEG_genes, use_list = TRUE) -->
+
+
+
+<!-- ## Plot volcano plot ====================================================== -->
+
+<!-- plot_volcano <- function(data, use_list = TRUE, tidy = FALSE) { -->
+<!--   df_name <- deparse(substitute(data)) -->
+<!--   if (use_list == TRUE) { -->
+<!--     df_name <- distinct(data, df_name) %>% pull() -->
+<!--   } -->
+
+<!--   if (tidy == TRUE) { -->
+<!--     label_name <- dplyr::pull(data, 1) -->
+<!--   } else { -->
+<!--     label_name <- row.names(data) -->
+<!--   } -->
+
+<!--   message(glue("Plotting {df_name}")) -->
+<!--   condition_name <- -->
+<!--     str_extract(df_name, "[[:alpha:]]*_vs_[[:alpha:]]*") -->
+
+<!--   file_dir <- "04_figures/DESeq2_results/" -->
+
+<!--   volcano <- EnhancedVolcano( -->
+<!--     data, -->
+<!--     lab = label_name, -->
+<!--     x = "log2FoldChange", -->
+<!--     y = "pvalue", -->
+<!--     subtitle = "", -->
+<!--     pointSize = 2, -->
+<!--     pCutoff = 0.05, -->
+<!--     pCutoffCol = "padj", -->
+<!--     FCcutoff = 1, -->
+<!--     title = glue("{to_any_case(condition_name, case = 'title')}"), -->
+<!--     drawConnectors = TRUE, -->
+<!--     widthConnectors = 1.0, -->
+<!--     colConnectors = "black", -->
+<!--     arrowheads = FALSE, -->
+<!--     gridlines.major = FALSE, -->
+<!--     gridlines.minor = FALSE, -->
+<!--     boxedLabels = TRUE, -->
+<!--   ) -->
+<!--   volcano_path <- glue("{file_dir}volcano_plot-{condition_name}.png") -->
+<!--   ggsave(volcano_path, -->
+<!--     height = 10, -->
+<!--     width = 10, -->
+<!--     dpi = "retina" -->
+<!--   ) -->
+<!--   print(glue("Volcano plot saved in {volcano_path}")) -->
+
+<!--   return(volcano) -->
+<!-- } -->
+
+<!-- volcano_list <- map(DESeq2_inflammation, plot_volcano) -->
+
+
+<!-- volc_plot <- ggarrange( -->
+<!--   plotlist = volcano_list, -->
+<!--   ncol = 3, -->
+<!--   nrow = 1, -->
+<!--   align = "hv", -->
+<!--   labels = c("A", "B", "C"), -->
+<!--   common.legend = TRUE -->
+<!-- ) -->
+<!-- ggsave("04_figures/DESeq2_results/volcano_plot-inflammatory_group.png", -->
+<!--   height = 10, -->
+<!--   width = 18 -->
+<!-- ) -->
+
+
+
+<!-- ``` -->
+
+<!-- ```{r volc_plot, echo=FALSE, fig.cap="Volcano", fig.height=10, fig.width=10} -->
+<!-- suppressWarnings(print(volc_plot)) -->
+<!-- ``` -->
+
+
+
+<!-- ### Gene Set Enrichment Analysis (GSEA) -->
+
+
+
+
+<!-- ## single cell RNA-Seq analysis -->
+
+<!-- Using scRNA-Seq data from GSE152048, used by @Zhou.202005 and normalized by Sophie -->
