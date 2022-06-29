@@ -17,7 +17,8 @@ header-includes:
 - \usepackage[nottoc, numbib]{tocbibind}
 - \usepackage{fontspec}
 - \setmainfont{Times New Roman}
-- \usepackage[justification=raggedright,labelfont=bf,singlelinecheck=false]{caption}
+- \usepackage[font=small, labelfont=bf, justification=justified, singlelinecheck=false]{caption}
+
 output:
   bookdown::pdf_document2:
     latex_engine: xelatex
@@ -44,46 +45,36 @@ knitr::write_bib(c(.packages()), "bibliography/packages.bib")
 
 \vspace{10cm}
 
-```{r uni_logo, fig.show="hold", echo = FALSE, out.width="60%"}
+```{r uni_logo, fig.show="hold", echo = FALSE, out.width="70%"}
 knitr::include_graphics("figures/INSERM logo.png")
 knitr::include_graphics("figures/bioscar-logo.png")
 knitr::include_graphics("figures/Logo_Sorbonne_Universite.png")
 ```
 
-
 \vspace{1cm}
+\Large
+\textbf{Sorbonne University}
 
 \Large
-{\bf Sorbonne University}
-\Large
-
-{\bf Master 2 BMC - Systems Immunology}
-
+\textbf{Master 2 BMC - Systems Immunology}
 \vspace{2cm}
 
+
 \Large
-
 \doublespacing
-
-{\bf Characterization of the inflammatory status in osteosarcoma by *in silico* RNA-Seq analysis}
-
+\textbf {Characterization of the inflammatory status in osteosarcoma by \textit{in silico} RNA-Seq analysis}
 \vspace{2 cm}
 
-\normalsize
-
+\large
 \singlespacing
-
 By
-
 \vspace{0.5 cm}
 
 \Large
-
-{\bf HUYNH Minh-Anh}
-
+\textbf{HUYNH Minh-Anh}
 \vspace{1.5 cm}
 
-\normalsize
+\large
 September 2022
 
 \end{centering}
