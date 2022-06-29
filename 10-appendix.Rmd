@@ -14,9 +14,6 @@ Wickham.](https://style.tidyverse.org/) and usage of tidyverse
 functions, in order to ensure consistent code readability, usage and
 naming.
 
-```{r write_packages}
-knitr::write_bib(c(.packages()), "bibliography/packages.bib")
-```
 
 
 \spacing{1}
