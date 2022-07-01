@@ -437,8 +437,11 @@ suppressWarnings(print(vep))
 
 #### Immune abundance by immune deconvolution algorithm
 
-Immune cell abundance can be determined thanks to immune deconvolution
-algorithm. Here, MCP-Counter CIBERSORTx and xCell have been tried.
+Immune cell abundance can be determined thanks to various immune
+deconvolution algorithm on TPM normalized bulk-RNASeq. Here,
+MCP-counter, CIBERSORTx and xCell have been tried. In MCP-counter, the
+abundance of neutrophil is increased in the High group compared to the
+Low (P = )
 
 ```{r mcp_counter, cache=TRUE, include=FALSE, dependson= "signature_construction"}
 
@@ -593,8 +596,8 @@ ciber_tidy <-
 ggsave("04_figures/immune_deconv/cibersortx_barplot.png")
 ```
 
-```{r immune-plot, fig.height=20, fig.width=15, fig.cap= "Immune deconvolution plot. (A) MCP-counter", cache = TRUE, dependson=c("mcp_counter", "cibersortx")}
-immune_plot <- ggarrange(mcp_plot, ciber_plot, ciber_tidy, labels = "AUTO")
+```{r immune-plot, fig.height=10, fig.cap= "Immune deconvolution plot. (A) MCP-counter", cache = TRUE, dependson=c("mcp_counter", "cibersortx")}
+immune_plot <- ggarrange(mcp_plot, ncol = 1, labels = "AUTO")
 suppressWarnings(print(immune_plot))
 ```
 
@@ -1253,9 +1256,9 @@ based on the theme of osteosarcoma, angiogenesis, neutrophils,
 migration, hypoxia and inflammation. Only significant pathways are
 reported in the table. Certain pathways are not significant but
 relevant, such as "Gobp Positive Regulation of Vascular Associated
-Smooth Muscle Cell Proliferation" (p.adjust = 0.13), "Gobp Positive
-Regulation of Inflammatory Response", and all other pathways concerning
-dendritic, lymphocyte, monocyte, macrophage chemotaxis and migration.
+Smooth Muscle Cell Proliferation" (P = 0.13), "Gobp Positive Regulation
+of Inflammatory Response", and all other pathways concerning dendritic,
+lymphocyte, monocyte, macrophage chemotaxis and migration.
 
 Interestingly, there is no found significant pathway relating to
 positive regulation of inflammation, but there are significant pathways
