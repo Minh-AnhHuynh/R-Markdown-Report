@@ -43,7 +43,7 @@ source("01_script/09A_signature_function.R")
 source("01_script/12_optimal_kcluster.R")
 ```
 
-```{r hallmark_inflammatory, cache=TRUE, include=FALSE}
+```{r signature_construction, cache = TRUE, include=FALSE, cache.rebuild=TRUE}
 
 # Load imported data
 data_path <- "03_results/TARGET-OS_GDC_protein_data.tsv"
@@ -200,6 +200,22 @@ ph <- pheatmap(
     "04_figures/pheatmap/pheatmap-hallmark_group_mean_cluster_cols.png"
   )
 )
+
+
+ph <- as.ggplot(ph) # Transform pheatmap intp a ggplot object
+# p <- ggarrange(elbow_hi, mds_8[[2]], hmg, hmg_mds_8, labels = "AUTO")
+#
+# suppressWarnings(print(p)) # Used to suppress ggrepel warnings
+# ggarrange(ph, labels = ("E"))
+patchwork <- elbow_hi + mds_8[[2]] + hmg + hmg_mds_8 + ph
+layout <- "
+AAABBB
+CCCDDD
+EEEEEE"
+patchwork <- patchwork +
+  plot_layout(design = layout, heights = c(1, 1, 3)) +
+  plot_annotation(tag_levels = "A") &
+  theme(plot.tag = element_text(face = "bold"))
 ```
 
 
@@ -213,14 +229,9 @@ ICAM4 was notably not detected in the dataset in the TARGET-OS cohort. Thus, 199
 
 The groups are chosen from Figure 1.C as they are relevant as they correspond fairly well to functional groups, defined by k-means clustering based on MDS visualization **(Figure \@ref(fig:inflammatory-plot))**. Each sample is thus attributed to its inflammatory status and this group will be subsequently used for the following results.
 
-```{r inflammatory-plot, echo=FALSE, fig.cap="Construction of inflammatory groups", fig.height=12, fig.width=15, cache=TRUE}
-ph <- as.ggplot(ph) # Transform pheatmap intp a ggplot object
-p <- ggarrange(elbow_hi, mds_8[[2]], hmg, hmg_mds_8, ph, labels = "AUTO")
-suppressWarnings(print(p)) # Used to suppress ggrepel warnings
-# ggarrange(ph, labels = ("E"))
-# patchwork <- elbow_hi + mds_8[[2]] + hmg + hmg_mds_8 + ph
-# patchwork +
-#   plot_annotation(tag_levels = 'A')
+```{r inflammatory-plot, echo=FALSE, fig.cap="Construction of inflammatory groups. E. Heatmap of the Hallmark Inflammatory Response signature with samples annotated to their corresponding inflammatory groups. Rows correspond to genes and columns correspond to samples.", fig.height=15, fig.width=10, dependson= "signature_construction"}
+
+suppressWarnings(print(patchwork))
 ```
 
 
@@ -315,7 +326,7 @@ hm_os_type <- make_pheatmap(osteosarcoma_type,
 )
 ```
 
-```{r osteosarcoma-plot, echo = FALSE, fig.height=12, fig.width=15, fig.cap="**Heatmap of HP Osteosarcoma signature with samples annotated to their respective inflammatory groups.**"}
+```{r osteosarcoma-plot, echo = FALSE, fig.height=11, fig.width=14, fig.cap="**Heatmap of HP Osteosarcoma signature with samples annotated to their respective inflammatory groups.**"}
 
 hm_ost %<>% as.ggplot()
 hm_ost_c %<>% as.ggplot()
@@ -356,7 +367,7 @@ The mean of markers of proliferation (MKI67, PCNA, TOP2A) associated to osteosar
 
 Using ESTIMATE algorithm from _tidyestimate_ R package, an immune score has been calculated for each sample which reflects the immune infiltration in a given tumor sample. The violin plot represents the values obtained for each inflammatory group **(Fig. \@ref(fig:estimate-violin))**. 
 
-```{r estimate, include=FALSE, dependson="hallmark_inflammatory"}
+```{r estimate, include=FALSE, dependson="signature_construction"}
 
 
 # Violin plot for ESTIMATE ---------------------------------------------
@@ -388,12 +399,12 @@ ve <-
     # # y.position = c(2900, 3600, 3200),
     step.increase = 0.1
   )
-```
-
-```{r estimate-violin, fig.cap="**Violin plot of ESTIMATE score for each inflammatory group.** ANOVA was performed followed by Tukey's post-hoc analysis. P < 0.05 is considered statistically significant.", dependson="estimate"}
-
 
 vep <- ggarrange(ve)
+```
+
+```{r estimate-violin, fig.cap="**Violin plot of ESTIMATE score for each inflammatory group.** ANOVA was performed followed by Tukey's post-hoc analysis. P < 0.05 is considered statistically significant."}
+
 suppressWarnings(print(vep))
 ```
 
@@ -402,7 +413,7 @@ suppressWarnings(print(vep))
 
 Immune cell abundance can be determined thanks to immune deconvolution algorithm. Here, MCP-Counter CIBERSORTx and xCell have been tried.
 
-```{r mcp_counter, cache=TRUE, include=FALSE, dependson= hallmark_inflammatory}
+```{r mcp_counter, cache=TRUE, include=FALSE, dependson= "signature_construction"}
 
 if (!require("MCPcounter", quietly = TRUE)) {
   remotes::install_github("ebecht/MCPcounter", ref = "master", subdir = "Source")
@@ -1021,26 +1032,28 @@ volc_plot <- ggarrange(
   labels = c("A", "B", "C"),
   common.legend = TRUE
 )
+
+volc_lh <- ggarrange(volcano_list[[3]])
+
+
 ggsave("04_figures/DESeq2_results/volcano_plot-inflammatory_group.png",
   height = 10,
   width = 18
 )
 ```
 
-```{r volc-plot, echo=FALSE, dependson="deseq2", fig.cap="Volcano", fig.height=10, fig.width=10}
-suppressWarnings(print(volc_plot))
+```{r volc-plot, echo=FALSE, fig.cap="**Volcano plot of the differentially expressed genes in Low vs High condition.** P $\\leq$ 0.05 and Log~2~ fold change $\\leq$ 1 or $\\geq$ 1 was used for cutoff.", fig.height=10, dependson="deseq2"}
+
+suppressWarnings(print(volc_lh))
 ```
 
 
 
 ### Gene Set Enrichment Analysis (GSEA)
 
-GSEA was performed on `nrow(gsea_df)` selected signatures from MSigDB, based on the theme of osteosarcoma, angiogenesis, neutrophils, migration, hypoxia and inflammation. Only significant pathways are reported in the table.
-Certain pathways are not significant but relevant, such as "Gobp Positive Regulation of Vascular Associated Smooth Muscle Cell Proliferation" (p.adjust = 0.13), "Gobp Positive Regulation of Inflammatory Response", and all other pathways concerning dendritic, lymphocyte, monocyte, macrophage chemotaxis and migration.
 
-Interestingly, there is no found significant pathway relating to positive regulation of inflammation, but there are significant pathways relating to negative regulation of inflammation, indicating that in the high group, there is negative regulation of inflammation. Similarly, the only signature with a negative enrichment score 
 
-```{r gsea, cache=TRUE, include=FALSE, cache.rebuild=TRUE}
+```{r gsea, cache=TRUE, include=FALSE}
 
 
 # 1. Setup ----------------------------------------------------------------
@@ -1210,6 +1223,11 @@ gsea_df <- make_gsea_clusterProfiler(gene_list_inflam, all_signatures,
   dir_save = "04_figures/GSEA/inflammation/clusterProfiler/"
 )
 ```
+
+GSEA was performed on `r nrow(gsea_df)` selected signatures from MSigDB, based on the theme of osteosarcoma, angiogenesis, neutrophils, migration, hypoxia and inflammation. Only significant pathways are reported in the table.
+Certain pathways are not significant but relevant, such as "Gobp Positive Regulation of Vascular Associated Smooth Muscle Cell Proliferation" (p.adjust = 0.13), "Gobp Positive Regulation of Inflammatory Response", and all other pathways concerning dendritic, lymphocyte, monocyte, macrophage chemotaxis and migration.
+
+Interestingly, there is no found significant pathway relating to positive regulation of inflammation, but there are significant pathways relating to negative regulation of inflammation, indicating that in the high group, there is negative regulation of inflammation. Similarly, the only signature with a negative enrichment score is "Gobp Positive Regulation of Neutrophil Activation".
 
 ```{r gsea-table, dependson="gsea", fig.cap="GSEA table"}
 gsea_df %>%

@@ -45,7 +45,7 @@ knitr::write_bib(c(.packages()), "bibliography/packages.bib")
 
 \vspace{10cm}
 
-```{r uni_logo, fig.show="hold", echo = FALSE, out.width="70%"}
+```{r uni_logo, fig.show="hold", echo = FALSE, out.width="60%"}
 knitr::include_graphics("figures/INSERM logo.png")
 knitr::include_graphics("figures/bioscar-logo.png")
 knitr::include_graphics("figures/Logo_Sorbonne_Universite.png")

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.6.29)  30 JUN 2022 12:37
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.6.29)  1 JUL 2022 12:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1101,6 +1101,9 @@ LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
 (Font)              scaled to size 10.95pt on input line 464.
 
+LaTeX Warning: Float too large for page by 50.82626pt on input line 465.
+
+
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
@@ -1108,6 +1111,8 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 [7]
 File: index_files/figure-latex/osteosarcoma-plot-1.pdf Graphic file (type pdf)
 <use index_files/figure-latex/osteosarcoma-plot-1.pdf>
+File: index_files/figure-latex/estimate-violin-1.pdf Graphic file (type pdf)
+<use index_files/figure-latex/estimate-violin-1.pdf>
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1120,8 +1125,12 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [9]
-File: index_files/figure-latex/estimate-violin-1.pdf Graphic file (type pdf)
-<use index_files/figure-latex/estimate-violin-1.pdf>
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[10]
 File: index_files/figure-latex/immune-plot-1.pdf Graphic file (type pdf)
 <use index_files/figure-latex/immune-plot-1.pdf>
 File: index_files/figure-latex/survival-1.pdf Graphic file (type pdf)
@@ -1130,12 +1139,23 @@ File: ../04_figures/ggplot/Venn_estimate_vs_hallmark_inflammatory_response.png G
 <../04_figures/ggplot/Venn_estimate_vs_hallmark_inflammatory_response.png>
 File: index_files/figure-latex/volc-plot-1.pdf Graphic file (type pdf)
 <use index_files/figure-latex/volc-plot-1.pdf>
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 11.36319pt on input line 537.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 8.30188pt on input line 537.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 11.36435pt on input line 537.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 8.30273pt on input line 537.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 11.36201pt on input line 537.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 8.30103pt on input line 537.
+LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 537.
 
-Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+LaTeX Warning: Float too large for page by 37.20969pt on input line 538.
 
-[10]
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1154,7 +1174,7 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [13]
-Overfull \hbox (7.55861pt too wide) in paragraph at lines 556--589
+Overfull \hbox (7.55861pt too wide) in paragraph at lines 552--585
  [][] 
  []
 
@@ -1195,12 +1215,12 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [19]
-Underfull \hbox (badness 2205) in paragraph at lines 688--691
+Underfull \hbox (badness 2205) in paragraph at lines 684--687
 \TU/TimesNewRoman(0)/m/n/12 Analyses were conducted using the R Statistical language (version 4.1.2; R Core Team,
  []
 
 
-Underfull \hbox (badness 1755) in paragraph at lines 688--691
+Underfull \hbox (badness 1755) in paragraph at lines 684--687
 \TU/TimesNewRoman(0)/m/n/12 2021) on Windows 10 x64 (build 22000). Code is available at []$[][][][][] [] [] [] [][][][][][] [] [][][] [] [][][][] [][]
  []
 
@@ -1210,11 +1230,11 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [1]
-Underfull \vbox (badness 10000) detected at line 795
+Underfull \vbox (badness 10000) detected at line 791
  []
 
 
-Underfull \vbox (badness 10000) detected at line 795
+Underfull \vbox (badness 10000) detected at line 791
  []
 
 
@@ -1223,12 +1243,12 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 (fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [2]
-Overfull \hbox (23.91551pt too wide) in paragraph at lines 847--848
+Overfull \hbox (23.91551pt too wide) in paragraph at lines 843--844
 \TU/TimesNewRoman(0)/m/n/12 (ebecht/MCPcounter@b6eac73e91c246fcff0bb1a5c68a816cd588fc48)|  
  []
 
 
-Overfull \hbox (20.62027pt too wide) in paragraph at lines 861--861
+Overfull \hbox (20.62027pt too wide) in paragraph at lines 857--857
 []|\TU/TimesNewRoman(0)/m/n/12 SummarizedExperiment|  
  []
 
@@ -1256,17 +1276,17 @@ Package rerunfilecheck Info: File `index.out' has not changed.
  )
 (\end occurred inside a group at level 4)
 
-### semi simple group (level 4) entered at line 697 (\begingroup)
+### semi simple group (level 4) entered at line 693 (\begingroup)
 ### semi simple group (level 3) entered at line 243 (\begingroup)
 ### semi simple group (level 2) entered at line 202 (\begingroup)
 ### semi simple group (level 1) entered at line 127 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 21540 strings out of 477881
- 401184 string characters out of 5845596
- 886507 words of memory out of 5000000
- 42112 multiletter control sequences out of 15000+600000
- 473002 words of font info for 75 fonts, out of 8000000 for 9000
+ 21561 strings out of 477881
+ 401901 string characters out of 5845596
+ 886835 words of memory out of 5000000
+ 42125 multiletter control sequences out of 15000+600000
+ 474932 words of font info for 88 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  86i,11n,122p,703b,10974s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
