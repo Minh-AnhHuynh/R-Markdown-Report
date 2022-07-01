@@ -5,26 +5,37 @@ output:
     latex_engine: xelatex
     number_sections: yes
     toc: no
-  
 ---
 
 # Results
 
 Some more guidelines from the School of Geosciences.
 
-This section should summarize the findings of the research referring to all figures, tables and statistical results (some of which may be placed in appendices).
+This section should summarize the findings of the research referring to
+all figures, tables and statistical results (some of which may be placed
+in appendices).
 
-- include the primary results, ordered logically - it is often useful to follow the same order as presented in the methods.
-- alternatively, you may find that ordering the results from the most important to the least important works better for your project.
-- data should only be presented in the main text once, either in tables or figures; if presented in figures, data can be tabulated in appendices and referred to at the appropriate point in the main text.
+-   include the primary results, ordered logically - it is often useful
+    to follow the same order as presented in the methods.
+-   alternatively, you may find that ordering the results from the most
+    important to the least important works better for your project.
+-   data should only be presented in the main text once, either in
+    tables or figures; if presented in figures, data can be tabulated in
+    appendices and referred to at the appropriate point in the main
+    text.
 
-**Often, it is recommended that you write the results section first, so that you can write the methods that are appropriate to describe the results presented. Then you can write the discussion next, then the introduction which includes the relevant literature for the scientific story that you are telling and finally the conclusions and abstract – this approach is called writing backwards.**
-
+**Often, it is recommended that you write the results section first, so
+that you can write the methods that are appropriate to describe the
+results presented. Then you can write the discussion next, then the
+introduction which includes the relevant literature for the scientific
+story that you are telling and finally the conclusions and abstract --
+this approach is called writing backwards.**
 
 ## Determination of inflammatory groups representing intratumor inflammatory status
 
-
-Functional clusters of osteosarcoma samples were created using k-means clustering of from MDS visualization of the Hallmark Inflammatory Response signature.
+Functional clusters of osteosarcoma samples were created using k-means
+clustering of from MDS visualization of the Hallmark Inflammatory
+Response signature.
 
 ```{r setup, include=FALSE}
 root_dir <- "../TargetOS-Osteosarcoma/"
@@ -88,6 +99,7 @@ hallmark_mean_groups <- hallmark_inflammatory %>%
   arrange(group_mean)
 # dplyr::ntile splits input vector into n even groups
 
+
 # Rename numbers to Low, Medium and High group
 hallmark_mean_groups %<>%
   mutate(
@@ -105,6 +117,7 @@ hallmark_cluster <- mds_data %>%
   arrange(cluster) %>%
   dplyr::rename(cluster_8 = cluster)
 hallmark_mean_groups %<>% left_join(hallmark_cluster) %>% arrange(mean)
+
 
 # Histogram of hallmark mean with MDS clusters
 hmg_mds_8 <- ggbarplot(hallmark_mean_groups,
@@ -126,7 +139,6 @@ ggsave("04_figures/ggplot/hallmark_mean_vs_sample+MDS_8_clusters.png",
 
 
 ## Histogram of hallmark groups of inflammation ====
-# Use npg palette (pal_npg()(3)) for consistent group coloring
 hmg <- ggbarplot(hallmark_mean_groups,
   x = "sample",
   y = "mean",
@@ -149,7 +161,7 @@ ggsave("04_figures/ggplot/hallmark_mean_vs_sample+group_mean.png",
 ### Compute kruskal test ####
 stat_table <- make_mean_comparison(hallmark_mean_groups, "mean", "group_mean")
 
-# Compute plots
+# Compute elbow, mds and heatmap
 elbow_hi <- elbow_method(hallmark_inflammatory)
 mds_8 <- hallmark_heatmap(k_cluster = 8, scale = TRUE, return_plot = TRUE)
 
@@ -218,23 +230,25 @@ patchwork <- patchwork +
   theme(plot.tag = element_text(face = "bold"))
 ```
 
+Inflammatory groups characterizing the intensity of inflammatory status
+in tumors were created by first creating groups of inflammatory status.
+The number of groups were tried using k-means clustering algorithm on a
+MDS visualization of the scaled by Z-score of the 88 tumor samples for
+the hallmark inflammatory response signature from MSigDB, containing 200
+genes. ICAM4 was notably not detected in the dataset in the TARGET-OS
+cohort. Thus, 199 genes from the signature were used.
 
+The groups are chosen from Figure 1.C as they are relevant as they
+correspond fairly well to functional groups, defined by k-means
+clustering based on MDS visualization **(Figure**
+\@ref(fig:inflammatory-plot)**)**. Each sample is thus attributed to its
+inflammatory status and this group will be subsequently used for the
+following results.
 
-
-
-Inflammatory groups characterizing the intensity of inflammatory status in
-tumors were created by first creating groups of inflammatory status. The number of groups were tried using k-means clustering algorithm on a MDS visualization of the scaled by Z-score of the 88 tumor samples for the hallmark inflammatory response signature from MSigDB, containing 200 genes.
-ICAM4 was notably not detected in the dataset in the TARGET-OS cohort. Thus, 199 genes from the signature were used.
-
-
-The groups are chosen from Figure 1.C as they are relevant as they correspond fairly well to functional groups, defined by k-means clustering based on MDS visualization **(Figure \@ref(fig:inflammatory-plot))**. Each sample is thus attributed to its inflammatory status and this group will be subsequently used for the following results.
-
-```{r inflammatory-plot, echo=FALSE, fig.cap="Construction of inflammatory groups. E. Heatmap of the Hallmark Inflammatory Response signature with samples annotated to their corresponding inflammatory groups. Rows correspond to genes and columns correspond to samples.", fig.height=15, fig.width=10, dependson= "signature_construction"}
+```{r inflammatory-plot, echo=FALSE, fig.cap="Construction of inflammatory groups. E. Heatmap of the Hallmark Inflammatory Response signature with samples annotated to their corresponding inflammatory groups. Rows correspond to genes and columns correspond to samples.", fig.height=12, fig.width=10, dependson= "signature_construction"}
 
 suppressWarnings(print(patchwork))
 ```
-
-
 
 ```{r hp_osteosarcoma, include=FALSE, cache = TRUE}
 
@@ -326,7 +340,7 @@ hm_os_type <- make_pheatmap(osteosarcoma_type,
 )
 ```
 
-```{r osteosarcoma-plot, echo = FALSE, fig.height=11, fig.width=14, fig.cap="**Heatmap of HP Osteosarcoma signature with samples annotated to their respective inflammatory groups.**"}
+```{r osteosarcoma-plot, echo = FALSE, fig.height=14, fig.width=12, fig.cap="**Heatmap of HP Osteosarcoma signature with samples annotated to their respective inflammatory groups.**"}
 
 hm_ost %<>% as.ggplot()
 hm_ost_c %<>% as.ggplot()
@@ -339,33 +353,46 @@ pho <- ggarrange(hm_ost, hm_ost_c, hm_os_type, hm_os_type_mean,
 suppressWarnings(print(pho))
 ```
 
-
 ## Characterization of osteosarcomas associated to inflammatory status
 
-In order to characterize osteosarcomas, the _Hp Osteosarcoma_ gene signature from MSigDB was used to see whether the inflammatory groups can be related to gene expression from this signature. Visually, the heatmap representing the gene signature, annotated with the inflammatory groups, does seem to indicate that the samples express different genes between Low, Medium and High inflammation group (**Fig. \@ref(fig:osteosarcoma-plot)A**). However, the dendrogram clustering the samples indicates that the gene signature does not cluster well with the inflammatory annotations. However, despite high heterogeneity between samples and inflammatory status, 
+In order to characterize osteosarcomas, the *Hp Osteosarcoma* gene
+signature from MSigDB was used to see whether the inflammatory groups
+can be related to gene expression from this signature. Visually, the
+heatmap representing the gene signature, annotated with the inflammatory
+groups, does seem to indicate that the samples express different genes
+between Low, Medium and High inflammation group (**Fig.**
+\@ref(fig:osteosarcoma-plot)**A**). However, the dendrogram clustering
+the samples indicates that the gene signature does not cluster well with
+the inflammatory annotations. However, despite high heterogeneity
+between samples and inflammatory status,
 
-However _Hp Osteosarcoma_ in GSEA is not significantly differrent (p = 0.33).
+Comparison of the expression of specific osteosarcoma markers relating
+to osteoblastic, chondroblastic, fibroblastic markers has also been
+done, through a heatmap representation. Hierarchical clustering of the
+samples does not appear to be associated with corresponding inflammatory
+status. However it does reveal that there are groups of osteoblastic,
+chondroblastic and fibroblastic osteosarcomas which is expected
+(**Fig.** \@ref(fig:osteosarcoma-plot)**C**).
 
-
-
-Comparison of the expression of specific osteosarcoma markers relating to osteoblastic, chondroblastic, fibroblastic markers has also been done, through a heatmap representation. Hierarchical clustering of the samples does not appear to be associated with corresponding inflammatory status. However it does reveal that there are groups of osteoblastic, chondroblastic and fibroblastic osteosarcomas which is expected (**Fig. \@ref(fig:osteosarcoma-plot)C**).
-
-The mean of markers of proliferation (MKI67, PCNA, TOP2A) associated to osteosarcomas have been compared to inflammatory status, along with the mean of the three markers. Kruskal-Wallis testing is significant (p = 0.00968) and post-hoc Dunn analysis reveals that the mean of the proliferation markers between low and high group is significantly different (p = 0.016). The data suggests that proliferation is hindered when inflammatory status is high in the osteosarcoma samples.
-
-
+The mean of markers of proliferation (MKI67, PCNA, TOP2A) associated to
+osteosarcomas have been compared to inflammatory status, along with the
+mean of the three markers. Kruskal-Wallis testing is significant (p =
+0.00968) and post-hoc Dunn analysis reveals that the mean of the
+proliferation markers between low and high group is significantly
+different (p = 0.016). The data suggests that proliferation is hindered
+when inflammatory status is high in the osteosarcoma samples.
 
 ## Characterization of intra-tumor inflammation associated to inflammatory status
-
-
-
-
-
 
 ### General relationship of inflammatory status with immune response
 
 #### Relationship with ESTIMATE and inflammatory signatures
 
-Using ESTIMATE algorithm from _tidyestimate_ R package, an immune score has been calculated for each sample which reflects the immune infiltration in a given tumor sample. The violin plot represents the values obtained for each inflammatory group **(Fig. \@ref(fig:estimate-violin))**. 
+Using ESTIMATE algorithm from *tidyestimate* R package, an immune score
+has been calculated for each sample which reflects the immune
+infiltration in a given tumor sample. The violin plot represents the
+values obtained for each inflammatory group **(Fig.**
+\@ref(fig:estimate-violin)**)**.
 
 ```{r estimate, include=FALSE, dependson="signature_construction"}
 
@@ -408,10 +435,10 @@ vep <- ggarrange(ve)
 suppressWarnings(print(vep))
 ```
 
-
 #### Immune abundance by immune deconvolution algorithm
 
-Immune cell abundance can be determined thanks to immune deconvolution algorithm. Here, MCP-Counter CIBERSORTx and xCell have been tried.
+Immune cell abundance can be determined thanks to immune deconvolution
+algorithm. Here, MCP-Counter CIBERSORTx and xCell have been tried.
 
 ```{r mcp_counter, cache=TRUE, include=FALSE, dependson= "signature_construction"}
 
@@ -525,7 +552,6 @@ make_immune_deconv_plot <-
 mcp_plot <- make_immune_deconv_plot(mcp_counter, "group_mean", population, "Mean (SD) of Z-score")
 ```
 
-
 ```{r cibersortx, cache = TRUE, include=FALSE}
 cibersortx <-
   vroom("02_data/CIBERSORT/CIBERSORTx_Adjusted_TARGET-OS.txt")
@@ -567,15 +593,13 @@ ciber_tidy <-
 ggsave("04_figures/immune_deconv/cibersortx_barplot.png")
 ```
 
-
-
 ```{r immune-plot, fig.height=20, fig.width=15, fig.cap= "Immune deconvolution plot. (A) MCP-counter", cache = TRUE, dependson=c("mcp_counter", "cibersortx")}
 immune_plot <- ggarrange(mcp_plot, ciber_plot, ciber_tidy, labels = "AUTO")
 suppressWarnings(print(immune_plot))
 ```
 
-
 #### Survival curve
+
 ```{r survival_code, cache=TRUE, include=FALSE}
 
 librarian::shelf(tidyverse, magrittr, survival, survminer, snakecase, glue, vroom)
@@ -678,6 +702,7 @@ suppressWarnings(print(ggsurv))
 ```
 
 ### Similarity of inflammatory signatures
+
 ```{r venn, out.width="100%", fig.cap = "Venn diagram comparing three inflammatory signatures."}
 knitr::include_graphics("../04_figures/ggplot/Venn_estimate_vs_hallmark_inflammatory_response.png")
 ```
@@ -1042,16 +1067,15 @@ ggsave("04_figures/DESeq2_results/volcano_plot-inflammatory_group.png",
 )
 ```
 
-```{r volc-plot, echo=FALSE, fig.cap="**Volcano plot of the differentially expressed genes in Low vs High condition.** P $\\leq$ 0.05 and Log~2~ fold change $\\leq$ 1 or $\\geq$ 1 was used for cutoff.", fig.height=10, dependson="deseq2"}
+```{r volc-plot, echo=FALSE, fig.cap="**Volcano plot of the differentially expressed genes in Low vs High condition. Negative Log~2~ of fold change represent a gene that is more differentially expressed Low condition, and _vice versa_. ** P $\\leq$ 0.05 and Log~2~ fold change $\\leq$ 1 or $\\geq$ 1 was used for cutoff.", fig.height=10, dependson="deseq2"}
 
 suppressWarnings(print(volc_lh))
 ```
 
-
+A differential gene expression analysis was performed in Low versus High
+group.
 
 ### Gene Set Enrichment Analysis (GSEA)
-
-
 
 ```{r gsea, cache=TRUE, include=FALSE}
 
@@ -1224,10 +1248,23 @@ gsea_df <- make_gsea_clusterProfiler(gene_list_inflam, all_signatures,
 )
 ```
 
-GSEA was performed on `r nrow(gsea_df)` selected signatures from MSigDB, based on the theme of osteosarcoma, angiogenesis, neutrophils, migration, hypoxia and inflammation. Only significant pathways are reported in the table.
-Certain pathways are not significant but relevant, such as "Gobp Positive Regulation of Vascular Associated Smooth Muscle Cell Proliferation" (p.adjust = 0.13), "Gobp Positive Regulation of Inflammatory Response", and all other pathways concerning dendritic, lymphocyte, monocyte, macrophage chemotaxis and migration.
+GSEA was performed on `r nrow(gsea_df)` selected signatures from MSigDB,
+based on the theme of osteosarcoma, angiogenesis, neutrophils,
+migration, hypoxia and inflammation. Only significant pathways are
+reported in the table. Certain pathways are not significant but
+relevant, such as "Gobp Positive Regulation of Vascular Associated
+Smooth Muscle Cell Proliferation" (p.adjust = 0.13), "Gobp Positive
+Regulation of Inflammatory Response", and all other pathways concerning
+dendritic, lymphocyte, monocyte, macrophage chemotaxis and migration.
 
-Interestingly, there is no found significant pathway relating to positive regulation of inflammation, but there are significant pathways relating to negative regulation of inflammation, indicating that in the high group, there is negative regulation of inflammation. Similarly, the only signature with a negative enrichment score is "Gobp Positive Regulation of Neutrophil Activation".
+Interestingly, there is no found significant pathway relating to
+positive regulation of inflammation, but there are significant pathways
+relating to negative regulation of inflammation, indicating that in the
+high group, there is negative regulation of inflammation. Similarly, the
+only signature with a negative enrichment score is "Gobp Positive
+Regulation of Neutrophil Activation". It is also notable that the
+signature *Hp Osteosarcoma* in GSEA is not significantly different (*P =
+0.38*).
 
 ```{r gsea-table, dependson="gsea", fig.cap="GSEA table"}
 gsea_df %>%
@@ -1241,8 +1278,6 @@ gsea_df %>%
     # longtable = TRUE
   )
 ```
-
-
 
 ```{r write_packages}
 knitr::write_bib(c(.packages()), "../R-Markdown-Report/bibliography/packages.bib")
