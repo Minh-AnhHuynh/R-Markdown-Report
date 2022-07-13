@@ -62,16 +62,14 @@ package.
 
 Estimation of tumor immune infiltration using bulk RNA-seq can be
 estimated using Microenvironment Cell Populations-counter (MCP-counter)
-[@Becht.2016]. Non-metric Kruskal-Wallis testing was used to determine
-significant differences between cell populations between Low, Medium and
-High groups with *P \< 0.05* were considered as statistically
-significant.
+[@Becht.2016].
 
 ### CIBERSORTx.
 
 CIBERSORTx algorithm was also used for immune cell deconvolution, from
 the CIBERSORTx platform (<https://cibersortx.stanford.edu/>) to generate
-abundance for 22 immune cells.
+abundance for 22 immune cells. CIBERSORTx is run in absolute mode, with batch correction, no quantile normalization.
+# normalization
 
 ## Differential Expression Gene analysis
 
@@ -92,15 +90,27 @@ enrichment/pathway analysis. Following database were queried :
 *"GO_Molecular_Function_2021", "Human_Gene_Atlas", "BioPlanet_2019",
 "GO_Biological_Process_2021", "GO_Cellular_Component_2021"*
 
+
 ## Statistical Testing
 
-Statistical testing was performed using *R software 4.2.0 (2022-04-22)*.
+Statistical testing was performed using *R software 4.2.1 (2022-06-23)* and the _rstatix_ and _car_ package.
+
+ANOVA was performed for multiple comparison testing, only if the data is normally distributed and has homoscedasticity, verified through shapiro's test and levene's test, respectively. Tukey's honestly significant different testing was effected when appropriate.
+
 Kruskal-Wallis testing was performed for non-metric comparative analysis
-between groups. Post-hoc analysis was performed using Dunn's test as
+between groups when. Post-hoc analysis was performed using Dunn's test as
 opposed to Wilcoxon due to the test taking into account Kruskal-Wallis's
-rank. P \< 0.05 and P.adj \< 0.05 was considered statistically
-significant.
+rank. Post-hoc dunn's test was done when appropriate. 
+
+P \< 0.05 and P.adj \< 0.05 was considered statistically significant. 
+
+
 
 ## Gene Set Enrichment Analysis (GSEA)
+
+GSEA was computed through _clusterprofiler_ which uses _fgsea_ as a backend.
+P \< 0.10 was considered statistically significant. padjust is calculated using the False Discovery Rate from Benjamini-Hochberg. 
+Pathways in the MSigDB databases (<https:// www.gsea-msigdb.org/gsea/msigdb>) were used for the GSEA analysis.
+
 
 \newpage

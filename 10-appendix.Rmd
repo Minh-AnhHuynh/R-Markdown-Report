@@ -41,6 +41,7 @@ sessioninfo::session_info("attached")
 ```
 
 ```{r echo=FALSE, results="asis"}
+librarian::shelf(sessioninfo)
 pkgs <- sessioninfo::package_info("attached", dependencies = FALSE)
 df <- tibble::tibble(
   package = pkgs$package,
