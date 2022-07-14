@@ -67,21 +67,22 @@ estimated using Microenvironment Cell Populations-counter (MCP-counter)
 ### CIBERSORTx.
 
 CIBERSORTx algorithm was also used for immune cell deconvolution, from
-the CIBERSORTx platform (<https://cibersortx.stanford.edu/>) to generate
-abundance for 22 immune cells. CIBERSORTx is run in absolute mode, with batch correction, no quantile normalization.
-# normalization
+the CIBERSORTx platform (<https://cibersortx.stanford.edu/>) to estimate the
+abundance for 22 immune cell populations. CIBERSORTx is run in absolute mode, with batch correction, no quantile normalization.
 
-## Differential Expression Gene analysis
+### xCell
 
-### Differentially Expressed Genes analysis (DEG)
+Similarly, xCell algorithm via _xCell_ and _immunedeconv_ packages was used to obtain abundance for 36 immune cell populations.
+
+
+## Identification of Differentially Expressed Genes (DEG)
 
 Using *DESeq2 (v1.34.0)* [@Love.2014], standard DEG pipeline using raw
-data was performed between inflammatory groups (Low, Medium, High). DEGs
-were identified with *adjusted p.value (or FDR)* $\le$ 0.05 and
-\_log2FoldChange $\ge$ 1 or *log2FoldChange* $\le$ -1. An interpretation
+data was performed between inflammatory groups (Low, Medium, High). Fold Change (FC) is calculated as $FC = High/Low$. DEGs were identified by using a cut-off on adjusted *P* value \le 0.05 and $log_2(FC) \ge 1 ; log_2(FC) \le -1.$ 
+An interpretation
 of the FDR/Benjamini-Hochberg method for controlling the FDR is
 implemented in DESeq2 in which we rank the genes by p-value, then
-multiply each ranked p-value by m/rank (m = total number of tests).
+multiply each ranked *P* value by m/rank (m = total number of tests).
 
 ### Over Representation Analysis (ORA)
 
