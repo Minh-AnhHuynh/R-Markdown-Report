@@ -338,41 +338,117 @@ hm_os_type <- make_pheatmap(osteosarcoma_type,
   border_col = NA,
   return_plot = TRUE
 )
+
+
+
+## Violin plot for proliferation markers ====
+proliferation <- get_osteosarcoma_type()[[2]] %>%
+  filter(type == "Proliferation Markers") %>%
+  rownames_to_column("markers") %>%
+  rename("Type" = type)
+proliferation_data <- get_osteosarcoma_type()[[1]] %>%
+  select(proliferation$markers) %>%
+  rownames_to_column("sample")
+proliferation_group <-
+  left_join(hallmark_mean_groups, proliferation_data) %>%
+  rename(Group = "group_mean")
+
+prolif_tidy <- proliferation_group %>%
+  pivot_longer(proliferation$markers, "markers")
+
+
+
+stat_prolif_1 <- make_mean_comparison(proliferation_group, "PCNA", "Group", return_table = TRUE)
+stat_prolif_2 <- make_mean_comparison(proliferation_group, "MKI67", "Group")
+stat_prolif_3 <- make_mean_comparison(proliferation_group, "TOP2A", "Group")
+remove(markers)
+stat_prolif <-
+  prolif_tidy %>%
+  group_by(markers) %>%
+  dunn_test(value ~ Group) %>%
+  add_y_position() %>%
+  mutate(p.adj = insight::format_p(p.adj)) %>%
+  filter(p.adj.signif == "*")
+
+stat_kruskal <-
+  prolif_tidy %>%
+  group_by(markers) %>%
+  kruskal_test(value ~ Group) %>%
+  mutate(p = insight::format_p(p))
+
+prov <- ggviolin(
+  prolif_tidy,
+  "Group",
+  "value",
+  fill = "Group",
+  add = "mean_sd",
+  facet.by = "markers",
+  palette = gm_colors[[1]],
+  order = c("Low", "Medium", "High"),
+  subtitle = glue("Kruskal-Wallis, {stat_kruskal$p}"),
+  ylab = "TPM"
+) +
+  stat_pvalue_manual(stat_prolif,
+    label = "p.adj",
+    step.increase = 0.1,
+  )
 ```
 
-```{r osteosarcoma-plot, echo = FALSE, dependson="hp_osteosarcoma", fig.height=14, fig.width=12, fig.cap="**Heatmaps of various osteosarcoma genes with samples annotated to their respective inflammatory groups.** **A.** Heatmap *Hp Osteosarcoma* signature with unclustered samples. **B.** Heatmap of *Hp Osteosarcoma* with clustered samples. **C.** Heatmap of osteosarcoma type markers and proliferation markers. **D.** Heatmap of the mean of osteosarcoma type markers and proliferation markers. Values are Z-scaled."}
+```{r osteosarcoma-plot, echo = FALSE, dependson="hp_osteosarcoma", fig.height=14, fig.width=12, fig.cap="**Displays of various osteosarcoma related genes with samples annotated to their respective inflammatory groups.** Values are Z-scaled for heatmaps. \\newline{}(A) Heatmap *Hp Osteosarcoma* signature with unclustered samples. \\newline{}(B) Heatmap of *Hp Osteosarcoma* with clustered samples. \\newline{}(C) Heatmap of osteosarcoma type markers. \\newline{}(D) Violin plot of proliferation markers associated with their inflammatory group. "}
 
+# Use as.ggplot() from ggplotify to turn pheatmap into ggplot
 hm_ost %<>% as.ggplot()
 hm_ost_c %<>% as.ggplot()
 hm_os_type %<>% as.ggplot()
-hm_os_type_mean %<>% as.ggplot()
-pho <- ggarrange(hm_ost, hm_ost_c, hm_os_type, hm_os_type_mean,
-  labels = "AUTO", common.legend = TRUE
-)
+# pho <- ggarrange(hm_ost, hm_ost_c, hm_os_type, prov,
+#                  labels = "AUTO", common.legend = TRUE
+# )
+#
+# suppressWarnings(print(pho))
 
+pho <- hm_ost + hm_ost_c + hm_os_type + prov
+layout <- "
+AAABBB
+CCCCCC
+DDDDDD"
+pho <- pho +
+  plot_layout(design = layout, heights = c(2, 2, 2, 1)) +
+  plot_annotation(tag_levels = "A") &
+  theme(plot.tag = element_text(face = "bold"))
 suppressWarnings(print(pho))
 ```
 
-
-
-In order to characterize osteosarcomas, the _Hp Osteosarcoma_ gene
+In order to characterize osteosarcomas, the *Hp Osteosarcoma* gene
 signature from MSigDB was used to see whether the inflammatory groups
 can be related to gene expression from this signature. Visually, the
 heatmap representing the gene signature, annotated with the inflammatory
 groups, does seem to indicate that the samples express different genes
-between Low, Medium and High inflammation group **(Fig. \@ref(fig:osteosarcoma-plot)A)**. However, the dendrogram clustering
+between Low, Medium and High inflammation group **(Figure**
+\@ref(fig:osteosarcoma-plot)**A)**. However, the dendrogram clustering
 the samples indicates that the gene signature does not cluster well with
-the inflammatory annotations **(Fig. \@ref(fig:osteosarcoma-plot)B)**. However, despite high heterogeneity between samples and inflammatory status, there seems to be an overall distinct expression of genes in each inflammatory group.
+the inflammatory annotations **(Figure**
+\@ref(fig:osteosarcoma-plot)**B)**. However, despite high heterogeneity
+between samples and inflammatory status, there seems to be an overall
+distinct expression of genes in each inflammatory group.
 
-To further characterize subtype of osteosarcomas, comparison of the expression of specific osteosarcoma markers relating to osteoblastic, chondroblastic, fibroblastic markers has also been done, through a heatmap representation. Hierarchical clustering of the samples does not appear to be associated with corresponding inflammatory status. However it does reveal that there are groups of osteoblastic, chondroblastic and fibroblastic osteosarcomas which is expected
-(**Fig.\@ref(fig:osteosarcoma-plot)C**).
+To further characterize subtypes of osteosarcomas, comparison of the
+expression of specific osteosarcoma markers relating to osteoblastic,
+chondroblastic, fibroblastic markers has also been done, through a
+heatmap representation. Hierarchical clustering of the samples does not
+appear to be associated with corresponding inflammatory status. However
+it does reveal that there are groups of osteoblastic, chondroblastic and
+fibroblastic osteosarcomas which is expected (**Figure**
+\@ref(fig:osteosarcoma-plot)**C**).
 
-To assess the proliferation status of the samples related to the inflammation status, the mean of three markers of proliferation (MKI67, PCNA, TOP2A) have been compared, along with the
-mean of the three individual markers (**Fig.\@ref(fig:osteosarcoma-plot)D**). Statistical Kruskal-Wallis testing is significant (P = 0.00968) and post-hoc Dunn analysis reveals that the mean of the proliferation markers between low and high group is significantly
-different (P = 0.016). The data suggests that proliferation is hindered
-when inflammatory status is high in the osteosarcoma samples.
-
-
+To assess the proliferation status of the samples related to the
+inflammation status, the mean of three markers of proliferation (MKI67,
+PCNA, TOP2A) have been compared, along with the mean of the three
+individual markers (**Figure** \@ref(fig:osteosarcoma-plot)**D**).
+Statistical Kruskal-Wallis testing is significant (*P* = 0.00968) and
+post-hoc Dunn analysis reveals that the mean of the proliferation
+markers between low and high group is significantly different (*P* =
+0.016). The data suggests that proliferation is hindered when
+inflammatory status is high in the osteosarcoma samples.
 
 ## Characterization of intra-tumor inflammation associated to inflammatory status
 
@@ -380,10 +456,14 @@ when inflammatory status is high in the osteosarcoma samples.
 
 #### Relationship with ESTIMATE and inflammatory signatures
 
-Using the ESTIMATE algorithm, an immune score
-has been calculated for each sample which reflects the immune
-infiltration in a given tumor sample. The violin plot represents the
-values obtained for each inflammatory group **(Fig. \@ref(fig:estimate-violin))**. Because the data is normally distributed and has homoscedasticity, ANOVA has been performed (P = 0.002) followed by Tukey's test, revealing that there is a statistically significant difference between Low and High group (P = 0.002), but not for the other conditions.
+Using the ESTIMATE algorithm, an immune score has been calculated for
+each sample which reflects the immune infiltration in a given tumor
+sample. The violin plot represents the values obtained for each
+inflammatory group **(Figure** \@ref(fig:estimate-violin)**)**. Because
+the data is normally distributed and has homoscedasticity, ANOVA has
+been performed (*P* = 0.002) followed by Tukey's test, revealing that
+there is a statistically significant difference between Low and High
+group (*P* = 0.002), but not for the other conditions.
 
 ```{r estimate, include=FALSE, dependson="signature_construction"}
 
