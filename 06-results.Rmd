@@ -5,6 +5,9 @@ output:
     latex_engine: xelatex
     number_sections: yes
     toc: no
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 # Results
@@ -12,16 +15,16 @@ output:
 Some more guidelines from the School of Geosciences.
 
 This section should summarize the findings of the research referring to
-all figures, tables and statistical results (some of which may be placed
-in appendices).
+all Figure s, tables and statistical results (some of which may be
+placed in appendices).
 
 -   include the primary results, ordered logically - it is often useful
     to follow the same order as presented in the methods.
 -   alternatively, you may find that ordering the results from the most
     important to the least important works better for your project.
 -   data should only be presented in the main text once, either in
-    tables or figures; if presented in figures, data can be tabulated in
-    appendices and referred to at the appropriate point in the main
+    tables or Figure s; if presented in Figure s, data can be tabulated
+    in appendices and referred to at the appropriate point in the main
     text.
 
 **Often, it is recommended that you write the results section first, so
@@ -33,18 +36,20 @@ this approach is called writing backwards.**
 
 ## Determination of inflammatory groups representing intratumor inflammatory status
 
-
 ```{r setup, include=FALSE}
 librarian::shelf(
   tidyverse, magrittr, ggplot2, ggrepel, pheatmap, viridis, ggpubr, ragg,
-  snakecase, glue, rstatix, gridExtra, ggpmisc, ggplotify, patchwork
+  snakecase, glue, rstatix, gridExtra, ggpmisc, ggplotify, patchwork, vroom
 )
 root_dir <- "../TargetOS-Osteosarcoma/"
 knitr::opts_knit$set(root.dir = root_dir)
 knitr::opts_knit$set(autodep = TRUE)
+```
 
-setwd(root_dir)
-# Load packages
+
+```{r load functions, include=FALSE}
+# The reason it is in a separated chunk is to account for working directory
+# being set after the setup chunk.
 source("01_script/04_pheatmap.R")
 source("01_script/05_make_MDS.R")
 source("01_script/09A_signature_function.R")
@@ -52,8 +57,6 @@ source("01_script/12_optimal_kcluster.R")
 ```
 
 ```{r signature_construction, cache = TRUE, include=FALSE}
-
-
 # Load imported data
 data_path <- "../TargetOS-Osteosarcoma/03_results/TARGET-OS_GDC_protein_data.tsv"
 global_data <- vroom(data_path) %>%
@@ -228,33 +231,50 @@ patchwork <- patchwork +
   theme(plot.tag = element_text(face = "bold"))
 ```
 
-In order to see if inflammatory groups associated to inflammation response can be obtained, first an MDS visualization of the dataset on the Hallmark Inflammatory Response signature (HIR) containing 200 genes, from MSigDB **(Fig \@ref(fig:inflammatory-plot).A)**. The 88 osteosarcoma samples are overall clustered in the middle, while other samples are scattered outwardly. The elbow method **(Fig \@ref(fig:inflammatory-plot).B)**  seems to indicate that 2 clusters seems to be the optimal number of clusters after which the wss decreases the least. Visually, 8 clusters is the minimum amount of clusters for which each point visually belongs to its nearest cluster. 
-The gene *ICAM4* was notably not detected in the dataset in the TARGET-OS cohort. Thus, 199 genes from the signature were used.
+In order to see if inflammatory groups associated to inflammation
+response can be obtained, first an MDS visualization of the dataset on
+the Hallmark Inflammatory Response signature (HIR) containing 200 genes,
+from MSigDB **(Figure** \@ref(fig:inflammatory-plot)**.A)**. The 88
+osteosarcoma samples are overall clustered in the middle, while other
+samples are scattered outwardly. The elbow method **(Figure**
+\@ref(fig:inflammatory-plot)**.B)** seems to indicate that 2 clusters
+seems to be the optimal number of clusters after which the wss decreases
+the least. Visually, 8 clusters is the minimum amount of clusters for
+which each point visually belongs to its nearest cluster. The gene
+*ICAM4* was notably not detected in the dataset in the TARGET-OS cohort.
+Thus, 199 genes from the signature were used.
 
-However, due to the high amount of clusters and combined with a low number of samples and the heterogeneity of the samples, another method based on the intensity of the inflammation has been tried. By doing the mean of the Z-score of the hallmark inflammatory response signature, three groups describing the inflammatory status can be obtained, classified as low, medium and high groups **(Fig \@ref(fig:inflammatory-plot).C)**.
+However, due to the high amount of clusters and combined with a low
+number of samples and the heterogeneity of the samples, another method
+based on the intensity of the inflammation has been tried. By doing the
+mean of the Z-score of the hallmark inflammatory response signature,
+three groups describing the inflammatory status can be obtained,
+classified as low, medium and high groups **(Figure** \@ref(fig:inflammatory-plot)**.C)**.
 
-Furthermore, the resulting groups are also partially functionally relevant as they
-seem to correspond fairly well to the functional groups, defined bythe  k-means
-clustering based on MDS visualization **(Fig \@ref(fig:inflammatory-plot).C, D)**. Each sample is thus attributed to its inflammatory status and this group will be subsequently used for the
-following results.
+Furthermore, the resulting groups are also partially functionally
+relevant as they seem to correspond fairly well to the functional
+groups, defined bythe k-means clustering based on MDS visualization
+**(Figures** \@ref(fig:inflammatory-plot)**.C, D)**. Each sample is thus
+attributed to its inflammatory status and this group will be
+subsequently used for the following results.
 
-```{r inflammatory-plot, echo=FALSE, fig.cap="**Construction of inflammatory groups for the 88 samples in TARGET-OS dataset based on the HIR signature from MSigDB.** **A.** MDS visualization with k-means clustering of the HIR signature. **B.** Elbow graph determining the optimal number of k-clusters. **C.** Histogram of the mean of Z-score of the HIR signature, annotated with the 8 k-means clusters. **D.** Histogram of the mean of Z-score of the HIR signature, annotated with the 3 inflammatory status groups. **E.** Heatmap of the HIR signature with samples annotated to their corresponding inflammatory groups. Rows correspond to genes and columns correspond to samples. HIR = Hallmark Inflammatory Response. MDS = Multidimensional Scaling", fig.height=12, fig.width=10, dependson= "signature_construction"}
+```{r inflammatory-plot, echo=FALSE, fig.cap="**Construction of inflammatory groups for the 88 samples in TARGET-OS dataset based on the HIR signature from MSigDB.** (A) MDS visualization with k-means clustering of the HIR signature. \\newline{}(B) Elbow graph determining the optimal number of k-clusters. \\newline{}(C) Histogram of the mean of Z-score of the HIR signature, annotated with the 8 k-means clusters. \\newline{}(D) Histogram of the mean of Z-score of the HIR signature, annotated with the 3 inflammatory status groups. **E.** Heatmap of the HIR signature with samples annotated to their corresponding inflammatory groups. Rows correspond to genes and columns correspond to samples. HIR = Hallmark Inflammatory Response. MDS = Multidimensional Scaling", fig.height=12, fig.width=10, dependson= "signature_construction"}
 
 suppressWarnings(print(patchwork))
 ```
 
+
+
 ## Characterization of osteosarcomas associated to inflammatory status
 
-
-
-```{r hp_osteosarcoma, include=FALSE, cache = TRUE}
+```{r hp_osteosarcoma, cache=TRUE, include=FALSE}
 
 removed_genes <- remove_unknown_genes()
 hp_osteosarcoma <- make_signature_list(removed_genes) %>%
   extract2("Hp_Osteosarcoma") %>%
   pivot_wider() %>%
   as.data.frame() %>%
-  tibble::column_to_rownames("sample")
+  column_to_rownames("sample")
 
 hm_ost <- make_pheatmap(hp_osteosarcoma,
   clustering_method = "hclust",
@@ -289,15 +309,15 @@ hm_ost_c <- make_pheatmap(hp_osteosarcoma,
 
 # Plot osteosarcoma type heatmap
 osteosarcoma_annotation <- get_osteosarcoma_type()[[2]] %>%
-  filter(!type %in% c("TILs Markers", "Osteoclastic Markers")) %>%
+  filter(!type %in% c("TILs Markers", "Osteoclastic Markers", "Proliferation Markers")) %>%
   rownames_to_column("sample") %>%
-  dplyr::rename("Type" = type)
+  rename("Type" = type)
 osteosarcoma_type <- get_osteosarcoma_type()[[1]] %>%
-  dplyr::select(osteosarcoma_annotation$sample) %>%
+  select(osteosarcoma_annotation$sample) %>%
   rownames_to_column("sample")
 osteosarcoma_type_mean_groups <-
   left_join(hallmark_mean_groups, osteosarcoma_type) %>%
-  dplyr::select(sample, "cluster" = group_mean, LUM:last_col())
+  select(sample, "cluster" = group_mean, LUM:last_col())
 
 
 hallmark_cluster <- hallmark_mean_groups %>%
@@ -309,18 +329,6 @@ hallmark_comparison <- osteosarcoma_type_mean_groups %>%
 osteosarcoma_annotation <-
   column_to_rownames(osteosarcoma_annotation, "sample")
 
-hm_os_type_mean <- make_pheatmap(
-  osteosarcoma_type_mean_groups,
-  clustering_method = "manual",
-  pheatmap_method = "unclustered_genes",
-  annotation_row = osteosarcoma_annotation,
-  pheatmap_title = " ",
-  col_order = c("Low", "Medium", "High"),
-  transpose = TRUE,
-  add_filename = "order",
-  show_col = FALSE,
-  return_plot = TRUE
-)
 
 hm_os_type <- make_pheatmap(osteosarcoma_type,
   clustering_method = "hclust",
@@ -494,6 +502,7 @@ ve <-
     ylab = "Immune Score",
     fill = "Group",
     add = "mean_sd",
+    palette = gm_colors[[1]],
     order = c("Low", "Medium", "High")
   ) +
   stat_compare_means(method = "anova") +
@@ -505,15 +514,19 @@ ve <-
 vep <- ggarrange(ve)
 ```
 
-```{r estimate-violin, fig.cap="**Violin plot of ESTIMATE score for each inflammatory group.** ANOVA was performed followed by Tukey's post-hoc analysis. P $\\leq$ 0.05 is considered statistically significant."}
+```{r estimate-violin, fig.cap="**Violin plot of ESTIMATE score for each inflammatory group.** ANOVA was performed followed by Tukey's post-hoc analysis. *P* $\\leq$ 0.05 is considered statistically significant."}
 
 suppressWarnings(print(vep))
 ```
 
 #### Immune abundance by immune deconvolution algorithm
 
-Immune cell abundance can be determined by various immune deconvolution algorithm on TPM normalized bulk-RNASeq. Here,
-MCP-counter, CIBERSORTx and xCell have been tried. In MCP-counter, the mean(sd) of Z-score reflecting the abundances of neutrophils is statistically different between all groups, it is increased when the inflammation status gets higher **(Fig. \@ref(fig:immune-plot)A)**
+Immune cell abundance can be determined by various immune deconvolution
+algorithm on TPM normalized bulk-RNASeq. Here, MCP-counter, CIBERSORTx
+and xCell have been tried. In MCP-counter, the mean (SD) of Z-score
+reflecting the abundances of neutrophils is statistically different
+between all groups, it is increased when the inflammation status gets
+higher **(Figure** \@ref(fig:immune-plot)**A)**
 
 ```{r mcp_counter, cache=TRUE, include=FALSE, dependson= "signature_construction"}
 
@@ -529,6 +542,7 @@ librarian::shelf(
   ggpubr,
   ggnewscale,
   glue,
+  insight,
   vroom
 )
 
@@ -549,17 +563,22 @@ mcp_counter <-
   rownames_to_column("sample") %>%
   left_join(hallmark_mean_groups)
 
-fill_color <- ggsci::pal_npg()(3)
+fill_color <- list("Group" = c(
+  "High" = ggsci::pal_npg()(3)[1],
+  "Medium" = ggsci::pal_npg()(3)[2],
+  "Low" = ggsci::pal_npg()(3)[3]
+))
 
 
 
 # MCP for neutrophils
 source("01_script/09A_signature_function.R")
-stat_dunn <- make_mean_comparison(mcp_counter, "Neutrophils", "group_mean", return_table = TRUE)
-stat_dunn <- add_y_position(stat_dunn$dunn) %>%
-  mutate(p.adj = insight::format_p(.$p.adj))
+stat_table <- make_mean_comparison(mcp_counter, "Neutrophils", "group_mean", return_table = TRUE)
+stat_dunn <- add_y_position(stat_table$dunn) %>%
+  mutate(p.adj = format_p(.$p.adj))
 
-# Only add y position, because x position is flawed. stat_pvalue_manual can get automatic position which is group1 and group2 by default.
+# Only add y position, because x position is flawed. stat_pvalue_manual can get
+# automatic position which is group1 and group2 by default.
 
 mcpn_plot <- ggboxplot(
   mcp_counter,
@@ -567,19 +586,15 @@ mcpn_plot <- ggboxplot(
   y = "Neutrophils",
   fill = "group_mean",
   add = "mean_sd",
-  palette = fill_color,
+  palette = fill_color[[1]],
   ggtheme = theme_pubclean(),
   order = c("Low", "Medium", "High"),
   xlab = "",
   legend.title = "Group",
-  ylab = "Mean (SD) of Z-score"
-) + stat_compare_means() +
-  stat_pvalue_manual(stat_dunn, label = "p.adj", step.increase = 0.05)
-mcpn_plot
-
-
+  ylab = "Mean (SD) of Z-score",
+  subtitle = glue("Kruskal-Wallis, {format_p(stat_table$kruskal$p)}")
+) + stat_pvalue_manual(stat_dunn, label = "p.adj", step.increase = 0.05)
 ```
-
 
 ```{r cibersortx, cache = TRUE, include=FALSE}
 cibersortx <-
@@ -607,14 +622,14 @@ cibn_plot <- ggboxplot(
   y = "Neutrophils",
   fill = "group_mean",
   add = "mean_sd",
-  palette = fill_color,
+  palette = fill_color[[1]],
   ggtheme = theme_pubclean(),
   order = c("Low", "Medium", "High"),
   xlab = "",
   legend.title = "Group",
-  ylab = "Mean (SD) of Z-score"
-) + stat_compare_means()
-cibn_plot
+  ylab = "Mean (SD) of Z-score",
+  subtitle = glue("Kruskal-Wallis, {format_p(stat_krus$p)}")
+)
 
 cibersortx_tidy <- cibersortx %>%
   pivot_longer(cols = population, "population") %>%
@@ -640,11 +655,9 @@ ciber_tidy <-
 ggsave("04_figures/immune_deconv/cibersortx_barplot.png")
 ```
 
-
-
 ```{r xCell, cache = TRUE, include=FALSE}
-librarian::shelf(omnideconv/immunedeconv, xCell)
-xcell <- 
+librarian::shelf(omnideconv / immunedeconv, xCell)
+xcell <-
   immunedeconv::deconvolute(global_data, "xcell") %>%
   column_to_rownames("cell_type") %>%
   t() %>%
@@ -664,32 +677,48 @@ xcelln_plot <- ggboxplot(
   y = "Neutrophil",
   fill = "group_mean",
   add = "mean_sd",
-  palette = fill_color,
+  palette = fill_color[[1]],
   ggtheme = theme_pubclean(),
   order = c("Low", "Medium", "High"),
   xlab = "",
   legend.title = "Group",
-  ylab = "Mean (SD) of Z-score"
-) + stat_compare_means()
-
+  ylab = "Mean (SD) of Z-score",
+  subtitle = glue("Kruskal-Wallis, {format_p(stat_krus$p)}")
+)
 ```
 
-
-```{r immune-plot, fig.cap= "**Immune deconvolution plot of neutrophils.** **A.** MCP-counter. **B.** CIBERSORTx. **C.** xCell. P $\\leq$ 0.05 is considered statistically significant.", cache = TRUE, dependson=c("mcp_counter", "cibersortx", "xCell")}
-immune_plot <- ggarrange(mcpn_plot, cibn_plot, xcelln_plot, ncol = 3, nrow = 1, labels = "AUTO")
+```{r immune-plot, fig.cap="**Immune deconvolution plot of neutrophils with various immune deconvolution algorithm.** \\newline{}(A) MCP-counter. \\newline{}(B) CIBERSORTx. \\newline{}(C) xCell. Kruskal-Wallis testing is performed on non-parametric data and a post-hoc dunn's test was performed when appropriate. *P* $\\leq$ 0.05 is considered statistically significant.", fig.width=8, cache=TRUE, dependson=c("mcp_counter", "cibersortx", "xCell")}
+immune_plot <-
+  ggarrange(
+    mcpn_plot,
+    cibn_plot,
+    xcelln_plot,
+    nrow = 1,
+    labels = "AUTO",
+    common.legend = TRUE
+  )
 suppressWarnings(print(immune_plot))
 ```
 
 #### Survival curve
 
-In order to determine if inflammation groups are linked with increased survival odds, a Kaplan-Meier survival analysis was performed between low and high group of inflammation **(Figure \@ref(fig:survival))**. Log-rank analysis shows that the survival curve between low and high group of inflammation are not statistically different (P = 0.16). However the P value is low enough that it could be considered a trend. Estimation considers 29 patients in the low group and 28 patients in the high group, and estimates that only 9 patients remain alive in the low group while 20 patients are alive in the high group.
+In order to determine if inflammation groups are linked with increased
+survival odds, a Kaplan-Meier survival analysis was performed between
+low and high group of inflammation **(Figure**
+\@ref(fig:survival-plot)**)**. Log-rank analysis shows that the survival
+curve between low and high group of inflammation are not statistically
+different (*P* = 0.16). However the *P* value is low enough that it
+could be considered a trend. Estimation considers 29 patients in the low
+group and 28 patients in the high group, and estimates that only 9
+patients remain alive in the low group while 20 patients are alive in
+the high group.
 
 ```{r survival_code, cache=TRUE, include=FALSE}
 
 librarian::shelf(tidyverse, magrittr, survival, survminer, snakecase, glue, vroom)
 
 survival_data <-
-  vroom("../TargetOS-Osteosarcoma/02_data/GDC/GDC_clinical_data/clinical.tsv") %>%
+  vroom("02_data/GDC/GDC_clinical_data/clinical.tsv") %>%
   setNames(to_snake_case(colnames(.))) %>%
   mutate(
     "sample" = map_chr(
@@ -706,10 +735,10 @@ survival_data <-
     days_to_last_follow_up
   )
 hallmark_mean_groups <-
-  vroom("../TargetOS-Osteosarcoma/03_results/hallmark_mean_groups.tsv")
+  vroom("03_results/hallmark_mean_groups.tsv")
 
-# From ?Surv : The status indicator, normally 0=alive, 1=dead. Other choices are
-# TRUE/FALSE (TRUE = death) or 1/2 (2=death)
+# From ?Surv : The status indicator, 0=alive, 1=dead.
+# Other choices are TRUE/FALSE (TRUE = death) or 1/2 (2=death)
 survival_data <-
   left_join(hallmark_mean_groups, survival_data) %>%
   dplyr::mutate(
@@ -730,10 +759,7 @@ survival_data <-
   ) %>%
   drop_na(days_to_last_follow_up) %>%
   filter(!group_mean == 2) %>%
-  write_tsv("../TargetOS-Osteosarcoma/03_results/survival_inflammatory_data.tsv")
-
-
-# make_survplot <- function(quantile)
+  write_tsv("03_results/survival_inflammatory_data.tsv")
 
 
 fit <-
@@ -748,6 +774,11 @@ summary(fit)$table
 # 0.40. Plotting for only two groups produce log rank = 0.16.
 # Chi-2 square testing produces p = 0.20.
 
+palette_color <- list("Group" = c(
+  "High" = ggsci::pal_npg()(3)[1],
+  "Low" = ggsci::pal_npg()(3)[3]
+))
+
 ggsurv <- ggsurvplot(
   fit,
   pval = TRUE,
@@ -758,7 +789,7 @@ ggsurv <- ggsurvplot(
   legend.labs = c("Low", "High"),
   ggtheme = theme_pubr(),
   # fun = "cumhaz",
-  palette = "lancet",
+  palette = palette_color[[1]],
   xlim = c(0, 1825)
 )
 # Save Plot and Table
@@ -1211,13 +1242,20 @@ ggsave("04_figures/DESeq2_results/volcano_plot-inflammatory_group.png",
 )
 ```
 
-```{r volc-plot, echo=FALSE, fig.height=6, fig.width=6, dependson="deseq2", fig.cap="**Volcano plot of the differentially expressed genes in Low vs High condition. Negative Log~2~ of fold change represent a gene that is more differentially expressed Low condition, and _vice versa_. ** P $\\leq$ 0.05 and Log~2~ fold change $\\leq$ 1 or $\\geq$ 1 was used for cutoff."}
+```{r volc-plot, cache = TRUE, dependson=deseq2, echo=FALSE, fig.height=6, dependson="deseq2", fig.cap="**Volcano plot of the differentially expressed genes in Low vs High condition.** Negative log~2~ of fold change represent a gene that is more differentially expressed Low condition, and _vice versa_. Adjusted *P* value were obtained by FDR testing. *P* $\\leq$ 0.05 and log~2~ fold change $\\leq$ 1 or $\\geq$ 1 was used for cutoff."}
 
 suppressWarnings(print(volc_lh))
 ```
 
-A differential gene expression analysis was performed in Low versus High
-group.
+A differential gene expression analysis was performed on the
+inflammatory status condition (Low vs High) on the total 19114 genes.
+Volcano plot **(Figure** \@ref(fig:volc-plot)**)**.
+
+### Over Representation Analysis
+
+DEGs are enriched through multiple databases in order to identify
+potentially interesting pathways relating to a high level of
+inflammation. 
 
 ### Gene Set Enrichment Analysis (GSEA)
 
@@ -1398,9 +1436,9 @@ based on the theme of osteosarcoma, angiogenesis, neutrophils,
 migration, hypoxia and inflammation. Only significant pathways are
 reported in the table. Certain pathways are not significant but
 relevant, such as "Gobp Positive Regulation of Vascular Associated
-Smooth Muscle Cell Proliferation" (P = 0.13), "Gobp Positive Regulation
-of Inflammatory Response", and all other pathways concerning dendritic,
-lymphocyte, monocyte, macrophage chemotaxis and migration.
+Smooth Muscle Cell Proliferation" (*P* = 0.13), "Gobp Positive
+Regulation of Inflammatory Response", and all other pathways concerning
+dendritic, lymphocyte, monocyte, macrophage chemotaxis and migration.
 
 Interestingly, there is no found significant pathway relating to
 positive regulation of inflammation, but there are significant pathways
@@ -1408,22 +1446,23 @@ relating to negative regulation of inflammation, indicating that in the
 high group, there is negative regulation of inflammation. Similarly, the
 only signature with a negative enrichment score is "Gobp Positive
 Regulation of Neutrophil Activation". It is also notable that the
-signature *Hp Osteosarcoma* in GSEA is not significantly different (*P =
-0.38*).
+signature *Hp Osteosarcoma* in GSEA is not significantly different (*P*
+= 0.38).
 
 ```{r gsea-table, dependson="gsea", fig.cap="GSEA table"}
 gsea_df %>%
   filter(p.adjust <= 0.10) %>%
   dplyr::select(-qvalues) %>%
+  mutate(p.adjust = insight::format_p(.$p.adjust)) %>%
   kableExtra::kbl(
     format = "latex",
-    caption = glue("Results of GSEA by clusterProfiler, pre-ranked by descending order of log2 of fold change for genes differentially expressed in low vs high condition. Genes at the top of the list are thus differentially expressed in the high group, and vice versa. Only significant pathways are shown, out of {nrow(gsea_df)} selected pathways. P.adjust ≤ 0.10 is considered significant."),
-    digits = 2,
+    caption = glue("Results of GSEA by clusterProfiler, pre-ranked by descending order of log2 of fold change for genes differentially expressed in low vs high condition. Genes at the top of the list are thus differentially expressed in the high group, and vice versa. Only significant pathways are shown, out of {nrow(gsea_df)} selected pathways. P adjust ≤ 0.10 is considered significant. NES = Normalized Enrichment Score"),
+    digits = 3,
     booktabs = TRUE,
-    # longtable = TRUE
+    # longtable = TRUE # Use argument to split table in multiple pages
   )
 ```
 
-```{r write_packages}
+```{r write_packages, include=FALSE}
 knitr::write_bib(c(.packages()), "../R-Markdown-Report/bibliography/packages.bib")
 ```
