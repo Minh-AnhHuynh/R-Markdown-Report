@@ -96,14 +96,14 @@ enrichment/pathway analysis. Following database were queried :
 
 Statistical testing was performed using *R software 4.2.1 (2022-06-23)* and the _rstatix_ and _car_ package.
 
-ANOVA was performed for multiple comparison testing, only if the data is normally distributed and has homoscedasticity, verified through shapiro's test and levene's test, respectively. Tukey's honestly significant different testing was effected when appropriate.
+ANOVA was performed for multiple comparison testing, only if the data is normally distributed and has homoscedasticity, verified through shapiro's test and levene's test, respectively. Tukey's honestly significant different testing was effected when appropriate, with *P* values adjusted with Holm's method.
 
 Kruskal-Wallis testing was performed for non-metric comparative analysis
 between groups when. Post-hoc analysis was performed using Dunn's test as
 opposed to Wilcoxon due to the test taking into account Kruskal-Wallis's
 rank. Post-hoc dunn's test was done when appropriate. 
 
-P \< 0.05 and P.adj \< 0.05 was considered statistically significant. 
+*P* \< 0.05 and *P* adjusted \< 0.05 was considered statistically significant. 
 
 
 
