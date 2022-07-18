@@ -9,15 +9,15 @@ header-includes:
 - \usepackage{float}
 - \usepackage{sectsty}
 - \usepackage{paralist}
-- \usepackage{setspace}\spacing{1.5}
-- \usepackage{fancyhdr}
+- \usepackage{setspace}\spacing{1.5} # Spacing
+- \usepackage{fancyhdr} # Get page numbering
 - \usepackage{lastpage}
 - \usepackage{dcolumn}
 - \usepackage{natbib}
 - \usepackage[nottoc, numbib]{tocbibind}
-- \usepackage{fontspec}
+- \usepackage{fontspec} # Set font
 - \setmainfont{Times New Roman}
-- \usepackage[font=small, labelfont=bf, justification=justified, singlelinecheck=false]{caption}
+- \usepackage[font=small, labelfont=bf, justification=justified, singlelinecheck=false]{caption} # Set figure caption to bold
 
 output:
   bookdown::pdf_document2:
