@@ -781,17 +781,67 @@ surv_diff <-
   )
 ```
 
-```{r survival, fig.cap="**Kaplan-Meier survival analysis plot of low vs high group indicate a trend associating inflammatory status with survival prognostic.** Horizontal and vertical axes represent survival times and rates, respectively. Blue and red colors represents low and high inflammation group respectively. Plus signs indicate censored values. Depicted P-values were obtained by the log-rank test. The diagram is cut at 1825 days (5 years). P < 0.05 is considered statistically significant."}
+```{r survival-plot, fig.cap="**Kaplan-Meier survival analysis plot of low vs high group indicate a trend associating inflammatory status with survival prognostic.** Horizontal and vertical axes represent survival times and rates, respectively. Blue and red colors represents low and high inflammation group respectively. Plus signs indicate censored values. Depicted P-values were obtained by the log-rank test. The diagram is cut at 1825 days (5 years). *P* $\\leq$ 0.05 is considered statistically significant."}
 
 suppressWarnings(print(ggsurv))
 ```
 
 ### Similarity of inflammatory signatures
 
-In order to see if the inflammatory signatures used have overlapping genes or not, a venn diagram was constructed from the signatures **(Figure \@ref(fig:venn))**. Overall, the three immune signatures depicting immune infiltration (immune score), inflammation response and TNFa pathway have low overlapping genes and can be considered different.
+In order to see if the inflammatory signatures used have overlapping
+genes or not, a Venn diagram was constructed from the signatures
+**(Figure** \@ref(fig:venn-plot)**)**. Overall, the three immune
+signatures depicting immune infiltration (immune score), inflammation
+response and TNF-α pathway have low overlapping genes and can be
+considered different.
 
-```{r venn, out.width="100%", fig.cap = "Venn diagram comparing three inflammatory signatures."}
-knitr::include_graphics("../04_figures/ggplot/Venn_estimate_vs_hallmark_inflammatory_response.png")
+```{r venn, include=FALSE}
+# 1. Setup ----------------------------------------------------------------
+
+librarian::shelf(tidyverse, tidyestimate, ggVennDiagram, vroom)
+
+
+
+# 2. Make Venn diagram for 3 inflammatory signatures -----------------------
+
+
+inf_response <-
+  vroom("02_data/signature/HALLMARK_INFLAMMATORY_RESPONSE.txt",
+    delim = "\t"
+  ) %>%
+  slice(n = -1) %>%
+  pull()
+
+# Gene sets used in estimate are located in "gene_sets"
+intersect(gene_sets[[2]], inf_response)
+
+tnfa <- vroom("02_data/signature/HALLMARK_TNFA_SIGNALING_VIA_NFKB.txt",
+  delim = "\t"
+) %>%
+  slice(n = -1) %>%
+  pull()
+
+comparison_estimate <-
+  list(
+    "ESTIMATE" = gene_sets[[2]],
+    "Hallmark Inflammatory Response" = inf_response,
+    "TNF-α signaling" = tnfa
+  )
+
+venn_plot <- ggVennDiagram(
+  comparison_estimate,
+  label_alpha = 0,
+) +
+  ggplot2::scale_fill_gradient(low = "white", high = "orange") +
+  scale_x_continuous(expand = expansion(mult = .5))
+ggsave(
+  "04_figures/ggplot/Venn_estimate_vs_hallmark_inflammatory_response.png",
+  dpi = "retina"
+)
+```
+
+```{r venn-plot, fig.cap = "Venn diagram comparing three inflammatory signatures."}
+suppressWarnings(print(venn_plot))
 ```
 
 ## Biological mechanisms underlying the inflammatory groups
