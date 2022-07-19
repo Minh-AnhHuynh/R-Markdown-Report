@@ -9,65 +9,51 @@ output: pdf_document
 
 Analyses were performed on two bulk RNA-seq osteosarcoma datasets,
 TARGET-OS Osteosarcoma and GSE87686. Data was collected from TARGET-OS
-using GDC Data Transfer Tool UI (v1.0.0), returning 19493 protein coding
+using GDC Data Transfer Tool UI (v1.0.0) (<https://gdc.cancer.gov/access-data/gdc-data-transfer-tool>), returning 19493 protein coding
 genes and 88 samples for TARGET-OS, containing both raw data and TPM
 data. GSE87686 data was obtained through the lab's previously
-pre-processed kallisto files, downloaded through SRA Run Selector to
-obtain SRA run files. Data was then imported from kallisto files via
-*tximport (v1.22.0)* R package. Genes were converted to ENST and ENSG
+pre-processed kallisto files, where the files were downloaded through the SRA Run Selector to obtain SRA run files. Data was then imported from kallisto files via
+*tximport (v1.22.0)*. Genes were converted to ENST and ENSG
 and finally HUGO gene symbols through *biomaRt (v2.50.3)*.
 
 ## Normalization
 
 Raw data was converted to TPM as it is the best performing normalization
-method than FPKM or RPKM, based on its preservation of biological signal
-as compared to other methods [@Abrams.2019]. Calculation was performed
-using counts and lengths for each gene, returned from the tximport to
-kallisto process.
-
-Normalization by Z-score with the *scale* function was used to normalize
+method, based on its preservation of biological signal
+as compared to FPKM or RPKM [@Abrams.2019]. Calculation was performed
+using counts and lengths for each gene, returned from the _tximport_ to
+_kallisto_ process.
+Normalization by Z-score with the _scale_ function was used to normalize
 the data for each gene, in order to be able to visualize the data in
 corresponding heatmaps.
 
-Z-score of the mean of TPM data was used to construct grouped heatmaps
-for a given gene or gene signature.
-
-Inflammatory groups characterizing the intensity of inflammatory status
-in tumors were created by choosing the lowest and highest mean of
-Z-score of the Hallmark Inflammatory Response signature from MSigDB,
-containing 200 genes. ICAM4 was notably not present in the dataset in
-TARGET-OS cohort. The groups were cut off evenly using the *ntile*
-function in *dplyr (v1.0.8)* R package.
-
-## Construction of gene signatures
-
-Gene signatures relevant to the research topic were obtained from MSigDB
-via *msigdbr* (v7.5.1)\
-HAY_BONE_MARROW_NEUTROPHIL.v7.5.1
-
-Canonical markers for osteosarcoma markers were adapted from
-@Zhou.202005 's analysis and their canonical markers generated from the
-literature in their Supplementary Table 2.
 
 ## Construction of inflammatory groups
 
-The groups were cut off evenly using the *ntile* function in *dplyr* R
-package.
+Z-score of the mean of TPM data was used to construct grouped heatmaps generated with _pheatmap_ for a given gene or gene signature.
+Inflammatory groups characterizing the intensity of inflammatory status
+in tumors were created by choosing the lowest and highest mean of
+Z-score of the Hallmark Inflammatory Response signature from MSigDB,
+containing 200 genes and plotted through _ggpubr_. The groups were cut off evenly using the *ntile*
+function in *dplyr (v1.0.8)* R package. The color palette used for representing the inflammatory group is based on _ggsci_'s "npg" color palette.
+
+## Markers for osteosarcomas
+
+The _HP Osteosarcoma_ gene signature was used from MSigDB to obtain genes associated with osteosarcomas. Moreover, canonical specific markers for subtypes of osteosarcomas were adapted from @Zhou.202005 's analysis and their canonical markers generated from the
+literature in their Supplementary Table 2.
 
 ## MDS visualization and k-means clustering
 
-MDS visualization was performed with _vegan_'s metaMDS function, and clustering was effected with k-means clustering
+MDS visualization was performed with _vegan_'s metaMDS function with autotransform=FALSE, and clustering was done with the base _kmeans_ clustering function. Elbow graph is plotted to determine optimal number of k-clusters.
 
 ## Determination of cell population abundance
 
 Estimation of tumor immune infiltration using bulk RNA-seq can be
 estimated using Microenvironment Cell Populations-counter (MCP-counter)
 [@Becht.2016].
-
 CIBERSORTx algorithm was also used for immune cell deconvolution, from
 the CIBERSORTx platform (<https://cibersortx.stanford.edu/>) to estimate the
 abundance for 22 immune cell populations. CIBERSORTx is run in absolute mode, with batch correction, no quantile normalization.
-
 Similarly, xCell algorithm via _xCell_ and _immunedeconv_ packages was used to obtain abundance for 36 immune cell populations.
 
 
@@ -80,10 +66,10 @@ of the FDR/Benjamini-Hochberg method for controlling the FDR is
 implemented in DESeq2 in which we rank the genes by p-value, then
 multiply each ranked *P* value by m/rank (m = total number of tests).
 
-### Over Representation Analysis (ORA)
+### Pathway Enrichment
 
 *enrichR v(3.0)* was used [@R-enrichR; @Xie.2021] for functional gene
-enrichment/pathway analysis. Following databases were queried :
+enrichment/pathway analysis. Following databases were queried:
 "GO Molecular Function 2021",
 "GO Biological Process 2021",
 "GO Cellular Component 2021",
@@ -91,13 +77,18 @@ enrichment/pathway analysis. Following databases were queried :
 "BioPlanet 2019",
 "KEGG 2021 Human",
 "MSigDB Hallmark 2020",
-"Reactome 2016"
+"Reactome 2016".
+The combined score used to rank pathway is based on a Z-score permutation background correction on Fisher's exact test p-value
 
 ## Gene Set Enrichment Analysis (GSEA)
 
 GSEA was computed through _clusterprofiler_ which uses _fgsea_ as a backend.
-*P* \< 0.10 was considered statistically significant. *P* adjusted is calculated using the False Discovery Rate from Benjamini-Hochberg. 
-Pathways in the MSigDB databases (<https:// www.gsea-msigdb.org/gsea/msigdb>) were used for the GSEA analysis.
+*P* \< 0.10 was considered statistically significant. *P* adjusted is calculated using the False Discovery Rate from Benjamini-Hochberg.
+Gene signatures used in GSEA relevant to the research topic were obtained from MSigDB via
+*msigdbr* (v7.5.1), and in particular 5 primary signatures :
+"HALLMARK_INFLAMMATORY_RESPONSE", "HALLMARK TNFA SIGNALING VIA NFKB",
+"HAY BONE MARROW NEUTROPHIL", "HAY BONE MARROW IMMATURE NEUTROPHIL",
+"HP OSTEOSARCOMA". Other signatures were manually selected based on the list obtained with a search through the database with regex keywords such as "INFLA", "NEGA", "ANTI", "NEUTROPHIL", "HYPOXIA", "VASCULA|ANGIOGEN" , "MIGRA|CHEMO".
 
 ## Statistical Testing
 
@@ -106,8 +97,7 @@ ANOVA was performed for multiple comparison testing, only if the data is normall
 Kruskal-Wallis testing was performed for non-metric comparative analysis
 between groups when. Post-hoc analysis was performed using Dunn's test as
 opposed to Wilcoxon due to the test taking into account Kruskal-Wallis's
-rank. Post-hoc dunn's test was done when appropriate. 
-
+rank. Post-hoc dunn's test was done when appropriate, with *P* values adjusted with Holm's method.
 *P* \< 0.05 and *P* adjusted \< 0.05 was considered statistically significant. 
 
 
