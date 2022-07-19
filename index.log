@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.7.19)  19 JUL 2022 19:49
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.7.19)  19 JUL 2022 21:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -7,8 +7,8 @@ entering extended mode
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-07-15> (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
-(c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+(c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count181
 \c@section=\count182
@@ -474,31 +474,31 @@ Package tocbibind Note: Using section or other style headings.
 
 )
 
-Package fontspec Info: Times New Roman scale = 0.963629354430423.
+Package fontspec Info: Times New Roman scale = 0.9636299023440277.
 
 
-Package fontspec Info: Times New Roman scale = 0.963629354430423.
+Package fontspec Info: Times New Roman scale = 0.9636299023440277.
 
 
-Package fontspec Info: Times New Roman scale = 0.963629354430423.
+Package fontspec Info: Times New Roman scale = 0.9636299023440277.
 
 
-Package fontspec Info: Times New Roman/B scale = 0.944047646899576.
+Package fontspec Info: Times New Roman/B scale = 0.9440481727713549.
 
 
-Package fontspec Info: Times New Roman/B scale = 0.944047646899576.
+Package fontspec Info: Times New Roman/B scale = 0.9440481727713549.
 
 
-Package fontspec Info: Times New Roman/I scale = 1.001911883116192.
+Package fontspec Info: Times New Roman/I scale = 1.001912475428977.
 
 
-Package fontspec Info: Times New Roman/I scale = 1.001911883116192.
+Package fontspec Info: Times New Roman/I scale = 1.001912475428977.
 
 
-Package fontspec Info: Times New Roman/BI scale = 0.9818514257111176.
+Package fontspec Info: Times New Roman/BI scale = 0.9818519945425632.
 
 
-Package fontspec Info: Times New Roman/BI scale = 0.9818514257111176.
+Package fontspec Info: Times New Roman/BI scale = 0.9818519945425632.
 
 
 Package fontspec Info: Font family 'TimesNewRoman(0)' created for font 'Times
@@ -531,33 +531,33 @@ Package fontspec Info: Font family 'TimesNewRoman(0)' created for font 'Times
 (fontspec)             Roman/BI/OT:script=latn;language=dflt;+smcp;mapping=tex-text;"
 
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 135.
+(Font)              scaled to size 12.0pt on input line 135.
 
-Package fontspec Info: Times New Roman scale = 0.9999965884395865.
-
-
-Package fontspec Info: Times New Roman scale = 0.9999965884395865.
+Package fontspec Info: Times New Roman scale = 0.9999971570313723.
 
 
-Package fontspec Info: Times New Roman scale = 0.9999965884395865.
+Package fontspec Info: Times New Roman scale = 0.9999971570313723.
 
 
-Package fontspec Info: Times New Roman/B scale = 0.9796758700672793.
+Package fontspec Info: Times New Roman scale = 0.9999971570313723.
 
 
-Package fontspec Info: Times New Roman/B scale = 0.9796758700672793.
+Package fontspec Info: Times New Roman/B scale = 0.9796764157853839.
 
 
-Package fontspec Info: Times New Roman/I scale = 1.039723894282441.
+Package fontspec Info: Times New Roman/B scale = 0.9796764157853839.
 
 
-Package fontspec Info: Times New Roman/I scale = 1.039723894282441.
+Package fontspec Info: Times New Roman/I scale = 1.039724508949025.
 
 
-Package fontspec Info: Times New Roman/BI scale = 1.018906358084128.
+Package fontspec Info: Times New Roman/I scale = 1.039724508949025.
 
 
-Package fontspec Info: Times New Roman/BI scale = 1.018906358084128.
+Package fontspec Info: Times New Roman/BI scale = 1.018906948383191.
+
+
+Package fontspec Info: Times New Roman/BI scale = 1.018906948383191.
 
 
 Package fontspec Info: Font family 'TimesNewRoman(1)' created for font 'Times
@@ -567,28 +567,28 @@ Package fontspec Info: Font family 'TimesNewRoman(1)' created for font 'Times
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[0.9999965884395865]"Times New
+(fontspec)             <->s*[0.9999971570313723]"Times New
 (fontspec)             Roman/OT:script=latn;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
-(fontspec)             <->s*[0.9999965884395865]"Times New
+(fontspec)             <->s*[0.9999971570313723]"Times New
 (fontspec)             Roman/OT:script=latn;language=dflt;+smcp;"
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[0.9796758700672793]"Times New
+(fontspec)             <->s*[0.9796764157853839]"Times New
 (fontspec)             Roman/B/OT:script=latn;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
-(fontspec)             <->s*[0.9796758700672793]"Times New
+(fontspec)             <->s*[0.9796764157853839]"Times New
 (fontspec)             Roman/B/OT:script=latn;language=dflt;+smcp;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[1.039723894282441]"Times New
+(fontspec)             <->s*[1.039724508949025]"Times New
 (fontspec)             Roman/I/OT:script=latn;language=dflt;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
-(fontspec)             <->s*[1.039723894282441]"Times New
+(fontspec)             <->s*[1.039724508949025]"Times New
 (fontspec)             Roman/I/OT:script=latn;language=dflt;+smcp;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[1.018906358084128]"Times New
+(fontspec)             <->s*[1.018906948383191]"Times New
 (fontspec)             Roman/BI/OT:script=latn;language=dflt;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
-(fontspec)             <->s*[1.018906358084128]"Times New
+(fontspec)             <->s*[1.018906948383191]"Times New
 (fontspec)             Roman/BI/OT:script=latn;language=dflt;+smcp;"
 
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
@@ -699,12 +699,7 @@ Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen269
 \c@nlinenum=\count331
 \TeXr@lab=\toks33
-)
-
-LaTeX Warning: Unused global option(s):
-    [12ptovev].
-
-(./index.aux)
+) (./index.aux)
 \openout1 = `index.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 157.
@@ -736,13 +731,13 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/lmtt/m/n --> TU/lmtt/b/n on input line 157.
 
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
 
 Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
@@ -753,46 +748,46 @@ Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[1.037736183048279]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             <->s*[1.037736795366909]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1.037736183048279]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             <->s*[1.037736795366909]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.37735pt on input line 157.
+(Font)              scaled to size 12.45282pt on input line 157.
 
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
-
-
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
+
+
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
 
 Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
 (fontspec)             'latinmodern-math.otf' with options
-(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf}].
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=10.2-},{Size=7.2-10.2,Font=latinmodern-math.otf,Style=MathScript},{Size=-7.2,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf}].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->s*[1.037736183048279]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<6-8.5>s*[1.037736183048279]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-6>s*[1.037736183048279]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             <10.2->s*[1.037736795366909]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<7.2-10.2>s*[1.037736795366909]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-7.2>s*[1.037736795366909]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1.037736183048279]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             <->s*[1.037736795366909]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.37735pt on input line 157.
+(Font)              scaled to size 12.45282pt on input line 157.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
 (Font)              `operators' in the math version `normal' on input line 157.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -802,80 +797,80 @@ LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 157.
 
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037839956666584.
+Package fontspec Info: latinmodern-math scale = 1.037840569046446.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037839956666584.
+Package fontspec Info: latinmodern-math scale = 1.037840569046446.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037839956666584.
+Package fontspec Info: latinmodern-math scale = 1.037840569046446.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037839956666584.
+Package fontspec Info: latinmodern-math scale = 1.037840569046446.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037839956666584.
+Package fontspec Info: latinmodern-math scale = 1.037840569046446.
 
 
 Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
 (fontspec)             'latinmodern-math.otf' with options
-(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=1.0001,FontAdjustment={\fontdimen
-(fontspec)             8\font =7.02547pt\relax \fontdimen 9\font
-(fontspec)             =4.08867pt\relax \fontdimen 10\font =4.60754pt\relax
-(fontspec)             \fontdimen 11\font =7.11887pt\relax \fontdimen 12\font
-(fontspec)             =3.58018pt\relax \fontdimen 13\font =3.76698pt\relax
-(fontspec)             \fontdimen 14\font =3.76698pt\relax \fontdimen 15\font
-(fontspec)             =2.99905pt\relax \fontdimen 16\font =2.5632pt\relax
-(fontspec)             \fontdimen 17\font =2.5632pt\relax \fontdimen 18\font
-(fontspec)             =2.59435pt\relax \fontdimen 19\font =2.07547pt\relax
-(fontspec)             \fontdimen 22\font =2.59435pt\relax \fontdimen 20\font
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=10.2-},{Size=7.2-10.2,Font=latinmodern-math.otf,Style=MathScript},{Size=-7.2,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=1.0001,FontAdjustment={\fontdimen
+(fontspec)             8\font =8.43056pt\relax \fontdimen 9\font
+(fontspec)             =4.90642pt\relax \fontdimen 10\font =5.52905pt\relax
+(fontspec)             \fontdimen 11\font =8.54263pt\relax \fontdimen 12\font
+(fontspec)             =4.29622pt\relax \fontdimen 13\font =4.52037pt\relax
+(fontspec)             \fontdimen 14\font =4.52037pt\relax \fontdimen 15\font
+(fontspec)             =3.59886pt\relax \fontdimen 16\font =3.07585pt\relax
+(fontspec)             \fontdimen 17\font =3.07585pt\relax \fontdimen 18\font
+(fontspec)             =3.1132pt\relax \fontdimen 19\font =2.49057pt\relax
+(fontspec)             \fontdimen 22\font =3.1132pt\relax \fontdimen 20\font
 (fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax }].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->s*[1.037839956666584]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<6-8.5>s*[1.037839956666584]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-6>s*[1.037839956666584]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             <10.2->s*[1.037840569046446]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<7.2-10.2>s*[1.037840569046446]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-7.2>s*[1.037840569046446]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 (fontspec)             and font adjustment code:
-(fontspec)             \fontdimen 8\font =7.02547pt\relax \fontdimen 9\font
-(fontspec)             =4.08867pt\relax \fontdimen 10\font =4.60754pt\relax
-(fontspec)             \fontdimen 11\font =7.11887pt\relax \fontdimen 12\font
-(fontspec)             =3.58018pt\relax \fontdimen 13\font =3.76698pt\relax
-(fontspec)             \fontdimen 14\font =3.76698pt\relax \fontdimen 15\font
-(fontspec)             =2.99905pt\relax \fontdimen 16\font =2.5632pt\relax
-(fontspec)             \fontdimen 17\font =2.5632pt\relax \fontdimen 18\font
-(fontspec)             =2.59435pt\relax \fontdimen 19\font =2.07547pt\relax
-(fontspec)             \fontdimen 22\font =2.59435pt\relax \fontdimen 20\font
+(fontspec)             \fontdimen 8\font =8.43056pt\relax \fontdimen 9\font
+(fontspec)             =4.90642pt\relax \fontdimen 10\font =5.52905pt\relax
+(fontspec)             \fontdimen 11\font =8.54263pt\relax \fontdimen 12\font
+(fontspec)             =4.29622pt\relax \fontdimen 13\font =4.52037pt\relax
+(fontspec)             \fontdimen 14\font =4.52037pt\relax \fontdimen 15\font
+(fontspec)             =3.59886pt\relax \fontdimen 16\font =3.07585pt\relax
+(fontspec)             \fontdimen 17\font =3.07585pt\relax \fontdimen 18\font
+(fontspec)             =3.1132pt\relax \fontdimen 19\font =2.49057pt\relax
+(fontspec)             \fontdimen 22\font =3.1132pt\relax \fontdimen 20\font
 (fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax 
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1.037839956666584]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             <->s*[1.037840569046446]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 (fontspec)             and font adjustment code:
-(fontspec)             \fontdimen 8\font =7.02547pt\relax \fontdimen 9\font
-(fontspec)             =4.08867pt\relax \fontdimen 10\font =4.60754pt\relax
-(fontspec)             \fontdimen 11\font =7.11887pt\relax \fontdimen 12\font
-(fontspec)             =3.58018pt\relax \fontdimen 13\font =3.76698pt\relax
-(fontspec)             \fontdimen 14\font =3.76698pt\relax \fontdimen 15\font
-(fontspec)             =2.99905pt\relax \fontdimen 16\font =2.5632pt\relax
-(fontspec)             \fontdimen 17\font =2.5632pt\relax \fontdimen 18\font
-(fontspec)             =2.59435pt\relax \fontdimen 19\font =2.07547pt\relax
-(fontspec)             \fontdimen 22\font =2.59435pt\relax \fontdimen 20\font
+(fontspec)             \fontdimen 8\font =8.43056pt\relax \fontdimen 9\font
+(fontspec)             =4.90642pt\relax \fontdimen 10\font =5.52905pt\relax
+(fontspec)             \fontdimen 11\font =8.54263pt\relax \fontdimen 12\font
+(fontspec)             =4.29622pt\relax \fontdimen 13\font =4.52037pt\relax
+(fontspec)             \fontdimen 14\font =4.52037pt\relax \fontdimen 15\font
+(fontspec)             =3.59886pt\relax \fontdimen 16\font =3.07585pt\relax
+(fontspec)             \fontdimen 17\font =3.07585pt\relax \fontdimen 18\font
+(fontspec)             =3.1132pt\relax \fontdimen 19\font =2.49057pt\relax
+(fontspec)             \fontdimen 22\font =3.1132pt\relax \fontdimen 20\font
 (fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
@@ -887,63 +882,63 @@ LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 157.
 
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037632409429974.
+Package fontspec Info: latinmodern-math scale = 1.037633021687372.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037632409429974.
+Package fontspec Info: latinmodern-math scale = 1.037633021687372.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037632409429974.
+Package fontspec Info: latinmodern-math scale = 1.037633021687372.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037632409429974.
+Package fontspec Info: latinmodern-math scale = 1.037633021687372.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037736183048279.
+Package fontspec Info: latinmodern-math scale = 1.037736795366909.
 
 
-Package fontspec Info: latinmodern-math scale = 1.037632409429974.
+Package fontspec Info: latinmodern-math scale = 1.037633021687372.
 
 
 Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
 (fontspec)             'latinmodern-math.otf' with options
-(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=8.5-},{Size=6-8.5,Font=latinmodern-math.otf,Style=MathScript},{Size=-6,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=0.9999,FontAdjustment={\fontdimen
-(fontspec)             8\font =0.4151pt\relax \fontdimen 9\font
-(fontspec)             =2.07547pt\relax \fontdimen 10\font =1.73302pt\relax
-(fontspec)             \fontdimen 11\font =1.15189pt\relax \fontdimen 12\font
-(fontspec)             =6.22641pt\relax \fontdimen 13\font =0pt\relax }].
+(fontspec)             [Scale=MatchLowercase,BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script=Math,SizeFeatures={{Size=10.2-},{Size=7.2-10.2,Font=latinmodern-math.otf,Style=MathScript},{Size=-7.2,Font=latinmodern-math.otf,Style=MathScriptScript}},BoldFont={latinmodern-math.otf},ScaleAgain=0.9999,FontAdjustment={\fontdimen
+(fontspec)             8\font =0.49811pt\relax \fontdimen 9\font
+(fontspec)             =2.49057pt\relax \fontdimen 10\font =2.07962pt\relax
+(fontspec)             \fontdimen 11\font =1.38226pt\relax \fontdimen 12\font
+(fontspec)             =7.4717pt\relax \fontdimen 13\font =0pt\relax }].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <8.5->s*[1.037632409429974]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<6-8.5>s*[1.037632409429974]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-6>s*[1.037632409429974]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
+(fontspec)             <10.2->s*[1.037633021687372]"[latinmodern-math.otf]/OT:script=math;language=dflt;"<7.2-10.2>s*[1.037633021687372]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=0;"<-7.2>s*[1.037633021687372]"[latinmodern-math.otf]/OT:script=math;language=dflt;+ssty=1;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 (fontspec)             and font adjustment code:
-(fontspec)             \fontdimen 8\font =0.4151pt\relax \fontdimen 9\font
-(fontspec)             =2.07547pt\relax \fontdimen 10\font =1.73302pt\relax
-(fontspec)             \fontdimen 11\font =1.15189pt\relax \fontdimen 12\font
-(fontspec)             =6.22641pt\relax \fontdimen 13\font =0pt\relax 
+(fontspec)             \fontdimen 8\font =0.49811pt\relax \fontdimen 9\font
+(fontspec)             =2.49057pt\relax \fontdimen 10\font =2.07962pt\relax
+(fontspec)             \fontdimen 11\font =1.38226pt\relax \fontdimen 12\font
+(fontspec)             =7.4717pt\relax \fontdimen 13\font =0pt\relax 
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[1.037632409429974]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
+(fontspec)             <->s*[1.037633021687372]"[latinmodern-math.otf]/OT:script=math;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 (fontspec)             and font adjustment code:
-(fontspec)             \fontdimen 8\font =0.4151pt\relax \fontdimen 9\font
-(fontspec)             =2.07547pt\relax \fontdimen 10\font =1.73302pt\relax
-(fontspec)             \fontdimen 11\font =1.15189pt\relax \fontdimen 12\font
-(fontspec)             =6.22641pt\relax \fontdimen 13\font =0pt\relax 
+(fontspec)             \fontdimen 8\font =0.49811pt\relax \fontdimen 9\font
+(fontspec)             =2.49057pt\relax \fontdimen 10\font =2.07962pt\relax
+(fontspec)             \fontdimen 11\font =1.38226pt\relax \fontdimen 12\font
+(fontspec)             =7.4717pt\relax \fontdimen 13\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
 (Font)              `largesymbols' in the math version `normal' on input line 157.
@@ -977,12 +972,12 @@ Package hyperref Info: Link coloring OFF on input line 157.
 * \topmargin=-52.36449pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=10.0pt
+* \topskip=12.0pt
 * \footskip=30.0pt
-* \marginparwidth=65.0pt
-* \marginparsep=11.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -1006,38 +1001,38 @@ File: figures/bioscar-logo.png Graphic file (type bmp)
 File: figures/Logo_Sorbonne_Universite.png Graphic file (type bmp)
 <figures/Logo_Sorbonne_Universite.png>
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 169.
+(Font)              scaled to size 17.28pt on input line 169.
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 170.
+(Font)              scaled to size 17.28pt on input line 170.
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/it' will be
-(Font)              scaled to size 14.4pt on input line 179.
+(Font)              scaled to size 17.28pt on input line 179.
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 182.
+(Font)              scaled to size 14.4pt on input line 182.
 [1
 
 ] [2] (./index.toc
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
-(Font)              scaled to size 10.0pt on input line 1.
+(Font)              scaled to size 12.0pt on input line 1.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.26414pt on input line 6.
+(Font)              scaled to size 8.71696pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.18867pt on input line 6.
+(Font)              scaled to size 6.22641pt on input line 6.
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 6.
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.37842pt on input line 6.
+(Font)              scaled to size 12.4541pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.2649pt on input line 6.
+(Font)              scaled to size 8.71785pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.18921pt on input line 6.
+(Font)              scaled to size 6.22705pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.37628pt on input line 6.
+(Font)              scaled to size 12.45154pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.2634pt on input line 6.
+(Font)              scaled to size 8.71606pt on input line 6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.18814pt on input line 6.
+(Font)              scaled to size 6.22577pt on input line 6.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 6.
 (c:/Users/Minh-Anh/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1051,260 +1046,339 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [3] [4] [5]
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/it' will be
-(Font)              scaled to size 10.0pt on input line 284.
+(Font)              scaled to size 12.0pt on input line 284.
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [1]
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [2]
-LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 355.
 
-Underfull \hbox (badness 1107) in paragraph at lines 415--418
-\TU/TimesNewRoman(0)/m/n/10 Estimation of tumor immune infiltration using bulk RNA-seq can be estimated using Microenvironment Cell
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[3]
+LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
+(Font)              scaled to size 14.4pt on input line 355.
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[4]
+Underfull \hbox (badness 2538) in paragraph at lines 438--445
+\TU/TimesNewRoman(0)/m/n/12 “HAY BONE MARROW NEUTROPHIL”, “HAY BONE MARROW IMMATURE NEU-
  []
 
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
-
-[3]
-
-Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
-
-[4]
-File: index_files/figure-latex/inflammatory-plot-1.pdf Graphic file (type pdf)
-<use index_files/figure-latex/inflammatory-plot-1.pdf>
-LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 536.
-LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 536.
-File: index_files/figure-latex/osteosarcoma-plot-1.pdf Graphic file (type pdf)
-<use index_files/figure-latex/osteosarcoma-plot-1.pdf>
-LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/it' will be
-(Font)              scaled to size 9.0pt on input line 545.
-
-Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [5]
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [6]
+File: index_files/figure-latex/inflammatory-plot-1.pdf Graphic file (type pdf)
+<use index_files/figure-latex/inflammatory-plot-1.pdf>
+LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
+(Font)              scaled to size 10.95pt on input line 496.
+LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
+(Font)              scaled to size 10.95pt on input line 496.
+
+LaTeX Warning: Float too large for page by 17.67961pt on input line 497.
+
+File: index_files/figure-latex/osteosarcoma-plot-1.pdf Graphic file (type pdf)
+<use index_files/figure-latex/osteosarcoma-plot-1.pdf>
+LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/it' will be
+(Font)              scaled to size 10.95pt on input line 505.
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [7]
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[8]
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[9]
 File: index_files/figure-latex/estimate-violin-1.pdf Graphic file (type pdf)
 <use index_files/figure-latex/estimate-violin-1.pdf>
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 9.33961pt on input line 598.
+(Font)              scaled to size 11.36319pt on input line 558.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.22641pt on input line 598.
+(Font)              scaled to size 8.30188pt on input line 558.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 9.34058pt on input line 598.
+(Font)              scaled to size 11.36435pt on input line 558.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.22705pt on input line 598.
+(Font)              scaled to size 8.30273pt on input line 558.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.33865pt on input line 598.
+(Font)              scaled to size 11.36201pt on input line 558.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.22577pt on input line 598.
-
-Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
-
-[8]
+(Font)              scaled to size 8.30103pt on input line 558.
 File: index_files/figure-latex/immune-plot-1.pdf Graphic file (type pdf)
 <use index_files/figure-latex/immune-plot-1.pdf>
-File: index_files/figure-latex/survival-plot-1.pdf Graphic file (type pdf)
-<use index_files/figure-latex/survival-plot-1.pdf>
-File: index_files/figure-latex/venn-plot-1.pdf Graphic file (type pdf)
-<use index_files/figure-latex/venn-plot-1.pdf>
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
-
-[9]
-
-Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [10]
-File: index_files/figure-latex/enrichr-plot-1.pdf Graphic file (type pdf)
-<use index_files/figure-latex/enrichr-plot-1.pdf>
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [11]
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [12]
+File: index_files/figure-latex/survival-plot-1.pdf Graphic file (type pdf)
+<use index_files/figure-latex/survival-plot-1.pdf>
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [13]
+File: index_files/figure-latex/venn-plot-1.pdf Graphic file (type pdf)
+<use index_files/figure-latex/venn-plot-1.pdf>
+File: index_files/figure-latex/enrichr-plot-1.pdf Graphic file (type pdf)
+<use index_files/figure-latex/enrichr-plot-1.pdf>
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [14]
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[15]
+Overfull \hbox (21.66212pt too wide) in paragraph at lines 655--688
+ [][] 
+ []
+
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[16]
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[17]
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[18]
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[19]
 No file index.bbl.
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
-[15]
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 918.
+[20]
 
-LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 918.
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
+[21]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 883.
 
-Overfull \vbox (0.38809pt too high) detected at line 1184
- []
+LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <12> not available
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 883.
 
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [1]
-Underfull \vbox (badness 10000) detected at line 1184
+Underfull \vbox (badness 10000) detected at line 1149
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1184
+Underfull \vbox (badness 10000) detected at line 1149
  []
 
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [2]
-Underfull \vbox (badness 10000) detected at line 1184
+Underfull \vbox (badness 10000) detected at line 1149
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1184
+Underfull \vbox (badness 10000) detected at line 1149
  []
 
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [3]
-Underfull \vbox (badness 10000) detected at line 1184
+Underfull \vbox (badness 10000) detected at line 1149
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1184
+Underfull \vbox (badness 10000) detected at line 1149
  []
 
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [4]
-Underfull \vbox (badness 10000) detected at line 1184
+Underfull \vbox (badness 10000) detected at line 1149
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1184
+Underfull \vbox (badness 10000) detected at line 1149
  []
 
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [5]
-Underfull \vbox (badness 10000) detected at line 1184
+Underfull \vbox (badness 10000) detected at line 1149
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1184
+Underfull \vbox (badness 10000) detected at line 1149
  []
 
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [6]
+Underfull \vbox (badness 10000) detected at line 1149
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1149
+ []
+
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [7]
+Overfull \hbox (28.54826pt too wide) in paragraph at lines 1226--1226
+[]\TU/lmtt/m/n/12 ## - Session info ---------------------------------------------------------------[] 
+ []
+
+
+Overfull \hbox (22.3687pt too wide) in paragraph at lines 1226--1226
+[]\TU/lmtt/m/n/12 ##  pandoc   2.17.1.1 @ C:/Program Files/RStudio/bin/quarto/bin/ (via rmarkdown)[] 
+ []
+
+
+Overfull \hbox (28.54825pt too wide) in paragraph at lines 1226--1226
+[]\TU/lmtt/m/n/12 ## - Packages -------------------------------------------------------------------[] 
+ []
+
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [8]
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
-[9] 
+[9]
+Overfull \hbox (28.54819pt too wide) in paragraph at lines 1226--1226
+[]\TU/lmtt/m/n/12 ## ------------------------------------------------------------------------------[] 
+ []
+
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[10]
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
+
+[11] 
 AED: lastpage setting LastPage
 
 Package fancyhdr Warning: \footskip is too small (0.0pt): 
-(fancyhdr)                Make it at least 12.0pt, for example:
-(fancyhdr)                \setlength{\footskip}{12.0pt}.
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\footskip}{14.49998pt}.
 
 [1] (./index.aux)
-Package rerunfilecheck Info: File `index.out' has not changed.
-(rerunfilecheck)             Checksum: 9E694EF9CD36EF0BAA25E3F3136F74D5;6882.
- )
-(\end occurred inside a group at level 4)
 
-### semi simple group (level 4) entered at line 832 (\begingroup)
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package rerunfilecheck Info: File `index.out' has not changed.
+(rerunfilecheck)             Checksum: 35FF5642AFE82A0D10F621238BCEB96C;6757.
+ )
+(\end occurred inside a group at level 5)
+
+### semi simple group (level 5) entered at line 1295 (\begingroup)
+### semi simple group (level 4) entered at line 797 (\begingroup)
 ### semi simple group (level 3) entered at line 249 (\begingroup)
 ### semi simple group (level 2) entered at line 202 (\begingroup)
 ### semi simple group (level 1) entered at line 127 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 21557 strings out of 477864
- 401002 string characters out of 5845153
- 892177 words of memory out of 5000000
- 42132 multiletter control sequences out of 15000+600000
- 474968 words of font info for 90 fonts, out of 8000000 for 9000
+ 21552 strings out of 477864
+ 401025 string characters out of 5845153
+ 891461 words of memory out of 5000000
+ 42130 multiletter control sequences out of 15000+600000
+ 474948 words of font info for 90 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 86i,12n,122p,910b,11017s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 86i,12n,122p,964b,10987s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on index.pdf (30 pages).
+Output written on index.pdf (38 pages).

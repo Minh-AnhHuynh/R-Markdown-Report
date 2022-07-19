@@ -1436,9 +1436,9 @@ based on the theme of osteosarcoma, angiogenesis, neutrophils,
 migration, hypoxia and inflammation. Only significant pathways are
 reported in the **Table \@ref(tab:gsea-table)**. Certain pathways are not significant but
 relevant, such as "Gobp Positive Regulation of Vascular Associated
-Smooth Muscle Cell Proliferation" (*P* = 0.13), "Gobp Positive
-Regulation of Inflammatory Response", and all other pathways concerning
-dendritic, lymphocyte, monocyte, macrophage chemotaxis and migration.
+Smooth Muscle Cell Proliferation" (*P* = 0.129), "Gobp Positive
+Regulation of Inflammatory Response" (*P* = 0.145), and all other pathways concerning
+dendritic, lymphocyte, monocyte, macrophage chemotaxis and migration (*P* $\geq$ 0.150)
 
 Interestingly, there is no found significant pathway relating to
 positive regulation of inflammation, but there are significant pathways
