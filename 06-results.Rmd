@@ -212,10 +212,9 @@ patchwork <- patchwork +
 In order to see if inflammatory groups associated to inflammation
 response can be obtained, first an MDS visualization of the dataset on
 the Hallmark Inflammatory Response signature (HIR) containing 200 genes,
-from MSigDB **(Figure** \@ref(fig:inflammatory-plot)**.A)**. The 88
+from MSigDB **(Figure \@ref(fig:inflammatory-plot).A)**. The 88
 osteosarcoma samples are overall clustered in the middle, while other
-samples are scattered outwardly. The elbow method **(Figure**
-\@ref(fig:inflammatory-plot)**.B)** seems to indicate that 2 clusters
+samples are scattered outwardly. The elbow method **(Figure\@ref(fig:inflammatory-plot).B)** seems to indicate that 2 clusters
 seems to be the optimal number of clusters after which the wss decreases
 the least. Visually, 8 clusters is the minimum amount of clusters for
 which each point visually belongs to its nearest cluster. The gene
@@ -227,16 +226,16 @@ number of samples and the heterogeneity of the samples, another method
 based on the intensity of the inflammation has been tried. By doing the
 mean of the Z-score of the hallmark inflammatory response signature,
 three groups describing the inflammatory status can be obtained,
-classified as low, medium and high groups **(Figure** \@ref(fig:inflammatory-plot)**.C)**.
+classified as low, medium and high groups **(Figure \@ref(fig:inflammatory-plot).C)**.
 
 Furthermore, the resulting groups are also partially functionally
 relevant as they seem to correspond fairly well to the functional
 groups, defined bythe k-means clustering based on MDS visualization
-**(Figures** \@ref(fig:inflammatory-plot)**.C, D)**. Each sample is thus
+**(Figures \@ref(fig:inflammatory-plot).C, D)**. Each sample is thus
 attributed to its inflammatory status and this group will be
 subsequently used for the following results.
 
-```{r inflammatory-plot, echo=FALSE, fig.cap="**Construction of inflammatory groups for the 88 samples in TARGET-OS dataset based on the HIR signature from MSigDB.** \\newline{}(A) MDS visualization with k-means clustering of the HIR signature. \\newline{}(B) Elbow graph determining the optimal number of k-clusters. \\newline{}(C) Histogram of the mean of Z-score of the HIR signature, annotated with the 8 k-means clusters. \\newline{}(D) Histogram of the mean of Z-score of the HIR signature, annotated with the 3 inflammatory status groups. \\newline{}(E) Heatmap of the HIR signature with samples annotated to their corresponding inflammatory groups. Rows correspond to genes and columns correspond to samples. HIR = Hallmark Inflammatory Response. MDS = Multidimensional Scaling", fig.height=12, fig.width=10, dependson= "signature_construction"}
+```{r inflammatory-plot, echo=FALSE, fig.cap="**Construction of inflammatory groups for the 88 samples in TARGET-OS dataset based on the HIR signature from MSigDB.** \\newline{}(A) MDS visualization with k-means clustering of the HIR signature. Data is Z-scaled. \\newline{}(B) Elbow graph determining the optimal number of k-clusters. \\newline{}(C) Histogram of the mean of Z-score of the HIR signature, annotated with the 8 k-means clusters. \\newline{}(D) Histogram of the mean of Z-score of the HIR signature, annotated with the 3 inflammatory status groups. \\newline{}(E) Heatmap of the HIR signature with samples annotated to their corresponding inflammatory groups. Rows correspond to genes and columns correspond to samples. Gene is expressed in TPM, Z-scaled. HIR = Hallmark Inflammatory Response. MDS = Multidimensional Scaling", fig.height=12, fig.width=10, dependson= "signature_construction"}
 
 suppressWarnings(print(patchwork))
 ```
@@ -488,7 +487,7 @@ ve <-
 vep <- ggarrange(ve)
 ```
 
-```{r estimate-violin, out.width="60%", fig.align='center',fig.cap="**Violin plot of ESTIMATE score for each inflammatory group.** ANOVA was performed followed by Tukey's post-hoc analysis. *P* $\\leq$ 0.05 is considered statistically significant."}
+```{r estimate-violin, fig.asp=0.65, fig.align="center", fig.cap="**Violin plot of ESTIMATE score for each inflammatory group.** ANOVA was performed followed by Tukey's post-hoc analysis. $P \\leq 0.05$ is considered statistically significant."}
 
 suppressWarnings(print(vep))
 ```
@@ -661,7 +660,7 @@ xcelln_plot <- ggboxplot(
 )
 ```
 
-```{r immune-plot, fig.cap="**Immune deconvolution plot of neutrophils with various immune deconvolution algorithm.** \\newline{}(A) MCP-counter. \\newline{}(B) CIBERSORTx. \\newline{}(C) xCell. \\newline{}Kruskal-Wallis testing is performed on non-parametric data and a post-hoc dunn's test was performed when appropriate. *P* $\\leq$ 0.05 is considered statistically significant.", fig.width=8, cache=TRUE, dependson=c("mcp_counter", "cibersortx", "xCell")}
+```{r immune-plot, fig.cap="**Boxplot of the abundance of neutrophils with various immune deconvolution algorithm.** \\newline{}(A) MCP-counter. \\newline{}(B) CIBERSORTx. \\newline{}(C) xCell. \\newline{}Kruskal-Wallis testing is performed on non-parametric data and a post-hoc dunn's test was performed when appropriate. *P* $\\leq$ 0.05 is considered statistically significant.", fig.width=8, cache=TRUE, dependson=c("mcp_counter", "cibersortx", "xCell")}
 immune_plot <-
   ggarrange(
     mcpn_plot,
@@ -678,8 +677,7 @@ suppressWarnings(print(immune_plot))
 
 In order to determine if inflammation groups are linked with increased
 survival odds, a Kaplan-Meier survival analysis was performed between
-low and high group of inflammation **(Figure**
-\@ref(fig:survival-plot)**)**. Log-rank analysis shows that the survival
+low and high group of inflammation **(Figure \@ref(fig:survival-plot))**. Log-rank analysis shows that the survival
 curve between low and high group of inflammation are not statistically
 different (*P* = 0.16). However the *P* value is low enough that it
 could be considered a trend. Estimation considers 29 patients in the low
@@ -845,7 +843,7 @@ ggsave(
 )
 ```
 
-```{r venn-plot, fig.cap = "Venn diagram comparing three inflammatory signatures."}
+```{r venn-plot, fig.asp=0.5, fig.cap = "**Venn diagram comparing three inflammatory signatures.**. ESTIMATE refers to the immune score calculated by the ESTIMATE algorithm, reflecting mmune cell infiltration. Hallmark Inflammatory Response and TNF-α signature are hallmark signatures taken from MSigDB."}
 suppressWarnings(print(venn_plot))
 ```
 
@@ -1226,11 +1224,17 @@ inflammatory status condition (Low vs High) on the total 19114 genes.
 <!-- A volcano plot **(Figure \@ref(fig:volc-plot))** represents the results of the analysis, with a slight skewness on the number of genes positively differentially expressed in the Low condition (right part of the graph). -->
 DEGs are enriched through multiple databases in order to identify
 potentially interesting pathways relating to a high level of
-inflammation **(Figure \@ref(fig:enrichr-plot))**. The combined enrichment barplot **(Figure \@ref(fig:enrichr-plot)A)** returned multiple pathways associated with chemokines, PD-1 signaling, and T cell lymphocyte associated mechanisms. Interestingly, enrichment of downregulated genes in GO Biological Process database returned a lot of pathways linked to immune cell chemotaxis, and particularly neutrophil chemotaxis.
+inflammation **(Figure \@ref(fig:enrichr-plot))**. Only relevant enrichment plots are shown. The combined enrichment barplot **(Figure \@ref(fig:enrichr-plot)A)** returned multiple pathways associated with chemokines, PD-1 signaling, and T cell lymphocyte associated mechanisms. Interestingly, enrichment of downregulated genes in GO Biological Process database returned a lot of pathways linked to immune cell chemotaxis, and particularly neutrophil chemotaxis.
+
+
+```{r load_enrichr, include=FALSE}
+# We load this package in an uncached chunk because we need it in order to
+# automatically add it to package.bib and then cross-reference it in methods.
+librarian::shelf(enrichR)
+```
 
 ```{r enrichr, cache=TRUE, include=FALSE}
 source("01_script/10_gene_enrichment.R")
-librarian::shelf(enrichR)
 ep <- plot_enrichR(
   dir_gene_list = "03_results/DESeq2_genes/",
   dir_figures = "04_figures/DESeq2_results/enrichr/",
@@ -1247,7 +1251,7 @@ enrichp <- ggarrange(lhc, lhg, labels = "AUTO", nrow = 2, ncol = 1)
 ```
 
 
-```{r enrichr-plot, echo=FALSE, dependson="enrichr", fig.width=12, fig.height=12, fig.cap="**Top 20 results of enrichment using enrichR for Low vs High condition.** \\newline{}(A) Combined enrichment for 8 databases. \\newline{}(B) Enrichment for downregulated genes for GO Biological Process 2021 database."}
+```{r enrichr-plot, echo=FALSE, dependson="enrichr", fig.width=12, fig.height=12, fig.cap="**Top 20 results of enrichment using enrichR for Low vs High condition.** \\newline{}(A) Combined enrichment for the 8 databases. \\newline{}(B) Enrichment for downregulated genes for GO Biological Process 2021 database."}
 
 suppressWarnings(print(enrichp))
 ```
