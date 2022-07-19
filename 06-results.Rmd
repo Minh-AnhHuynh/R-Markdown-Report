@@ -431,11 +431,9 @@ signature from MSigDB was used to see whether the inflammatory groups
 can be related to gene expression from this signature. Visually, the
 heatmap representing the gene signature, annotated with the inflammatory
 groups, does seem to indicate that the samples express different genes
-between Low, Medium and High inflammation group **(Figure**
-\@ref(fig:osteosarcoma-plot)**A)**. However, the dendrogram clustering
+between Low, Medium and High inflammation group **(Figure \@ref(fig:osteosarcoma-plot)A)**. However, the dendrogram clustering
 the samples indicates that the gene signature does not cluster well with
-the inflammatory annotations **(Figure**
-\@ref(fig:osteosarcoma-plot)**B)**. However, despite high heterogeneity
+the inflammatory annotations **(Figure \@ref(fig:osteosarcoma-plot)B)**. However, despite high heterogeneity
 between samples and inflammatory status, there seems to be an overall
 distinct expression of genes in each inflammatory group.
 
@@ -445,13 +443,12 @@ chondroblastic, fibroblastic markers has also been done, through a
 heatmap representation. Hierarchical clustering of the samples does not
 appear to be associated with corresponding inflammatory status. However
 it does reveal that there are groups of osteoblastic, chondroblastic and
-fibroblastic osteosarcomas which is expected (**Figure**
-\@ref(fig:osteosarcoma-plot)**C**).
+fibroblastic osteosarcomas which is expected **(Figure \@ref(fig:osteosarcoma-plot)C)**.
 
 To assess the proliferation status of the samples related to the
 inflammation status, the mean of three markers of proliferation (MKI67,
 PCNA, TOP2A) have been compared, along with the mean of the three
-individual markers (**Figure** \@ref(fig:osteosarcoma-plot)**D**).
+individual markers **(Figure \@ref(fig:osteosarcoma-plot)D)**.
 Statistical Kruskal-Wallis testing is significant (*P* = 0.00968) and
 post-hoc Dunn analysis reveals that the mean of the proliferation
 markers between low and high group is significantly different (*P* =
@@ -466,7 +463,7 @@ inflammatory status is high in the osteosarcoma samples.
 Using the ESTIMATE algorithm, an immune score has been calculated for
 each sample which reflects the immune infiltration in a given tumor
 sample. The violin plot represents the values obtained for each
-inflammatory group **(Figure** \@ref(fig:estimate-violin)**)**. Because
+inflammatory group **(Figure \@ref(fig:estimate-violin))**. Because
 the data is normally distributed and has homoscedasticity, ANOVA has
 been performed (*P* = 0.002) followed by Tukey's test, revealing that
 there is a statistically significant difference between Low and High
@@ -525,7 +522,7 @@ algorithm on TPM normalized bulk-RNASeq. Here, MCP-counter, CIBERSORTx
 and xCell have been tried. In MCP-counter, the mean (SD) of Z-score
 reflecting the abundances of neutrophils is statistically different
 between all groups, it is increased when the inflammation status gets
-higher **(Figure** \@ref(fig:immune-plot)**A)**
+higher **(Figure \@ref(fig:immune-plot)A)**
 
 ```{r mcp_counter, cache=TRUE, include=FALSE, dependson= "signature_construction"}
 
@@ -820,7 +817,7 @@ suppressWarnings(print(ggsurv))
 
 In order to see if the inflammatory signatures used have overlapping
 genes or not, a Venn diagram was constructed from the signatures
-**(Figure \@ref(fig:venn-plot*)**. Overall, the three immune
+**(Figure \@ref(fig:venn-plot)**. Overall, the three immune
 signatures depicting immune infiltration (immune score), inflammation
 response and TNF-α pathway have low overlapping genes and can be
 considered different.
@@ -876,9 +873,9 @@ suppressWarnings(print(venn_plot))
 
 ## Biological mechanisms underlying the inflammatory groups
 
-### Differential Gene Expression Analysis
+### Differential Gene Expression Analysis and Enrichment
 
-```{r load deseq2, include=FALSE}
+```{r load_deseq2, include=FALSE}
 
 if (!require("BiocManager", quietly = TRUE)) {
   install.packages("BiocManager")
@@ -1241,23 +1238,21 @@ ggsave("04_figures/DESeq2_results/volcano_plot-inflammatory_group.png",
 )
 ```
 
-```{r volc-plot, dependson=deseq2, echo=FALSE, out.width="60%", fig.height=6, fig.width=6, dependson="deseq2", fig.cap="**Volcano plot of the differentially expressed genes in Low vs High condition.** Positive log~2~ of fold change represent a gene that is more differentially expressed Low condition, and _vice versa_. Adjusted *P* value were obtained by FDR testing. *P* ≤ 0.05 and log~2~ fold change ≤ 1 or ≥ 1 was used for cutoff. FDR = False Discovery Rate"}
+<!-- ```{r volc-plot, dependson=deseq2, echo=FALSE, out.width="60%", fig.align='center', fig.height=6, fig.width=6, dependson="deseq2", fig.cap="Volcano plot of the differentially expressed genes in Low vs High condition. Positive $log_2$ of fold change represent a gene that is more differentially expressed Low condition, and _vice versa_. Adjusted *P* value were obtained by FDR testing. *P* ≤ 0.05 and $log_2$ fold change ≤ 1 or ≥ 1 was used for cutoff. FDR = False Discovery Rate"} -->
 
-suppressWarnings(print(volc_lh))
-```
+<!-- suppressWarnings(print(volc_lh)) -->
+<!-- ``` -->
 
 A differential gene expression analysis was performed on the
 inflammatory status condition (Low vs High) on the total 19114 genes.
-A volcano plot **(Figure \@ref(fig:volc-plot))** represents the results of the analysis, with a slight skewness on the number of genes positively differentially expressed in the Low condition (right part of the graph).
-
-### Over-Representation Analysis
-
+<!-- A volcano plot **(Figure \@ref(fig:volc-plot))** represents the results of the analysis, with a slight skewness on the number of genes positively differentially expressed in the Low condition (right part of the graph). -->
 DEGs are enriched through multiple databases in order to identify
 potentially interesting pathways relating to a high level of
-inflammation **(Figure \@ref(fig:enrichr-plot))**. Interestingly, enrichment of downregulated genes in GO Biological Process database returned a lot of pathways linked to immune cell chemotaxis, notably neutrophil chemotaxis.
+inflammation **(Figure \@ref(fig:enrichr-plot))**. The combined enrichment barplot **(Figure \@ref(fig:enrichr-plot)A)** returned multiple pathways associated with chemokines, PD-1 signaling, and T cell lymphocyte associated mechanisms. Interestingly, enrichment of downregulated genes in GO Biological Process database returned a lot of pathways linked to immune cell chemotaxis, and particularly neutrophil chemotaxis.
 
 ```{r enrichr, cache=TRUE, include=FALSE}
 source("01_script/10_gene_enrichment.R")
+librarian::shelf(enrichR)
 ep <- plot_enrichR(
   dir_gene_list = "03_results/DESeq2_genes/",
   dir_figures = "04_figures/DESeq2_results/enrichr/",
@@ -1457,7 +1452,7 @@ gsea_df <- make_gsea_clusterProfiler(gene_list_inflam, all_signatures,
 GSEA was performed on `r nrow(gsea_df)` selected signatures from MSigDB,
 based on the theme of osteosarcoma, angiogenesis, neutrophils,
 migration, hypoxia and inflammation. Only significant pathways are
-reported in the table. Certain pathways are not significant but
+reported in the **Table \@ref(tab:gsea-table)**. Certain pathways are not significant but
 relevant, such as "Gobp Positive Regulation of Vascular Associated
 Smooth Muscle Cell Proliferation" (*P* = 0.13), "Gobp Positive
 Regulation of Inflammatory Response", and all other pathways concerning
@@ -1472,14 +1467,14 @@ Regulation of Neutrophil Activation". It is also notable that the
 signature *Hp Osteosarcoma* in GSEA is not significantly different (*P*
 = 0.38).
 
-```{r gsea-table, dependson="gsea", fig.cap="GSEA table"}
+```{r gsea-table, dependson="gsea"}
 gsea_df %>%
   filter(p.adjust <= 0.10) %>%
   dplyr::select(-qvalues) %>%
   mutate(p.adjust = insight::format_p(.$p.adjust)) %>%
   kableExtra::kbl(
     format = "latex",
-    caption = glue("Results of GSEA by clusterProfiler, pre-ranked by descending order of log2 of fold change for genes differentially expressed in low vs high condition. Genes at the top of the list are thus differentially expressed in the high group, and vice versa. Only significant pathways are shown, out of {nrow(gsea_df)} selected pathways. P adjust ≤ 0.10 is considered significant. NES = Normalized Enrichment Score"),
+    caption = glue("Results of GSEA by clusterProfiler, pre-ranked by descending order of log2 of fold change for genes differentially expressed in low vs high condition. Genes at the top of the list are thus differentially expressed in the high group, and vice versa. Only significant pathways are shown, out of {nrow(gsea_df)} selected pathways. $P$ adjust ≤ 0.10 is considered significant. NES = Normalized Enrichment Score"),
     digits = 3,
     booktabs = TRUE,
     # longtable = TRUE # Use argument to split table in multiple pages
