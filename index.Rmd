@@ -4,7 +4,7 @@ link-citations: yes
 indent: yes
 csl: csl/cell.csl
 geometry: left = 2.5cm, right = 2.5cm, top = 2cm, bottom = 2cm
-fontsize: 12pt
+fontsize: 12ptove v
 header-includes:
 - \usepackage{float}
 - \usepackage{sectsty}

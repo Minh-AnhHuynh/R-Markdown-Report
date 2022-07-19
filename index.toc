@@ -1,0 +1,30 @@
+\contentsline {section}{List of Abbreviations}{}{section*.2}%
+\contentsline {section}{Acknowledgements}{}{section*.3}%
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Objective and experimental principle}{2}{section.2}%
+\contentsline {section}{\numberline {3}Methods}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Data collection}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Normalization}{3}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Construction of gene signatures}{3}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Construction of inflammatory groups}{3}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}MDS visualization and k-means clustering}{3}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Determination of cell population abundance}{4}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Identification of Differentially Expressed Genes (DEG)}{4}{subsection.3.7}%
+\contentsline {subsubsection}{\numberline {3.7.1}Over Representation Analysis (ORA)}{4}{subsubsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.8}Gene Set Enrichment Analysis (GSEA)}{4}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Statistical Testing}{4}{subsection.3.9}%
+\contentsline {section}{\numberline {4}Results}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Determination of inflammatory groups representing intratumor inflammatory status}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Characterization of osteosarcomas associated to inflammatory status}{5}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Characterization of intra-tumor inflammation associated to inflammatory status}{8}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Relationship with ESTIMATE and inflammatory signatures}{8}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Immune abundance by immune deconvolution algorithm}{9}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Survival curve}{9}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.4}Similarity of inflammatory signatures}{9}{subsubsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.4}Biological mechanisms underlying the inflammatory groups}{11}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Differential Gene Expression Analysis and Enrichment}{11}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Gene Set Enrichment Analysis (GSEA)}{11}{subsubsection.4.4.2}%
+\contentsline {section}{\numberline {5}Discussion}{14}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Limitations}{14}{subsection.5.1}%
+\contentsline {section}{\numberline {6}Bibliography}{15}{section.6}%
+\contentsline {section}{\numberline {7}Appendix: code}{}{section.7}%

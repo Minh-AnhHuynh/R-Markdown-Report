@@ -1,52 +1,55 @@
 ---
 title: ''
-output: bookdown::pdf_document2
+output: pdf_document
 ---
 
 # Appendix: code
 
-Analyses were conducted using the R Statistical language (version 4.1.2;
-R Core Team, 2021) on Windows 10 x64 (build 22000). Code is available at
+Analyses were conducted using the R Statistical language (version 4.2.1;
+R Core Team, 2021) on Windows 11 x64. Code is available at
 _<https://github.com/Minh-AnhHuynh/Osteosarcoma-Project>_.
 
-Code philosophy follows ["The tidyverse style guide" written by Hadley
-Wickham.](https://style.tidyverse.org/) and usage of tidyverse
-functions, in order to ensure consistent code readability, usage and
-naming.
+<!-- Code philosophy follows ["The tidyverse style guide" written by Hadley -->
+<!-- Wickham.](https://style.tidyverse.org/) and usage of tidyverse -->
+<!-- functions, in order to ensure consistent code readability, usage and -->
+<!-- naming. -->
 
 
 
 \spacing{1}
-```{r explain how data was created and imported (aka copy import script)}
 
+<!-- TODO :  explain how data was created and imported (aka copy import script)-->
+
+
+<!-- Appendix: All code for this report -->
+ <!-- ```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE} -->
+ <!-- ``` -->
+
+
+
+```{r show-code, echo=TRUE, eval=FALSE}
+<<signature_construction>>
+# <<hp_osteosarcoma>>
+# <<mcp_counter>>
+# <<survival_code>>
+# <<load_deseq2>>
+# <<generate_raw_count>>
+# <<deseq2>>
+<<gsea>>
 ```
 
-
-```{r , echo=TRUE, eval=FALSE}
-<<survival_code>>
-```
-
-
-
-```{r tpm}
-tpm_function <- function(counts, len) {
-  x <- counts / len
-  return(t(t(x) * 1e6 / colSums(x)))
-}
-```
-
-```{r eval=FALSE, include=FALSE}
-librarian::shelf(sessioninfo)
+```{r echo=FALSE}
+librarian::shelf(sessioninfo, quiet = TRUE)
 sessioninfo::session_info("attached")
 ```
 
 ```{r echo=FALSE, results="asis"}
-librarian::shelf(sessioninfo)
+librarian::shelf(sessioninfo, quiet = TRUE)
 pkgs <- sessioninfo::package_info("attached", dependencies = FALSE)
 df <- tibble::tibble(
-  package = pkgs$package,
-  version = pkgs$ondiskversion,
-  source = gsub("@", "\\\\@", pkgs$source)
+  Package = pkgs$package,
+  Version = pkgs$ondiskversion,
+  Source = gsub("@", "\\\\@", pkgs$source)
 )
 knitr::kable(df, format = "markdown")
 ```

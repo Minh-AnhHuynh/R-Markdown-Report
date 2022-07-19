@@ -1,0 +1,212 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
+
+\hypertarget{data-collection}{%
+\subsection{Data collection}\label{data-collection}}
+
+Analyses were performed on two bulk RNA-seq osteosarcoma datasets,
+TARGET-OS Osteosarcoma and GSE87686. Data was collected from TARGET-OS
+using GDC Data Transfer Tool UI (v1.0.0), returning 19493 protein coding
+genes and 88 samples for TARGET-OS, containing both raw data and TPM
+data. GSE87686 data was obtained through the lab's previously
+pre-processed kallisto files, downloaded through SRA Run Selector to
+obtain SRA run files. Data was then imported from kallisto files via
+\emph{tximport (v1.22.0)} R package. Genes were converted to ENST and
+ENSG and finally HUGO gene symbols through \emph{biomaRt (v2.50.3)}.
+
+\hypertarget{normalization}{%
+\subsection{Normalization}\label{normalization}}
+
+Raw data was converted to TPM as it is the best performing normalization
+method than FPKM or RPKM, based on its preservation of biological signal
+as compared to other methods {[}@Abrams.2019{]}. Calculation was
+performed using counts and lengths for each gene, returned from the
+tximport to kallisto process.
+
+Normalization by Z-score with the \emph{scale} function was used to
+normalize the data for each gene, in order to be able to visualize the
+data in corresponding heatmaps.
+
+Z-score of the mean of TPM data was used to construct grouped heatmaps
+for a given gene or gene signature.
+
+Inflammatory groups characterizing the intensity of inflammatory status
+in tumors were created by choosing the lowest and highest mean of
+Z-score of the Hallmark Inflammatory Response signature from MSigDB,
+containing 200 genes. ICAM4 was notably not present in the dataset in
+TARGET-OS cohort. The groups were cut off evenly using the \emph{ntile}
+function in \emph{dplyr (v1.0.8)} R package.
+
+\hypertarget{construction-of-gene-signatures}{%
+\subsection{Construction of gene
+signatures}\label{construction-of-gene-signatures}}
+
+Gene signatures relevant to the research topic were obtained from MSigDB
+via \emph{msigdbr} (v7.5.1)\\
+HAY\_BONE\_MARROW\_NEUTROPHIL.v7.5.1
+
+Canonical markers for osteosarcoma markers were adapted from
+@Zhou.202005 's analysis and their canonical markers generated from the
+literature in their Supplementary Table 2.
+
+\hypertarget{construction-of-inflammatory-groups}{%
+\subsection{Construction of inflammatory
+groups}\label{construction-of-inflammatory-groups}}
+
+The groups were cut off evenly using the \emph{ntile} function in
+\emph{dplyr} R package.
+
+\hypertarget{mds-clustering}{%
+\subsection{MDS Clustering}\label{mds-clustering}}
+
+\hypertarget{determination-of-cell-population-abundance}{%
+\subsection{Determination of cell population
+abundance}\label{determination-of-cell-population-abundance}}
+
+\hypertarget{mcp-counter}{%
+\subsubsection{MCP Counter}\label{mcp-counter}}
+
+Estimation of tumor immune infiltration using bulk RNA-seq can be
+estimated using Microenvironment Cell Populations-counter (MCP-counter)
+{[}@Becht.2016{]}.
+
+\hypertarget{cibersortx.}{%
+\subsubsection{CIBERSORTx.}\label{cibersortx.}}
+
+CIBERSORTx algorithm was also used for immune cell deconvolution, from
+the CIBERSORTx platform (\url{https://cibersortx.stanford.edu/}) to
+estimate the abundance for 22 immune cell populations. CIBERSORTx is run
+in absolute mode, with batch correction, no quantile normalization.
+
+\hypertarget{xcell}{%
+\subsubsection{xCell}\label{xcell}}
+
+Similarly, xCell algorithm via \emph{xCell} and \emph{immunedeconv}
+packages was used to obtain abundance for 36 immune cell populations.
+
+\hypertarget{identification-of-differentially-expressed-genes-deg}{%
+\subsection{Identification of Differentially Expressed Genes
+(DEG)}\label{identification-of-differentially-expressed-genes-deg}}
+
+Using \emph{DESeq2 (v1.34.0)} {[}@Love.2014{]}, standard DEG pipeline
+using raw data was performed between inflammatory groups (Low, Medium,
+High). Fold Change (FC) is calculated as \(FC = High/Low\). DEGs were
+identified by using a cut-off on adjusted \emph{P} value \le 0.05 and
+\(log_2(FC) \ge 1 ; log_2(FC) \le -1.\) An interpretation of the
+FDR/Benjamini-Hochberg method for controlling the FDR is implemented in
+DESeq2 in which we rank the genes by p-value, then multiply each ranked
+\emph{P} value by m/rank (m = total number of tests).
+
+\hypertarget{over-representation-analysis-ora}{%
+\subsubsection{Over Representation Analysis
+(ORA)}\label{over-representation-analysis-ora}}
+
+\emph{enrichR v(3.0)} was used {[}@R-enrichR; @Xie.2021{]} for
+functional gene enrichment/pathway analysis. Following databases were
+queried : ``GO Molecular Function 2021'', ``GO Biological Process
+2021'', ``GO Cellular Component 2021'', ``Human Gene Atlas'',
+``BioPlanet 2019'', ``KEGG 2021 Human'', ``MSigDB Hallmark 2020'',
+``Reactome 2016''
+
+\hypertarget{statistical-testing}{%
+\subsection{Statistical Testing}\label{statistical-testing}}
+
+Statistical testing was performed using \emph{R software 4.2.1
+(2022-06-23)} and the \emph{rstatix} and \emph{car} package.
+
+ANOVA was performed for multiple comparison testing, only if the data is
+normally distributed and has homoscedasticity, verified through
+shapiro's test and levene's test, respectively. Tukey's honestly
+significant different testing was effected when appropriate, with
+\emph{P} values adjusted with Holm's method.
+
+Kruskal-Wallis testing was performed for non-metric comparative analysis
+between groups when. Post-hoc analysis was performed using Dunn's test
+as opposed to Wilcoxon due to the test taking into account
+Kruskal-Wallis's rank. Post-hoc dunn's test was done when appropriate.
+
+\emph{P} \textless{} 0.05 and \emph{P} adjusted \textless{} 0.05 was
+considered statistically significant.
+
+\hypertarget{gene-set-enrichment-analysis-gsea}{%
+\subsection{Gene Set Enrichment Analysis
+(GSEA)}\label{gene-set-enrichment-analysis-gsea}}
+
+GSEA was computed through \emph{clusterprofiler} which uses \emph{fgsea}
+as a backend. P \textless{} 0.10 was considered statistically
+significant. padjust is calculated using the False Discovery Rate from
+Benjamini-Hochberg. Pathways in the MSigDB databases
+(\textless{}\url{https://} www.gsea-msigdb.org/gsea/msigdb\textgreater)
+were used for the GSEA analysis.
+
+\newpage
+
+\end{document}

@@ -5,6 +5,8 @@ output: pdf_document
 
 \section*{Summary}
 
+\spacing{1.5}
+
 English Summary
 
 no more than 250 words for the abstract
