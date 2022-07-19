@@ -258,7 +258,7 @@ groups, defined bythe k-means clustering based on MDS visualization
 attributed to its inflammatory status and this group will be
 subsequently used for the following results.
 
-```{r inflammatory-plot, echo=FALSE, fig.cap="**Construction of inflammatory groups for the 88 samples in TARGET-OS dataset based on the HIR signature from MSigDB.** (A) MDS visualization with k-means clustering of the HIR signature. \\newline{}(B) Elbow graph determining the optimal number of k-clusters. \\newline{}(C) Histogram of the mean of Z-score of the HIR signature, annotated with the 8 k-means clusters. \\newline{}(D) Histogram of the mean of Z-score of the HIR signature, annotated with the 3 inflammatory status groups. **E.** Heatmap of the HIR signature with samples annotated to their corresponding inflammatory groups. Rows correspond to genes and columns correspond to samples. HIR = Hallmark Inflammatory Response. MDS = Multidimensional Scaling", fig.height=12, fig.width=10, dependson= "signature_construction"}
+```{r inflammatory-plot, echo=FALSE, fig.cap="**Construction of inflammatory groups for the 88 samples in TARGET-OS dataset based on the HIR signature from MSigDB.** \\newline{}(A) MDS visualization with k-means clustering of the HIR signature. \\newline{}(B) Elbow graph determining the optimal number of k-clusters. \\newline{}(C) Histogram of the mean of Z-score of the HIR signature, annotated with the 8 k-means clusters. \\newline{}(D) Histogram of the mean of Z-score of the HIR signature, annotated with the 3 inflammatory status groups. \\newline{}(E) Heatmap of the HIR signature with samples annotated to their corresponding inflammatory groups. Rows correspond to genes and columns correspond to samples. HIR = Hallmark Inflammatory Response. MDS = Multidimensional Scaling", fig.height=12, fig.width=10, dependson= "signature_construction"}
 
 suppressWarnings(print(patchwork))
 ```
@@ -460,9 +460,8 @@ inflammatory status is high in the osteosarcoma samples.
 
 ## Characterization of intra-tumor inflammation associated to inflammatory status
 
-### General relationship of inflammatory status with immune response
 
-#### Relationship with ESTIMATE and inflammatory signatures
+### Relationship with ESTIMATE and inflammatory signatures
 
 Using the ESTIMATE algorithm, an immune score has been calculated for
 each sample which reflects the immune infiltration in a given tumor
@@ -514,12 +513,12 @@ ve <-
 vep <- ggarrange(ve)
 ```
 
-```{r estimate-violin, fig.cap="**Violin plot of ESTIMATE score for each inflammatory group.** ANOVA was performed followed by Tukey's post-hoc analysis. *P* $\\leq$ 0.05 is considered statistically significant."}
+```{r estimate-violin, out.width="60%", fig.align='center',fig.cap="**Violin plot of ESTIMATE score for each inflammatory group.** ANOVA was performed followed by Tukey's post-hoc analysis. *P* $\\leq$ 0.05 is considered statistically significant."}
 
 suppressWarnings(print(vep))
 ```
 
-#### Immune abundance by immune deconvolution algorithm
+### Immune abundance by immune deconvolution algorithm
 
 Immune cell abundance can be determined by various immune deconvolution
 algorithm on TPM normalized bulk-RNASeq. Here, MCP-counter, CIBERSORTx
@@ -687,7 +686,7 @@ xcelln_plot <- ggboxplot(
 )
 ```
 
-```{r immune-plot, fig.cap="**Immune deconvolution plot of neutrophils with various immune deconvolution algorithm.** \\newline{}(A) MCP-counter. \\newline{}(B) CIBERSORTx. \\newline{}(C) xCell. Kruskal-Wallis testing is performed on non-parametric data and a post-hoc dunn's test was performed when appropriate. *P* $\\leq$ 0.05 is considered statistically significant.", fig.width=8, cache=TRUE, dependson=c("mcp_counter", "cibersortx", "xCell")}
+```{r immune-plot, fig.cap="**Immune deconvolution plot of neutrophils with various immune deconvolution algorithm.** \\newline{}(A) MCP-counter. \\newline{}(B) CIBERSORTx. \\newline{}(C) xCell. \\newline{}Kruskal-Wallis testing is performed on non-parametric data and a post-hoc dunn's test was performed when appropriate. *P* $\\leq$ 0.05 is considered statistically significant.", fig.width=8, cache=TRUE, dependson=c("mcp_counter", "cibersortx", "xCell")}
 immune_plot <-
   ggarrange(
     mcpn_plot,
@@ -700,7 +699,7 @@ immune_plot <-
 suppressWarnings(print(immune_plot))
 ```
 
-#### Survival curve
+### Survival curve
 
 In order to determine if inflammation groups are linked with increased
 survival odds, a Kaplan-Meier survival analysis was performed between
@@ -821,7 +820,7 @@ suppressWarnings(print(ggsurv))
 
 In order to see if the inflammatory signatures used have overlapping
 genes or not, a Venn diagram was constructed from the signatures
-**(Figure** \@ref(fig:venn-plot)**)**. Overall, the three immune
+**(Figure \@ref(fig:venn-plot*)**. Overall, the three immune
 signatures depicting immune infiltration (immune score), inflammation
 response and TNF-α pathway have low overlapping genes and can be
 considered different.
@@ -1242,20 +1241,44 @@ ggsave("04_figures/DESeq2_results/volcano_plot-inflammatory_group.png",
 )
 ```
 
-```{r volc-plot, cache = TRUE, dependson=deseq2, echo=FALSE, fig.height=6, dependson="deseq2", fig.cap="**Volcano plot of the differentially expressed genes in Low vs High condition.** Negative log~2~ of fold change represent a gene that is more differentially expressed Low condition, and _vice versa_. Adjusted *P* value were obtained by FDR testing. *P* $\\leq$ 0.05 and log~2~ fold change $\\leq$ 1 or $\\geq$ 1 was used for cutoff."}
+```{r volc-plot, dependson=deseq2, echo=FALSE, out.width="60%", fig.height=6, fig.width=6, dependson="deseq2", fig.cap="**Volcano plot of the differentially expressed genes in Low vs High condition.** Positive log~2~ of fold change represent a gene that is more differentially expressed Low condition, and _vice versa_. Adjusted *P* value were obtained by FDR testing. *P* ≤ 0.05 and log~2~ fold change ≤ 1 or ≥ 1 was used for cutoff. FDR = False Discovery Rate"}
 
 suppressWarnings(print(volc_lh))
 ```
 
 A differential gene expression analysis was performed on the
 inflammatory status condition (Low vs High) on the total 19114 genes.
-Volcano plot **(Figure** \@ref(fig:volc-plot)**)**.
+A volcano plot **(Figure \@ref(fig:volc-plot))** represents the results of the analysis, with a slight skewness on the number of genes positively differentially expressed in the Low condition (right part of the graph).
 
-### Over Representation Analysis
+### Over-Representation Analysis
 
 DEGs are enriched through multiple databases in order to identify
 potentially interesting pathways relating to a high level of
-inflammation. 
+inflammation **(Figure \@ref(fig:enrichr-plot))**. Interestingly, enrichment of downregulated genes in GO Biological Process database returned a lot of pathways linked to immune cell chemotaxis, notably neutrophil chemotaxis.
+
+```{r enrichr, cache=TRUE, include=FALSE}
+source("01_script/10_gene_enrichment.R")
+ep <- plot_enrichR(
+  dir_gene_list = "03_results/DESeq2_genes/",
+  dir_figures = "04_figures/DESeq2_results/enrichr/",
+  get_signature = "directory",
+  order_by = "Combined.Score",
+  return_data = TRUE,
+  width = 8,
+  scale = 1.5
+)
+
+lhc <- ep$enriched_combined$`DEG_genes-DESeq2_group_mean_Low_vs_High_df`$combined_plot
+lhg <- ep$plot_list$`downregulated_genes-DESeq2_group_mean_Low_vs_High_df`$GO_Biological_Process_2021
+enrichp <- ggarrange(lhc, lhg, labels = "AUTO", nrow = 2, ncol = 1)
+```
+
+
+```{r enrichr-plot, echo=FALSE, dependson="enrichr", fig.width=12, fig.height=12, fig.cap="**Top 20 results of enrichment using enrichR for Low vs High condition.** \\newline{}(A) Combined enrichment for 8 databases. \\newline{}(B) Enrichment for downregulated genes for GO Biological Process 2021 database."}
+
+suppressWarnings(print(enrichp))
+```
+
 
 ### Gene Set Enrichment Analysis (GSEA)
 

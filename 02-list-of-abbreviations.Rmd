@@ -7,6 +7,7 @@ output: pdf_document
 
 - DEG : Differentially Expressed Genes
 - FDR : False Discovery Rate
+- FC : Fold Change
 - HIR : Hallmark Inflammatory Response
 - MDS : MultiDimensional Scaling
 - MSigDB : Molecular Signature Database
