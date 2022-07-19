@@ -6,6 +6,7 @@ output: pdf_document
 # List of Abbreviations {.unnumbered}
 
 - DEG : Differentially Expressed Genes
+- FDR : False Discovery Rate
 - HIR : Hallmark Inflammatory Response
 - MDS : MultiDimensional Scaling
 - MSigDB : Molecular Signature Database
